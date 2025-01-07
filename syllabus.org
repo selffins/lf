@@ -1,0 +1,162 @@
+#+title: Independent Study in Computer Science - Formal Verification
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="custom.css">
+#+OPTIONS: num:2 toc:1
+
+* Information
+*** Supervisor: Giselle Reis (greis)
+*** Student: Louis Quilling (equillin)
+*** Units: 3/6/9/12
+*** Meets every Monday (except when noted) at ROOM ___, at TIME ____.
+*** Runs for not more than 17 weeks.
+
+* Evaluation
+** Comprehension [60%]
+*** Read the assigned chapter by the weekly meeting.
+*** Create structured notes for concepts covered by the weekly meeting.
+*** Attend the weekly meeting with the professor to discuss the chapter.
+*** Reflect metacognitively about course progress and learning strategies and broader connections for each week.
+
+** Application [40%]
+*** There are numerous book exercises. The goal is to complete a reasonable amount of exercises per chapter. There are "easy", "medium", "hard" problems -- the student/teacher will set what "reasonable" means as the course progresses.
+*** The student will aim to produce a verification of a program or mathematical theorem, but this is optional.
+
+* Learning Objectives
+*** Learn to use the Coq Proof Assistant for mathematical assertions, mechanical checking, formal proofs, and extraction of certified programs.
+*** Learn mathematical underpinnings of computer-assisted theorem proving, functional programming, operational semantics.
+*** Learn to formally verify functional data structures/algorithms such as trees, maps, ordering, sorts, etc.
+*** Learn to effectively communicate formal methods concepts.
+*** Build strong habits and a decent familiarity for further in-depth study or research in formal methods.
+
+* Resources
+** Book https://softwarefoundations.cis.upenn.edu/
+
+*** [./lf] - Logical Foundations
+*** [./plf] - Programming Language Foundations
+*** [./vfa] - Verifiable Functional Algorithms
+** Video lectures
+*** https://deepspec.org/event/dsss18
+
+** Other articles
+
+* Topics Bucket
+
+There are 17 weeks (even counting breaks) before the end of the semester.
+
+There are 30 chapters I identified preliminarily (without thorough inspection), topics will be chosen from here per student interest, professor discretion,  or when subsequent chapters require one as a prerequisite.
+
+There is a suggested schedule.
+
+** Logical Foundations (of Program Verification)
+*** [#A] Basics of Coq
+
+*** [#A] Proof by Induction
+
+*** [#A] Working with Structured Data
+
+*** [#A] Polymorphism and Higher-Order Functions
+
+*** [#A] Logic in Coq
+
+*** [#A] Inductively defined propositions
+
+*** [#A] Proof Objects
+
+*** [#A] Relations
+
+*** [#B] Maps
+
+*** [#A] Imp
+
+*** [#A] ImpParser
+
+*** [#A] Extraction
+
+*** [#A] Auto
+
+** Programmming Language Foundations
+
+*** [#A] Program equivalence
+
+*** [#A] Hoare logic part 1
+
+*** [#B] Hoare as a logic
+
+*** [#B] Hoare logic part 2
+
+** Verified Functional Algorithms
+*** [#A] Permutations and ordering
+
+*** [#A] Insertion Sort
+
+*** [#C] Merge Sort
+
+*** [#C] Selection Sort
+
+*** [#A] Total and partial maps
+
+*** [#A] SearchTrees
+
+*** [#A] Abstract Data Types
+
+*** [#A] Running Coq programs in ML
+
+*** [#A] Decision procedures
+
+*** [#A] Multisets
+
+** Intermediate Coq
+*** [#B] Tactic Library for Coq
+*** [#B] Theory and Practice of Automation in Coq Proofs
+*** [#B] Handy General Purpose Tactics
+
+** Miscellaneous
+*** [#C] Calculus of Constructions
+*** [#C] Other proof assistants
+*** [#C] Separation logic
+*** [#C] Property based testing
+* Schedule
+
+|---------+-------------+-------------+------------------|
+| Week    | Date        | Content     | Org Timestamp    |
+|---------+-------------+-------------+------------------|
+| Week 0  | January 9   | Intro       | <2025-01-09 Thu> |
+| Week 1  | January 13  | LF          | <2025-01-13 Mon> |
+| Week 2  | January 20  | LF          | <2025-01-20 Mon> |
+| Week 3  | January 27  | LF          | <2025-01-27 Mon> |
+| Week 4  | February 3  | LF          | <2025-02-03 Mon> |
+| Week 5  | February 10 | LF          | <2025-02-10 Mon> |
+| Week 6  | February 17 | LF          | <2025-02-17 Mon> |
+| Week 7  | February 24 | Break (LF)  | <2025-02-24 Mon> |
+| Week 8  | March 3     | PLF         | <2025-03-03 Mon> |
+| Week 9  | March 10    | PLF         | <2025-03-10 Mon> |
+| Week 10 | March 17    | PLF         | <2025-03-17 Mon> |
+| Week 11 | March 24    | VFA         | <2025-03-24 Mon> |
+| Week 12 | March 31    | Break (VFA) | <2025-03-31 Mon> |
+| Week 13 | April 7     | VFA         | <2025-04-07 Mon> |
+| Week 14 | April 14    | VFA         | <2025-04-14 Mon> |
+| Week 15 | April 21    | VFA         | <2025-04-21 Mon> |
+| Week 16 | April 28    | VFA         | <2025-04-28 Mon> |
+| Week 16 | May 1       | Conclusion  | <2025-05-01 Thu> |
+|---------+-------------+-------------+------------------|
+
+* Directory
+Each directory contains .v files and .html files. The important ones in each directory are:
+
+*** Preface.v or Preface.html
+    The place to start reading, including details on how to install required software
+*** index.html
+    The book's cover page and navigation starting point
+*** deps.html
+    Overview of the ordering of chapters
+
+* Health and Wellbeing
+*** The student is required to prioritize their wellbeing and seek assistance if problems are encountered. :)
+
+* Documentation
+*** TODO open github repo
+*** TODO agree on a workflow for commenting on the document
+*** TODO create discord group, with discord-github notifications
+*** TODO separate each large heading to its own page with backbuttons to TOC
+*** TODO spacing issues
+*** TODO typography. embed iosevka font
+*** TODO links to attached sf book

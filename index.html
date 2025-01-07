@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-01-08 Wed 00:19 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Independent Study in Computer Science - Formal Verification</title>
+<meta name="author" content="selffins" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="custom.css">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Independent Study in Computer Science - Formal Verification</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org1573bf2">1. Information</a></li>
+<li><a href="#org01c302b">2. Evaluation</a></li>
+<li><a href="#orgbb64a34">3. Learning Objectives</a></li>
+<li><a href="#org64c00c4">4. Resources</a></li>
+<li><a href="#orgc152777">5. Topics Bucket</a></li>
+<li><a href="#orga6a92b3">6. Schedule</a></li>
+<li><a href="#org7fe2f50">7. Directory</a></li>
+<li><a href="#org9d9f461">8. Health and Wellbeing</a></li>
+<li><a href="#org51ef806">9. Documentation</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1573bf2" class="outline-2">
+<h2 id="org1573bf2"><span class="section-number-2">1.</span> Information</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgdd815ce" class="outline-4">
+<h4 id="orgdd815ce">Supervisor: Giselle Reis (greis)</h4>
+</div>
+<div id="outline-container-orgbf83378" class="outline-4">
+<h4 id="orgbf83378">Student: Louis Quilling (equillin)</h4>
+</div>
+<div id="outline-container-org9aea1c4" class="outline-4">
+<h4 id="org9aea1c4">Units: 3/6/9/12</h4>
+</div>
+<div id="outline-container-orgee60783" class="outline-4">
+<h4 id="orgee60783">Meets every Monday (except when noted) at ROOM <span class="underline">_</span>, at TIME <span class="underline">__</span>.</h4>
+</div>
+<div id="outline-container-org08d9bbe" class="outline-4">
+<h4 id="org08d9bbe">Runs for not more than 17 weeks.</h4>
+</div>
+</div>
+<div id="outline-container-org01c302b" class="outline-2">
+<h2 id="org01c302b"><span class="section-number-2">2.</span> Evaluation</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org37aeefb" class="outline-3">
+<h3 id="org37aeefb"><span class="section-number-3">2.1.</span> Comprehension <code>[60%]</code></h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org0b52bbd" class="outline-4">
+<h4 id="org0b52bbd">Read the assigned chapter by the weekly meeting.</h4>
+</div>
+<div id="outline-container-orgb25ee38" class="outline-4">
+<h4 id="orgb25ee38">Create structured notes for concepts covered by the weekly meeting.</h4>
+</div>
+<div id="outline-container-org32e8e9b" class="outline-4">
+<h4 id="org32e8e9b">Attend the weekly meeting with the professor to discuss the chapter.</h4>
+</div>
+<div id="outline-container-org7d0e8f1" class="outline-4">
+<h4 id="org7d0e8f1">Reflect metacognitively about course progress and learning strategies and broader connections for each week.</h4>
+</div>
+</div>
+<div id="outline-container-org70ac5f5" class="outline-3">
+<h3 id="org70ac5f5"><span class="section-number-3">2.2.</span> Application <code>[40%]</code></h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-org3e6b90e" class="outline-4">
+<h4 id="org3e6b90e">There are numerous book exercises. The goal is to complete a reasonable amount of exercises per chapter. There are &ldquo;easy&rdquo;, &ldquo;medium&rdquo;, &ldquo;hard&rdquo; problems &#x2013; the student/teacher will set what &ldquo;reasonable&rdquo; means as the course progresses.</h4>
+</div>
+<div id="outline-container-org4d938f3" class="outline-4">
+<h4 id="org4d938f3">The student will aim to produce a verification of a program or mathematical theorem, but this is optional.</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbb64a34" class="outline-2">
+<h2 id="orgbb64a34"><span class="section-number-2">3.</span> Learning Objectives</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org478d835" class="outline-4">
+<h4 id="org478d835">Learn to use the Coq Proof Assistant for mathematical assertions, mechanical checking, formal proofs, and extraction of certified programs.</h4>
+</div>
+<div id="outline-container-org80b0914" class="outline-4">
+<h4 id="org80b0914">Learn mathematical underpinnings of computer-assisted theorem proving, functional programming, operational semantics.</h4>
+</div>
+<div id="outline-container-org6519f58" class="outline-4">
+<h4 id="org6519f58">Learn to formally verify functional data structures/algorithms such as trees, maps, ordering, sorts, etc.</h4>
+</div>
+<div id="outline-container-orgfa970b1" class="outline-4">
+<h4 id="orgfa970b1">Learn to effectively communicate formal methods concepts.</h4>
+</div>
+<div id="outline-container-org5a29f7b" class="outline-4">
+<h4 id="org5a29f7b">Build strong habits and a decent familiarity for further in-depth study or research in formal methods.</h4>
+</div>
+</div>
+<div id="outline-container-org64c00c4" class="outline-2">
+<h2 id="org64c00c4"><span class="section-number-2">4.</span> Resources</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgbec435f" class="outline-3">
+<h3 id="orgbec435f"><span class="section-number-3">4.1.</span> Book <a href="https://softwarefoundations.cis.upenn.edu/">https://softwarefoundations.cis.upenn.edu/</a></h3>
+<div class="outline-text-3" id="text-4-1">
+</div>
+<div id="outline-container-org0c48095" class="outline-4">
+<h4 id="org0c48095">[./lf] - Logical Foundations</h4>
+</div>
+<div id="outline-container-org02fb451" class="outline-4">
+<h4 id="org02fb451">[./plf] - Programming Language Foundations</h4>
+</div>
+<div id="outline-container-org60fcd19" class="outline-4">
+<h4 id="org60fcd19">[./vfa] - Verifiable Functional Algorithms</h4>
+</div>
+</div>
+<div id="outline-container-org988ff25" class="outline-3">
+<h3 id="org988ff25"><span class="section-number-3">4.2.</span> Video lectures</h3>
+<div class="outline-text-3" id="text-4-2">
+</div>
+<div id="outline-container-org6ce57dd" class="outline-4">
+<h4 id="org6ce57dd"><a href="https://deepspec.org/event/dsss18">https://deepspec.org/event/dsss18</a></h4>
+</div>
+</div>
+<div id="outline-container-org0f1a4fc" class="outline-3">
+<h3 id="org0f1a4fc"><span class="section-number-3">4.3.</span> Other articles</h3>
+</div>
+</div>
+<div id="outline-container-orgc152777" class="outline-2">
+<h2 id="orgc152777"><span class="section-number-2">5.</span> Topics Bucket</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+There are 17 weeks (even counting breaks) before the end of the semester.
+</p>
+
+<p>
+There are 30 chapters I identified preliminarily (without thorough inspection), topics will be chosen from here per student interest, professor discretion,  or when subsequent chapters require one as a prerequisite.
+</p>
+
+<p>
+There is a suggested schedule.
+</p>
+</div>
+<div id="outline-container-orge1e8700" class="outline-3">
+<h3 id="orge1e8700"><span class="section-number-3">5.1.</span> Logical Foundations (of Program Verification)</h3>
+<div class="outline-text-3" id="text-5-1">
+</div>
+<div id="outline-container-orgb3ba06d" class="outline-4">
+<h4 id="orgb3ba06d">Basics of Coq</h4>
+</div>
+
+<div id="outline-container-org5fa0d16" class="outline-4">
+<h4 id="org5fa0d16">Proof by Induction</h4>
+</div>
+
+<div id="outline-container-orgeb896a0" class="outline-4">
+<h4 id="orgeb896a0">Working with Structured Data</h4>
+</div>
+
+<div id="outline-container-orgc719237" class="outline-4">
+<h4 id="orgc719237">Polymorphism and Higher-Order Functions</h4>
+</div>
+
+<div id="outline-container-org08c2573" class="outline-4">
+<h4 id="org08c2573">Logic in Coq</h4>
+</div>
+
+<div id="outline-container-org3464438" class="outline-4">
+<h4 id="org3464438">Inductively defined propositions</h4>
+</div>
+
+<div id="outline-container-org9e1644d" class="outline-4">
+<h4 id="org9e1644d">Proof Objects</h4>
+</div>
+
+<div id="outline-container-org9160a6f" class="outline-4">
+<h4 id="org9160a6f">Relations</h4>
+</div>
+
+<div id="outline-container-org4da2345" class="outline-4">
+<h4 id="org4da2345">Maps</h4>
+</div>
+
+<div id="outline-container-org9c5b20a" class="outline-4">
+<h4 id="org9c5b20a">Imp</h4>
+</div>
+
+<div id="outline-container-org688ed22" class="outline-4">
+<h4 id="org688ed22">ImpParser</h4>
+</div>
+
+<div id="outline-container-org8eb7053" class="outline-4">
+<h4 id="org8eb7053">Extraction</h4>
+</div>
+
+<div id="outline-container-org3bc93ff" class="outline-4">
+<h4 id="org3bc93ff">Auto</h4>
+</div>
+</div>
+<div id="outline-container-org94ad536" class="outline-3">
+<h3 id="org94ad536"><span class="section-number-3">5.2.</span> Programmming Language Foundations</h3>
+<div class="outline-text-3" id="text-5-2">
+</div>
+<div id="outline-container-org756bfd3" class="outline-4">
+<h4 id="org756bfd3">Program equivalence</h4>
+</div>
+
+<div id="outline-container-org5b2b5a1" class="outline-4">
+<h4 id="org5b2b5a1">Hoare logic part 1</h4>
+</div>
+
+<div id="outline-container-org3ebb99d" class="outline-4">
+<h4 id="org3ebb99d">Hoare as a logic</h4>
+</div>
+
+<div id="outline-container-org573a053" class="outline-4">
+<h4 id="org573a053">Hoare logic part 2</h4>
+</div>
+</div>
+<div id="outline-container-orga4b7ab5" class="outline-3">
+<h3 id="orga4b7ab5"><span class="section-number-3">5.3.</span> Verified Functional Algorithms</h3>
+<div class="outline-text-3" id="text-5-3">
+</div>
+<div id="outline-container-org73f2b8f" class="outline-4">
+<h4 id="org73f2b8f">Permutations and ordering</h4>
+</div>
+
+<div id="outline-container-org02fd658" class="outline-4">
+<h4 id="org02fd658">Insertion Sort</h4>
+</div>
+
+<div id="outline-container-org6638ae4" class="outline-4">
+<h4 id="org6638ae4">Merge Sort</h4>
+</div>
+
+<div id="outline-container-org3f83c9b" class="outline-4">
+<h4 id="org3f83c9b">Selection Sort</h4>
+</div>
+
+<div id="outline-container-org87cefda" class="outline-4">
+<h4 id="org87cefda">Total and partial maps</h4>
+</div>
+
+<div id="outline-container-org265be5a" class="outline-4">
+<h4 id="org265be5a">SearchTrees</h4>
+</div>
+
+<div id="outline-container-org188993a" class="outline-4">
+<h4 id="org188993a">Abstract Data Types</h4>
+</div>
+
+<div id="outline-container-org7b353b5" class="outline-4">
+<h4 id="org7b353b5">Running Coq programs in ML</h4>
+</div>
+
+<div id="outline-container-orgbf58bc3" class="outline-4">
+<h4 id="orgbf58bc3">Decision procedures</h4>
+</div>
+
+<div id="outline-container-org9633db6" class="outline-4">
+<h4 id="org9633db6">Multisets</h4>
+</div>
+</div>
+<div id="outline-container-org5c33d51" class="outline-3">
+<h3 id="org5c33d51"><span class="section-number-3">5.4.</span> Intermediate Coq</h3>
+<div class="outline-text-3" id="text-5-4">
+</div>
+<div id="outline-container-orgf679e0a" class="outline-4">
+<h4 id="orgf679e0a">Tactic Library for Coq</h4>
+</div>
+<div id="outline-container-orgfa9c8f0" class="outline-4">
+<h4 id="orgfa9c8f0">Theory and Practice of Automation in Coq Proofs</h4>
+</div>
+<div id="outline-container-org2b3c0e0" class="outline-4">
+<h4 id="org2b3c0e0">Handy General Purpose Tactics</h4>
+</div>
+</div>
+<div id="outline-container-org162f9a5" class="outline-3">
+<h3 id="org162f9a5"><span class="section-number-3">5.5.</span> Miscellaneous</h3>
+<div class="outline-text-3" id="text-5-5">
+</div>
+<div id="outline-container-orged7776f" class="outline-4">
+<h4 id="orged7776f">Calculus of Constructions</h4>
+</div>
+<div id="outline-container-org4addbc9" class="outline-4">
+<h4 id="org4addbc9">Other proof assistants</h4>
+</div>
+<div id="outline-container-orgdb57a4a" class="outline-4">
+<h4 id="orgdb57a4a">Separation logic</h4>
+</div>
+<div id="outline-container-org556af39" class="outline-4">
+<h4 id="org556af39">Property based testing</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-orga6a92b3" class="outline-2">
+<h2 id="orga6a92b3"><span class="section-number-2">6.</span> Schedule</h2>
+<div class="outline-text-2" id="text-6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Week</th>
+<th scope="col" class="org-left">Date</th>
+<th scope="col" class="org-left">Content</th>
+<th scope="col" class="org-left">Org Timestamp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Week 0</td>
+<td class="org-left">January 9</td>
+<td class="org-left">Intro</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-01-09 Thu&gt;</span></span></td>
+</tr>
+
+<tr>
+<td class="org-left">Week 1</td>
+<td class="org-left">January 13</td>
+<td class="org-left">LF</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-01-13 Mon&gt;</span></span></td>
+</tr>
+
+<tr>
+<td class="org-left">Week 2</td>
+<td class="org-left">January 20</td>
+<td class="org-left">LF</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-01-20 Mon&gt;</span></span></td>
+</tr>
+
+<tr>
+<td class="org-left">Week 3</td>
+<td class="org-left">January 27</td>
+<td class="org-left">LF</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-01-27 Mon&gt;</span></span></td>
+</tr>
+
+<tr>
+<td class="org-left">Week 4</td>
+<td class="org-left">February 3</td>
+<td class="org-left">LF</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-02-03 Mon&gt;</span></span></td>
+</tr>
+
+<tr>
+<td class="org-left">Week 5</td>
+<td class="org-left">February 10</td>
+<td class="org-left">LF</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-02-10 Mon&gt;</span></span></td>
+</tr>
+
+<tr>
+<td class="org-left">Week 6</td>
+<td class="org-left">February 17</td>
+<td class="org-left">LF</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-02-17 Mon&gt;</span></span></td>
+</tr>
+
+<tr>
+<td class="org-left">Week 7</td>
+<td class="org-left">February 24</td>
+<td class="org-left">Break (LF)</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-02-24 Mon&gt;</span></span></td>
+</tr>
+
+<tr>
+<td class="org-left">Week 8</td>
+<td class="org-left">March 3</td>
+<td class="org-left">PLF</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-03-03 Mon&gt;</span></span></td>
+</tr>
+
+<tr>
+<td class="org-left">Week 9</td>
+<td class="org-left">March 10</td>
+<td class="org-left">PLF</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-03-10 Mon&gt;</span></span></td>
+</tr>
+
+<tr>
+<td class="org-left">Week 10</td>
+<td class="org-left">March 17</td>
+<td class="org-left">PLF</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-03-17 Mon&gt;</span></span></td>
+</tr>
+
+<tr>
+<td class="org-left">Week 11</td>
+<td class="org-left">March 24</td>
+<td class="org-left">VFA</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-03-24 Mon&gt;</span></span></td>
+</tr>
+
+<tr>
+<td class="org-left">Week 12</td>
+<td class="org-left">March 31</td>
+<td class="org-left">Break (VFA)</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-03-31 Mon&gt;</span></span></td>
+</tr>
+
+<tr>
+<td class="org-left">Week 13</td>
+<td class="org-left">April 7</td>
+<td class="org-left">VFA</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-04-07 Mon&gt;</span></span></td>
+</tr>
+
+<tr>
+<td class="org-left">Week 14</td>
+<td class="org-left">April 14</td>
+<td class="org-left">VFA</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-04-14 Mon&gt;</span></span></td>
+</tr>
+
+<tr>
+<td class="org-left">Week 15</td>
+<td class="org-left">April 21</td>
+<td class="org-left">VFA</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-04-21 Mon&gt;</span></span></td>
+</tr>
+
+<tr>
+<td class="org-left">Week 16</td>
+<td class="org-left">April 28</td>
+<td class="org-left">VFA</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-04-28 Mon&gt;</span></span></td>
+</tr>
+
+<tr>
+<td class="org-left">Week 16</td>
+<td class="org-left">May 1</td>
+<td class="org-left">Conclusion</td>
+<td class="org-left"><span class="timestamp-wrapper"><span class="timestamp">&lt;2025-05-01 Thu&gt;</span></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org7fe2f50" class="outline-2">
+<h2 id="org7fe2f50"><span class="section-number-2">7.</span> Directory</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Each directory contains .v files and .html files. The important ones in each directory are:
+</p>
+</div>
+<div id="outline-container-orgec3405a" class="outline-4">
+<h4 id="orgec3405a">Preface.v or Preface.html</h4>
+<div class="outline-text-4" id="text-orgec3405a">
+<p>
+The place to start reading, including details on how to install required software
+</p>
+</div>
+</div>
+<div id="outline-container-org4d1d590" class="outline-4">
+<h4 id="org4d1d590">index.html</h4>
+<div class="outline-text-4" id="text-org4d1d590">
+<p>
+The book&rsquo;s cover page and navigation starting point
+</p>
+</div>
+</div>
+<div id="outline-container-org5c2a7cf" class="outline-4">
+<h4 id="org5c2a7cf">deps.html</h4>
+<div class="outline-text-4" id="text-org5c2a7cf">
+<p>
+Overview of the ordering of chapters
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org9d9f461" class="outline-2">
+<h2 id="org9d9f461"><span class="section-number-2">8.</span> Health and Wellbeing</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org9739637" class="outline-4">
+<h4 id="org9739637">The student is required to prioritize their wellbeing and seek assistance if problems are encountered. :)</h4>
+</div>
+</div>
+<div id="outline-container-org51ef806" class="outline-2">
+<h2 id="org51ef806"><span class="section-number-2">9.</span> Documentation</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-orgbe96169" class="outline-4">
+<h4 id="orgbe96169"><span class="todo TODO">TODO</span> open github repo</h4>
+</div>
+<div id="outline-container-org48caec8" class="outline-4">
+<h4 id="org48caec8"><span class="todo TODO">TODO</span> agree on a workflow for commenting on the document</h4>
+</div>
+<div id="outline-container-orgae1e114" class="outline-4">
+<h4 id="orgae1e114"><span class="todo TODO">TODO</span> create discord group, with discord-github notifications</h4>
+</div>
+<div id="outline-container-org37b03fd" class="outline-4">
+<h4 id="org37b03fd"><span class="todo TODO">TODO</span> separate each large heading to its own page with backbuttons to TOC</h4>
+</div>
+<div id="outline-container-orga14d9b1" class="outline-4">
+<h4 id="orga14d9b1"><span class="todo TODO">TODO</span> spacing issues</h4>
+</div>
+<div id="outline-container-orga41c7b9" class="outline-4">
+<h4 id="orga41c7b9"><span class="todo TODO">TODO</span> typography. embed iosevka font</h4>
+</div>
+<div id="outline-container-orga485b00" class="outline-4">
+<h4 id="orga485b00"><span class="todo TODO">TODO</span> links to attached sf book</h4>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: selffins</p>
+<p class="date">Created: 2025-01-08 Wed 00:19</p>
+</div>
+</body>
+</html>
