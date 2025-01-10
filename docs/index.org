@@ -3,7 +3,7 @@
 #+OPTIONS: num:2 toc:1
 
 * Information
-*** Supervisor: Giselle Reis (greis)
+*** Advisor: Giselle Reis (greis)
 *** Student: Louis Quilling (equillin)
 *** Units: 3/6/9/12
 *** Meets every Monday (except when noted) at ROOM ___, at TIME ____.
@@ -48,7 +48,6 @@ There is a suggested schedule.
 
 ** Logical Foundations (of Program Verification)
 *** [#A] Basics of Coq
-
 *** [#A] Proof by Induction
 
 *** [#A] Working with Structured Data
@@ -116,28 +115,58 @@ There is a suggested schedule.
 *** [#C] Property based testing
 * Schedule
 
-|---------+-------------+-------------+------------------|
-| Week    | Date        | Content     | Org Timestamp    |
-|---------+-------------+-------------+------------------|
-| Week 0  | January 9   | Intro       | <2025-01-09 Thu> |
-| Week 1  | January 13  | LF          | <2025-01-13 Mon> |
-| Week 2  | January 20  | LF          | <2025-01-20 Mon> |
-| Week 3  | January 27  | LF          | <2025-01-27 Mon> |
-| Week 4  | February 3  | LF          | <2025-02-03 Mon> |
-| Week 5  | February 10 | LF          | <2025-02-10 Mon> |
-| Week 6  | February 17 | LF          | <2025-02-17 Mon> |
-| Week 7  | February 24 | Break (LF)  | <2025-02-24 Mon> |
-| Week 8  | March 3     | PLF         | <2025-03-03 Mon> |
-| Week 9  | March 10    | PLF         | <2025-03-10 Mon> |
-| Week 10 | March 17    | PLF         | <2025-03-17 Mon> |
-| Week 11 | March 24    | VFA         | <2025-03-24 Mon> |
-| Week 12 | March 31    | Break (VFA) | <2025-03-31 Mon> |
-| Week 13 | April 7     | VFA         | <2025-04-07 Mon> |
-| Week 14 | April 14    | VFA         | <2025-04-14 Mon> |
-| Week 15 | April 21    | VFA         | <2025-04-21 Mon> |
-| Week 16 | April 28    | VFA         | <2025-04-28 Mon> |
-| Week 16 | May 1       | Conclusion  | <2025-05-01 Thu> |
-|---------+-------------+-------------+------------------|
+|---------+-------------+-------------+-----------------+------------------|
+| Week    | Date        | Content     | Notes           | Org Timestamp    |
+|---------+-------------+-------------+-----------------+------------------|
+| Week 0  | January 9   | Intro       | [[file:sf-notes.org][fn:sf-notes.org]] | <2025-01-09 Thu> |
+| Week 1  | January 13  | LF          |                 | <2025-01-13 Mon> |
+| Week 2  | January 20  | LF          |                 | <2025-01-20 Mon> |
+| Week 3  | January 27  | LF          |                 | <2025-01-27 Mon> |
+| Week 4  | February 3  | LF          |                 | <2025-02-03 Mon> |
+| Week 5  | February 10 | LF          |                 | <2025-02-10 Mon> |
+| Week 6  | February 17 | LF          |                 | <2025-02-17 Mon> |
+| Week 7  | February 24 | Break (LF)  |                 | <2025-02-24 Mon> |
+| Week 8  | March 3     | PLF         |                 | <2025-03-03 Mon> |
+| Week 9  | March 10    | PLF         |                 | <2025-03-10 Mon> |
+| Week 10 | March 17    | PLF         |                 | <2025-03-17 Mon> |
+| Week 11 | March 24    | VFA         |                 | <2025-03-24 Mon> |
+| Week 12 | March 31    | Break (VFA) |                 | <2025-03-31 Mon> |
+| Week 13 | April 7     | VFA         |                 | <2025-04-07 Mon> |
+| Week 14 | April 14    | VFA         |                 | <2025-04-14 Mon> |
+| Week 15 | April 21    | VFA         |                 | <2025-04-21 Mon> |
+| Week 16 | April 28    | VFA         |                 | <2025-04-28 Mon> |
+| Week 16 | May 1       | Conclusion  |                 | <2025-05-01 Thu> |
+|---------+-------------+-------------+-----------------+------------------|
+** Homework Submission
+
+If you are using *Software Foundations* in a course, your instructor may use automatic scripts to help grade your homework assignments. In order for these scripts to work correctly (and ensure that you get full credit for your work!), please be careful to follow these rules:
+
+*** Rules for Submission
+- **Do not change the names of exercises.**
+  - Otherwise, the grading scripts will be unable to find your solution.
+- **Do not delete exercises.**
+  - If you skip an exercise (e.g., because it is marked "optional," or because you can't solve it), it is OK to leave a partial proof in your `.v` file.
+  - In this case, please make sure it ends with the keyword `Admitted` (not, for example, `Abort`).
+- **It is fine to use additional definitions** (of helper functions, useful lemmas, etc.) in your solutions.
+  - You can put these before the theorem you are asked to prove.
+- **Handling Unproved Helper Lemmas**
+  - If you introduce a helper lemma that you are unable to prove and end it with `Admitted`, then make sure to also end the main theorem in which you use it with `Admitted`, not `Qed`.
+  - This will help you get partial credit if you use that main theorem to solve a later exercise.
+
+*** Using Test Scripts
+You will also notice that each chapter (like `Basics.v`) is accompanied by a test script (`BasicsTest.v`) that automatically calculates points for the finished homework problems in the chapter. These scripts are mostly for the auto-grading tools, but you may also want to use them to double-check that your file is well formatted before handing it in.
+
+*** Testing in the Terminal
+In a terminal window, either type:
+#+BEGIN_SRC shell
+make BasicsTest.vo
+#+END_SRC
+
+Or, do the following:
+#+BEGIN_SRC shell
+coqc -Q . LF Basics.v
+coqc -Q . LF BasicsTest.v
+#+END_SRC
 
 * Directory
 Each directory contains .v files and .html files. The important ones in each directory are:
@@ -154,6 +183,8 @@ Each directory contains .v files and .html files. The important ones in each dir
 
 * Documentation
 *** TODO open github repo
+*** TODO display commit message in the top of the webpage
+*** TODO crontab fetch pull rebase  - auto updating for professor and I
 *** TODO agree on a workflow for commenting on the document
 *** TODO create discord group, with discord-github notifications
 *** TODO separate each large heading to its own page with backbuttons to TOC

@@ -1,0 +1,78 @@
+#+title:Logical Foundations
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="custom.css">
+#+OPTIONS: num:2 toc:1
+
+------
+[[file:index.org][Homepage]]
+
+* Basics - Functional Programming in Coq
+
+** Introduction
+
+Functional programming has code that have no side effects. There is a better connection from programs to mathematical objects.
+
+Functions are first-class values. They can be passed as arguments to other functions.
+
+Other features include algebraic data types (sum, product types), pattern matching, polymorphic type systems.
+
+Coq's native functional language is called *Gallina*.
+
+** Data and Functions
+Coq's built-in features are small. Because we can build almot all the definitions we need.
+
+Note that code ends in period.
+
+*** Enumerated Types
+
+Defining a type.
+
+#+BEGIN_SRC
+Inductive NAME : Type :=
+| ...
+.
+#+END_SRC
+
+Defining a function.
+
+#+BEGIN_SRC
+Definition name arg1 arg2 ... :=
+...
+.
+#+END_SRC
+
+Match.
+
+#+BEGIN_SRC
+match X with
+| PATTERN -> RESULT
+...
+end.
+
+#+END_SRC
+
+There is a command "Compute" that evaluates expressions.
+
+#+BEGIN_SRC
+Compute EXP.
+#+END_SRC
+
+Examples, or "unit tests". And our first proof. and usage of tactics.
+
+#+BEGIN_SRC
+Example test_orb1 (orb true false) = true.
+Proof. simpl. reflexivity. Qed.
+#+END_SRC
+
+Infix
+
+#+BEGIN_SRC
+Notation "x && y" := (andb x y) = true.
+#+END_SRC
+#
+
+*** Booleans
+
+*  w
+
+------
+[[file:sf-notes.org][Back to Top]]
