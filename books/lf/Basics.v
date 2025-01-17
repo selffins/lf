@@ -1355,7 +1355,14 @@ Qed.
 Theorem andb_true_elim2 : forall b c : bool,
   andb b c = true -> c = true.
 Proof.
-  ...
+  intros b c.
+  destruct b eqn:Eb.
+  - destruct c eqn: Ec.
+    + intros H. simpl. reflexivity.
+    + intros H. rewrite <- H. simpl. reflexivity.
+  - destruct c eqn: Ec.
+    + intros H. reflexivity.
+    + intros H. rewrite <- H. simpl. reflexivity.
 Qed.
 (** [] *)
 
@@ -1397,7 +1404,10 @@ Qed.
 Theorem zero_nbeq_plus_1 : forall n : nat,
   0 =? (n + 1) = false.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros [|n].
+  - reflexivity.
+  - reflexivity.
+Qed.
 (** [] *)
 
 (* ================================================================= *)
@@ -1502,7 +1512,11 @@ Theorem identity_fn_applied_twice :
   (forall (x : bool), f x = x) ->
   forall (b : bool), f (f b) = b.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros f H b.
+  rewrite -> H.
+  rewrite -> H. 
+  reflexivity.
+Qed.
 
 (** [] *)
 
@@ -1512,7 +1526,18 @@ Proof.
     to the previous one but where the second hypothesis says that the
     function [f] has the property that [f x = negb x]. *)
 
-(* FILL IN HERE *)
+Theorem negation_fn_applied_twice :
+  forall (f : bool -> bool),
+  (forall (x : bool), f x = negb x) ->
+  forall (b : bool), f (f b) = b.
+Proof.
+  intros f H b.
+  rewrite -> H. 
+  rewrite -> H. 
+  destruct b eqn:E.
+    - reflexivity.
+    - reflexivity.
+Qed.
 
 (* Do not modify the following line: *)
 Definition manual_grade_for_negation_fn_applied_twice : option (nat*string) := None.
@@ -1532,8 +1557,11 @@ Theorem andb_eq_orb :
   (andb b c = orb b c) ->
   b = c.
 Proof.
-  (* FILL IN HERE *) Admitted.
-
+  intros b c. 
+  destruct b eqn:Eb. 
+  - simpl. intros H. rewrite H. reflexivity.
+  - simpl. intros H. rewrite H. reflexivity.
+Qed.
 (** [] *)
 
 (* ================================================================= *)

@@ -27,7 +27,7 @@ Coq's built-in features are small. Because we can build almost all the definitio
 
 Defining a type.
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 Inductive NAME : Type :=
 | ...
 .
@@ -37,7 +37,7 @@ In this chapter, they first work with enumerated types. We will see tuple types,
 
 Defining a function.
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 Definition name arg1 arg2 ... :=
 ...
 .
@@ -45,7 +45,7 @@ Definition name arg1 arg2 ... :=
 
 Match.
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 match X with
 | PATTERN -> RESULT
 ...
@@ -55,13 +55,13 @@ end.
 
 There is a command "Compute" that evaluates expressions.
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 Compute EXP.
 #+END_SRC
 
 Examples, or "unit tests". And our first proof, and usage of tactics.
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 Example test_orb1 (orb true false) = true.
 Proof. simpl. reflexivity. Qed.
 #+END_SRC
@@ -70,12 +70,12 @@ We are trying to prove an *example* that  applying orb (logical or) to true and 
 
 Infix notation.
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 Notation "x && y" := (andb x y) = true.
 #+END_SRC
 Booleans. Conditionals are like in SML:
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 if p then x else y
 #+END_SRC
 
@@ -89,7 +89,7 @@ Types can be parametrized - a type constructor can take another element of some 
 
 A type with a single type constructor with multiple parameters can be used to define a tuple type. E.g.
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 Inductive nybble : Type :=
 | bits (b0 b1 b2 b3 : bit).
 #+END_SRC
@@ -104,7 +104,7 @@ The chapter points out that the simpl tactic has no effect on the proof goals (o
 
 There is a notational convenience: if two arguments have the same type, they can be written together. E.g.
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 Fixpoint mult (n m : nat) : nat :=
   match n with
   | O => O
@@ -126,7 +126,7 @@ We can use this "proof by simplification" to establish more interesting properti
 
 We have our first theorem:
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 Theorem plus_O_n : forall n : nat, 0 + n = n.
 #+END_SRC
 
@@ -138,7 +138,7 @@ The keywords =Example=, =Theorem=, =Fact=, =Lemma=, =Remark= mean "pretty much t
 
 Here's the proof for our theorem.
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 Theorem plus_O_n : forall n : nat, 0 + n = n.
 Proof.
   intros n. simpl. reflexivity.  Qed.
@@ -152,7 +152,7 @@ A tactic is a command that guides the process of checking some claim. It's a mov
 
 We have a new kind of theorem - one that uses an implication - it's not a universal property of nunbers, it's a specific one that holds if =n=m=.
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 Theorem plus_id_example : forall n m:nat,
   n = m ->
   n + n = m + m.
@@ -162,7 +162,7 @@ To prove this, we need to assume the hypotheses - we can use the =intro= tactic 
 
 Because =n= and =m= are /arbitrary/ numbers, we can't use simplification, which works on expressions (?). We prove this instead by noticing that if we replace =n= with =m= in the right hand side, and =n = m=, then it holds. This is called *proof by rewriting*. We use the tactic =rewrite=.
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 Proof.
   (* move both quantifiers into the context: *)
   intros n m.
@@ -177,7 +177,7 @@ Note that we move the quantified variables into the context, but we also move th
 
 We can use the =rewrite= tactic with a theorem instead of a hypothesis from a context. If the theorem has quantified variables, Coq will try to fill in the appropriate values by matching the theorem with the current goal.
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 Theorem mult_n_0_m_0 : forall p q : nat,
   (p * 0) + (q * 0) = 0.
 Proof.
@@ -189,7 +189,7 @@ Proof.
 * Proof by case analysis
 Not everything can be proved with simplification and rewriting. Unknown values (those quantified over) can block simplification.
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 Theorem plus_1_neq_0_firsttry : forall n : nat,
   (n + 1) =? 0 = false.
 Proof.
@@ -206,7 +206,7 @@ If =n= is zero, then =0 + 1= is clearly not equal to =0=. If =n= is =S m=, it is
 
 A case analysis is done in Coq using the =destruct= tactic. It's called destruct because it considers each case where a value uses a certain constructor - and gives you sub-goals for them.
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 Theorem plus_1_neq_0 : forall n : nat,
   (n + 1) =? 0 = false.
 Proof.
@@ -228,13 +228,13 @@ I learned a new word: involutive - when an operation is its own inverse.
 
 We may notice that many proofs perform case analysis on a variable right after introducing it, as such:
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 intros x y. destruct y as [|y] eqn:E.
 #+END_SRC
 
 Here is the shorthand in action. We can simply use the intro pattern after =intros= instead of using the =destruct= tactic and then using a intro pattern.
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 Theorem plus_1_neq_0' : forall n : nat,
   (n + 1) =? 0 = false.
 Proof.
@@ -249,7 +249,7 @@ The downside is that we lose the equation recording the assumption in each subgo
 
 There are some chapters labeled "Optional". The authors recommend skimming them.
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 Notation "x + y" := (plus x y)
                        (at level 50, left associativity)
                        : nat_scope.
@@ -264,7 +264,7 @@ Apparently, a notation symbol also has a *notation scope* (what?).
 
 * Optional: Fixpoints and Structural Recursion
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 Fixpoint plus' (n : nat) (m : nat) : nat :=
   match n with
   | O => m
@@ -278,6 +278,7 @@ This is a part of Coq's design - it guarantees that every function will terminat
 
 * Exercises
 There are 20 exercises.
+
 ** [#C] nandb
 How to use =simpl= and =reflexivity=.
 ** [#C] andb3
@@ -289,12 +290,15 @@ How to define a fixpoint function.
 Introducing the =intros= tactic, for variables and hypotheses.
 ** [#C] mult​_n​_1
 How to use theorems in proofs.
-** TODO [#B] andb​_true​_elim2
-How to use =destruct= for case analysis.
+** [#B] andb​_true​_elim2
+How to use =destruct= for case analysis. This was a bit tricky before I realized how to step one tactic at a time. You destruct two times. When encountering a contradiction, use it to =rewrite=.
 ** TODO [#B] decreasing (optional)
 Write a recursive function that terminates on all inputs but gets rejected by Coq's unsophisticated automatic analysis of decreasing arguments.
+** TODO [#C] zero​_nbeq​_plus​_1
+
 * Exercises (Warmups)
 ** TODO identity​_fn​_applied​_twice
+
 ** TODO negation​_fn​_applied​_twice
 ** TODO [#A] andb​_eq​_orb
 * Exercises ("Course Late Policies, formalized")
@@ -325,7 +329,7 @@ Manually graded exercises show up but the test script doesn't give a lot of info
 
 When doing the factorial exercise, I defined factorial as such:
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 Fixpoint factorial (n:nat) : nat :=
   match n with
   | 0 => 1
@@ -337,17 +341,15 @@ I needed the conditional so that it terminates for negative inputs. Well, I didn
 
 Anyway, with this conditional, I get the error:
 
-#+BEGIN_SRC
+#+BEGIN_SRC bash
 Error: The term "n0 > 0" has type "Prop" which is not a (co-)inductive type.
 #+END_SRC
 
 Why is this happening? I am assuming that =Prop= is the proposition type, are propositions different from booleans? Why is the comparison typed as a =Prop= instead of a boolean?
 
-
 _Answer_
 
 Yes, I read later in the chapter that propositions are different from booleans. For example, =1 = 0= is a *logical claim*, a proposition you can *prove*, but =1 =? 0= (=?= is boolean equality) is an expression that evaluates to a boolean. So, =n0 > 0= is type =Prop= - we need to use a less than operator that is in the boolean world.
-
 
 ** TODO There's a difference? (Tuple pattern vs multiple patterns in case analysis)
 
@@ -355,7 +357,7 @@ Apparently, there is a difference between the patterns =a, b= and =(a, b)=!
 
 These don't work:
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 match leb n m, eqb n m with
   | true, false => true
   | _ => false
@@ -364,7 +366,7 @@ end.
 
 The compiler will complain that it expects two patterns for the second case.
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 match (leb n m, eqb n m) with
   | true, false => true
   | _ => false
@@ -375,14 +377,14 @@ Here, the compiler will complain that it expects one pattern for the first case.
 
 However, these work:
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 match leb n m, eqb n m with
   | true, false => true
   | _, _ => false
 end.
 #+END_SRC
 
-#+BEGIN_SRC
+#+BEGIN_SRC coq
 match (leb n m, eqb n m) with
   | (true, false) => true
   | _ => false
@@ -400,6 +402,8 @@ What is the difference? When does it matter and what's an example of when it mat
 ** TODO How do I use the Coq IDE?
 
 I want to see what the current goal looks like, at an intermediate proof step. I don't know how to do that.
+
+SOLVED: It's pretty simple. Use the arrows to step through each line. The screen on the right shows you the current goal.
 
 ** TODO Decreasing arguments
 
@@ -452,7 +456,32 @@ The Association for Computing Machinery awarded Thierry Coquand, Gérard Huet, C
 
  In 2024, Coq proved the value of the 5-state Busy beaver. The value of the 5-state winning busy beaver was discovered by Heiner Marxen and Jürgen Buntrock back in 1989.
 
- A recent effort within this field is making these tools use artificial intelligence to automate the formalization of ordinary mathematics.
+ *A recent effort within this field is making these tools use artificial intelligence to automate the formalization of ordinary mathematics.*
+
+** More about CompCert
+Adapted from https://www.seas.upenn.edu/~cis5000/current/lectures/cis5000-lec01.pdf, slide 20
+
+CompCert is by Xavier Leroy at INRIA. The project was started on 2010.
+
+A 2011 PLDI paper studied bugs in C compilers. They generaqted random test cases, put them in source programs, and then compiled it with GCC, LLVM, and 8 other C compilers. There were 325 bugs in total (LLVM: 202, GCC: 79).
+
+CompCert had <10 bugs then (this was when CompCert was still unverified).
+
+After CompCert was verified, they concluded that:
+
+#+BEGIN_QUOTE
+The striking thing about our CompCert results is that the
+middle-end bugs we found in all other compilers are
+absent. As of early 2011, the under-development version of
+CompCert is the only compiler we have tested for which
+Csmith cannot find wrong-code errors. This is not for lack
+of trying: we have devoted about six CPU-years to the task.
+The apparent unbreakability of CompCert supports a
+strong argument that developing compiler optimizations
+within a proof framework, where safety checks are explicit
+and machine-checked, has tangible benefits for compiler
+users.
+#+END_QUOTE
 
 * TODOs
 *** TODO do exercises
