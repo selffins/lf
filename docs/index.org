@@ -137,6 +137,46 @@ There is a suggested schedule.
 | Week 16 | April 28    | VFA         |                 | <2025-04-28 Mon> |
 | Week 16 | May 1       | Conclusion  |                 | <2025-05-01 Thu> |
 |---------+-------------+-------------+-----------------+------------------|
+** Schedule
+*** <2025-01-20 Mon>
+**** Basics of Coq
+**** Proof by Induction
+*** <2025-01-27 Mon>
+**** Working with Structured Data
+**** Polymorphism and Higher-Order Functions
+*** <2025-02-03 Mon>
+**** Logic in Coq
+**** Inductively defined propositions
+*** <2025-02-10 Mon>
+**** Proof Objects
+**** Relations
+*** <2025-02-17 Mon>
+**** Imp
+**** ImpParser
+*** <2025-03-03 Mon>
+**** Extraction
+**** Auto
+*** <2025-03-10 Mon>
+**** Program equivalence
+*** <2025-03-17 Mon>
+**** Hoare logic
+**** Hoare as a logic
+*** <2025-03-24 Mon>
+**** Hoare logic part 2
+*** <2025-03-31 Mon>
+**** Permutations and ordering
+*** <2025-04-07 Mon>
+**** Insertion sort
+**** Merge sort
+*** <2025-04-14 Mon>
+**** Search Trees
+*** <2025-04-21 Mon>
+**** Abstract Datatypes
+**** Multisets
+*** <2025-04-28 Mon>
+**** Decision procedures
+*** <2025-05-01 Thu>
+**** Conclusion
 ** Homework Submission
 
 If you are using *Software Foundations* in a course, your instructor may use automatic scripts to help grade your homework assignments. In order for these scripts to work correctly (and ensure that you get full credit for your work!), please be careful to follow these rules:
@@ -167,7 +207,6 @@ Or, do the following:
 coqc -Q . LF Basics.v
 coqc -Q . LF BasicsTest.v
 #+END_SRC
-
 * Directory
 Each directory contains .v files and .html files. The important ones in each directory are:
 

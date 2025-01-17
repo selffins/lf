@@ -1,13 +1,19 @@
-#+title:Logical Foundations
+#+title:Basics.v
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="custom.css">
-#+OPTIONS: num:2 toc:1
+#+OPTIONS: num:2 toc:2
 
 ------
 [[file:index.org][Homepage]]
 
-* Basics - Functional Programming in Coq
+* Summary
 
-** Introduction
+The chapter introduces Coq's native functional language called Gallina. We also go through proof by simplication, rewriting, and case analysis, and the tactics needed for such proofs. We define natural numbers, booleans; some simple functions on natural numbers and booleans; and prove properties about the functions. We explore Coq's type system.
+
+** Terms
+
+functional programming, Gallina, type, type definition syntax, type constructors,  enumerated types, function definition syntax, infix notation, pattern matching, booleans, conditionals, parametrized types, tuple types, examples (proof), proof syntax, =reflexivity= tactic, =simpl= tactic, assertion syntax, modules, module syntax, natural numbers, nat type, expression evaluation syntax, arrow types, notation idiom for same type parameters, recursive function definition syntax, infix notation options, algebraic data types, propositions, proof by simplification, universal quantifier, proof goals, =intro= tactic, assumptions, proof context, proposition keywords: {theorem, lemma, fact, example, remark}, proof by rewriting, tactics, =rewrite= tactic, =admitted= command, =check= command, =abort= command, proof by case analysis, =destruct= tactic, =rewrite= with theorem, =eqn= annotation, intro pattern, bullets, subgoals, notation scope, precedence, associativity, fixpoints, structural recursion
+
+* Some basic syntax
 
 Functional programming has code that have no side effects. There is a better connection from programs to mathematical objects.
 
@@ -17,12 +23,7 @@ Other features include algebraic data types (sum, product types), pattern matchi
 
 Coq's native functional language is called *Gallina*.
 
-** Data and Functions
-Coq's built-in features are small. Because we can build almot all the definitions we need.
-
-Note that code ends in period.
-
-*** Enumerated Types
+Coq's built-in features are small. Because we can build almost all the definitions we need. What follows is some small snippets of interest. Refer to the book for more complete snippets.
 
 Defining a type.
 
@@ -31,6 +32,8 @@ Inductive NAME : Type :=
 | ...
 .
 #+END_SRC
+
+In this chapter, they first work with enumerated types. We will see tuple types, parametrized types, and so on as well.
 
 Defining a function.
 
@@ -56,23 +59,409 @@ There is a command "Compute" that evaluates expressions.
 Compute EXP.
 #+END_SRC
 
-Examples, or "unit tests". And our first proof. and usage of tactics.
+Examples, or "unit tests". And our first proof, and usage of tactics.
 
 #+BEGIN_SRC
 Example test_orb1 (orb true false) = true.
 Proof. simpl. reflexivity. Qed.
 #+END_SRC
 
-Infix
+We are trying to prove an *example* that  applying orb (logical or) to true and false gives us true. We start a *proof* and use the tactics *simplification* and *reflexivity* to prove it. And then we end, so *Qed*. There will be discussion of proofs shortly.
+
+Infix notation.
 
 #+BEGIN_SRC
 Notation "x && y" := (andb x y) = true.
 #+END_SRC
-#
+Booleans. Conditionals are like in SML:
 
-*** Booleans
+#+BEGIN_SRC
+if p then x else y
+#+END_SRC
 
-*  w
+An interesting thing is that the guard in the conditional will work with any two-valued type. As in, two-valued types are treated the same as booleans in the sense that the first constructor is treated as True and the other constructor as False. This is useful if we want to make datatypes like "blackOrWhite" which is either "black" or "white".
 
+We can create *Modules*, we can use them for namespaces.
+
+Types are defined with the keyword Inductive.
+
+Types can be parametrized - a type constructor can take another element of some type.
+
+A type with a single type constructor with multiple parameters can be used to define a tuple type. E.g.
+
+#+BEGIN_SRC
+Inductive nybble : Type :=
+| bits (b0 b1 b2 b3 : bit).
+#+END_SRC
+
+So far, the chapter has shown enumerated types, parametrized types, and tuple types. Enumerated types have a finite set of elements. If we want to create an type with an infinite set, like the natural numbers, the type constructor must take itself as a parameter - an inductive definition.
+
+The chapter differentiates type constructors and functions - both of them "take" something as input - however, functions are defined by computation rules, but type constructors are simply representations.
+
+Functions are defined with the "Definition" keyword. However, to declare a recursive function, we must use the Fixpoint keyword.
+
+The chapter points out that the simpl tactic has no effect on the proof goals (of the example proofs), only reflexivity does the work. TBD shortly.
+
+There is a notational convenience: if two arguments have the same type, they can be written together. E.g.
+
+#+BEGIN_SRC
+Fixpoint mult (n m : nat) : nat :=
+  match n with
+  | O => O
+  | S n' => plus m (mult n' m)
+  end.
+#+END_SRC
+
+Coq does really come with not a lot built in. Natural number comparisons are built in by the user, for example.
+
+Propositions are logical claims. So, 1 =? 0 is an expression that evaluates to a boolean, but 1 = 0 is a logical claim that you can (try) to prove.
+
+Note that Coq code lines ends with periods.
+
+* Proof by simplification
+
+So far, all of the proofs were the same: use =simpl= to simplify both sides, and then use =reflexivity= to check that both contain identical values.
+
+We can use this "proof by simplification" to establish more interesting properties. =0= is a neutral element (or identity element) because =0 + n= reduces to =n= no matter what =n= is.
+
+We have our first theorem:
+
+#+BEGIN_SRC
+Theorem plus_O_n : forall n : nat, 0 + n = n.
+#+END_SRC
+
+We also used an universal quantifier.
+
+The chapter notes that the =reflexivity= tactic is powerful - in the proofs so far, the =simpl= tactic were actually not required, because =reflexivity= does some simplification by itself. And, =reflexivity= actually does /more/ simplification than =simpl= does! It tries unfolding defined terms, replacing them with their right hand sides. =simpl= is used when we want an intermediate state, where we need to read and understand the new goal it creates, so that it isn't expanding definitions eagerly like with =reflexivity= and leave the goal "messy".
+
+The keywords =Example=, =Theorem=, =Fact=, =Lemma=, =Remark= mean "pretty much the same thing" in Coq. It is a matter of style.
+
+Here's the proof for our theorem.
+
+#+BEGIN_SRC
+Theorem plus_O_n : forall n : nat, 0 + n = n.
+Proof.
+  intros n. simpl. reflexivity.  Qed.
+#+END_SRC
+
+=intros n= is basically like saying "Suppose n is a natural number" in a proof - it fixes some n and progresses the proof by dealing with the universal quantifier. =intros n= moves the quantifier in the goal to a /context/ of current assumptions.
+
+A tactic is a command that guides the process of checking some claim. It's a move in the proof.
+
+* Proof by rewriting
+
+We have a new kind of theorem - one that uses an implication - it's not a universal property of nunbers, it's a specific one that holds if =n=m=.
+
+#+BEGIN_SRC
+Theorem plus_id_example : forall n m:nat,
+  n = m ->
+  n + n = m + m.
+#+END_SRC
+
+To prove this, we need to assume the hypotheses - we can use the =intro= tactic to get all the needed variables into context.
+
+Because =n= and =m= are /arbitrary/ numbers, we can't use simplification, which works on expressions (?). We prove this instead by noticing that if we replace =n= with =m= in the right hand side, and =n = m=, then it holds. This is called *proof by rewriting*. We use the tactic =rewrite=.
+
+#+BEGIN_SRC
+Proof.
+  (* move both quantifiers into the context: *)
+  intros n m.
+  (* move the hypothesis into the context: *)
+  intros H.
+  (* rewrite the goal using the hypothesis: *)
+  rewrite -> H.
+  reflexivity.  Qed.
+#+END_SRC
+
+Note that we move the quantified variables into the context, but we also move the *hypothesis* into the context - we assume it, then continue with the goal. The =rewrite= tactic uses the hypothesis.  =rewrite ->= means rewriting right to left, which is the default. =rewrite <-= means rewriting left to right.
+
+We can use the =rewrite= tactic with a theorem instead of a hypothesis from a context. If the theorem has quantified variables, Coq will try to fill in the appropriate values by matching the theorem with the current goal.
+
+#+BEGIN_SRC
+Theorem mult_n_0_m_0 : forall p q : nat,
+  (p * 0) + (q * 0) = 0.
+Proof.
+  intros p q.
+  rewrite <- mult_n_O.
+  rewrite <- mult_n_O.
+  reflexivity. Qed.
+#+END_SRC
+* Proof by case analysis
+Not everything can be proved with simplification and rewriting. Unknown values (those quantified over) can block simplification.
+
+#+BEGIN_SRC
+Theorem plus_1_neq_0_firsttry : forall n : nat,
+  (n + 1) =? 0 = false.
+Proof.
+  intros n.
+  simpl.  (* does nothing! *)
+Abort.
+#+END_SRC
+
+=(n + 1)= is a term that can't be simplified, because =n= is general. So, =simpl= does nothing.
+
+Instead we have to use case analysis - =n= is either zero, or a successor of some =m=.
+
+If =n= is zero, then =0 + 1= is clearly not equal to =0=. If =n= is =S m=, it is enough that it is a successor to say that it is not zero.
+
+A case analysis is done in Coq using the =destruct= tactic. It's called destruct because it considers each case where a value uses a certain constructor - and gives you sub-goals for them.
+
+#+BEGIN_SRC
+Theorem plus_1_neq_0 : forall n : nat,
+  (n + 1) =? 0 = false.
+Proof.
+  intros n. destruct n as [| n'] eqn:E.
+  - reflexivity.
+  - reflexivity.   Qed.
+#+END_SRC
+
+There is an annotation "=as [| n']=" - this tells Coq what variable names to use in each sub-goal. Zero does not have a parameter, so it is empty. The annotation =eqn:E= tells destruct to give a name to the current case, i.e, either =n = 0=
+or =n = S n'=. It's optional - you can leave this annotation off and Coq will assign variable names automatically, but that is bad style as the auto-assigned names are usually confusing.
+
+There are =-= signs: they are called bullets, they mark the proofs for the generated subgoals and ensure that a subgoal is complete before trying the next one. It's good practice to mark cases with bullets. Bullets are optional, if omitted, Coq asssumes you do the subgoals in order.
+
+You can use different kinds of bullets for subproofs: =+=, =*=, and any repetition (e.g. =---= or =***=). Sub-proofs can be enclosed in curly braces.
+
+The =destruct= tactic can be used with any inductively defined datatype.
+
+I learned a new word: involutive - when an operation is its own inverse.
+
+We may notice that many proofs perform case analysis on a variable right after introducing it, as such:
+
+#+BEGIN_SRC
+intros x y. destruct y as [|y] eqn:E.
+#+END_SRC
+
+Here is the shorthand in action. We can simply use the intro pattern after =intros= instead of using the =destruct= tactic and then using a intro pattern.
+
+#+BEGIN_SRC
+Theorem plus_1_neq_0' : forall n : nat,
+  (n + 1) =? 0 = false.
+Proof.
+  intros [|n].
+  - reflexivity.
+  - reflexivity.  Qed.
+#+END_SRC
+
+The downside is that we lose the equation recording the assumption in each subgoal, which we got from the =eqn:E= annotation.
+
+* Optional: More on Notation
+
+There are some chapters labeled "Optional". The authors recommend skimming them.
+
+#+BEGIN_SRC
+Notation "x + y" := (plus x y)
+                       (at level 50, left associativity)
+                       : nat_scope.
+Notation "x * y" := (mult x y)
+                       (at level 40, left associativity)
+                       : nat_scope.
+#+END_SRC
+
+For a notation symbol, we can specify the *precedence level* and *associativity*. Coq uses precedence levels from 0 to 100, and left, right, or no associativity.
+
+Apparently, a notation symbol also has a *notation scope* (what?).
+
+* Optional: Fixpoints and Structural Recursion
+
+#+BEGIN_SRC
+Fixpoint plus' (n : nat) (m : nat) : nat :=
+  match n with
+  | O => m
+  | S n' => S (plus' n' m)
+  end.
+#+END_SRC
+
+Here, Coq notes that the function is decreasing in the first argument. We are performing a structural recursion over the argument =n= - making sure that we only make recursive calls on strictly smaller values of =n=. This is a proof of termination. Coq *demands* that some argument of every =Fixpoint= is decreasing.
+
+This is a part of Coq's design - it guarantees that every function will terminate. However, apparently, Coq's automatic analysis of whether inputs decrease isn't very sophisticated, and apparently it is sometimes necessary to write functions in slightly unnatural ways. (What?)
+
+* Exercises
+There are 20 exercises.
+** [#C] nandb
+How to use =simpl= and =reflexivity=.
+** [#C] andb3
+How to use =simpl= and =reflexivity=.
+** [#C] factorial
+How to define a fixpoint function.
+** [#C] ltb
+** [#C] plus​_id​_exercise
+Introducing the =intros= tactic, for variables and hypotheses.
+** [#C] mult​_n​_1
+How to use theorems in proofs.
+** TODO [#B] andb​_true​_elim2
+How to use =destruct= for case analysis.
+** TODO [#B] decreasing (optional)
+Write a recursive function that terminates on all inputs but gets rejected by Coq's unsophisticated automatic analysis of decreasing arguments.
+* Exercises (Warmups)
+** TODO identity​_fn​_applied​_twice
+** TODO negation​_fn​_applied​_twice
+** TODO [#A] andb​_eq​_orb
+* Exercises ("Course Late Policies, formalized")
+** TODO [#C] letter​_comparison
+** TODO [#B] grade​_comparison
+** TODO [#B] lower​_letter​_lowers
+** TODO [#B] lower​_grade
+** TODO [#A] lower​_grade​_lowers
+** TODO [#B] no​_penalty​_for​_mostly​_on​_time
+** TODO [#B] graded​_lowered​_once
+* Exercises ("Binary Numerals")
+** [#A] binary
+* Testing Your Solutions
+
+The test file for this chapter is =BasicsTest.v=. To run it, make sure you have saved =Basics.v= to disk. Then first run =coqc -Q . LF Basics.v= and then run =coqc -Q . LF BasicsTest.v=; or, if you have make installed, you can run =make BasicsTest.vo=. (Make sure you do this in a directory that also contains a file named =_CoqProject= containing the single line =-Q . LF.=)
+
+The output is useful:
+1. The actual output from the Coq file itself.
+2. For each exercise, its point value, whether the type is ok, what assumptions it relies on.
+3. Maximum number of points in standard and advanced versions of the assignment.
+4. A list of allowed axioms.
+5. A summary of whether you have solved each exercise.
+
+Manually graded exercises show up but the test script doesn't give a lot of information.
+* Questions
+
+** Not a (co-)inductive type? (Propositions are not booleans)
+
+When doing the factorial exercise, I defined factorial as such:
+
+#+BEGIN_SRC
+Fixpoint factorial (n:nat) : nat :=
+  match n with
+  | 0 => 1
+  | S n => if (n > 0) then n * factorial(n-1) else 1
+  end.
+#+END_SRC
+
+I needed the conditional so that it terminates for negative inputs. Well, I didn't need to do this, because 1) n is a natural number, not an integer 2) n > 0 always because 0 is already matched.
+
+Anyway, with this conditional, I get the error:
+
+#+BEGIN_SRC
+Error: The term "n0 > 0" has type "Prop" which is not a (co-)inductive type.
+#+END_SRC
+
+Why is this happening? I am assuming that =Prop= is the proposition type, are propositions different from booleans? Why is the comparison typed as a =Prop= instead of a boolean?
+
+
+_Answer_
+
+Yes, I read later in the chapter that propositions are different from booleans. For example, =1 = 0= is a *logical claim*, a proposition you can *prove*, but =1 =? 0= (=?= is boolean equality) is an expression that evaluates to a boolean. So, =n0 > 0= is type =Prop= - we need to use a less than operator that is in the boolean world.
+
+
+** TODO There's a difference? (Tuple pattern vs multiple patterns in case analysis)
+
+Apparently, there is a difference between the patterns =a, b= and =(a, b)=!
+
+These don't work:
+
+#+BEGIN_SRC
+match leb n m, eqb n m with
+  | true, false => true
+  | _ => false
+end.
+#+END_SRC
+
+The compiler will complain that it expects two patterns for the second case.
+
+#+BEGIN_SRC
+match (leb n m, eqb n m) with
+  | true, false => true
+  | _ => false
+end.
+#+END_SRC
+
+Here, the compiler will complain that it expects one pattern for the first case.
+
+However, these work:
+
+#+BEGIN_SRC
+match leb n m, eqb n m with
+  | true, false => true
+  | _, _ => false
+end.
+#+END_SRC
+
+#+BEGIN_SRC
+match (leb n m, eqb n m) with
+  | (true, false) => true
+  | _ => false
+end.
+#+END_SRC
+
+Why is there a difference, or what is the difference?
+
+** TODO What's the difference between =rewrite ->= and =rewrite <-=?
+
+Apparently =rewrite ->= is rewriting from "left to right" while =rewrite <-= is rewriting from "right to left".
+
+What is the difference? When does it matter and what's an example of when it matters?
+
+** TODO How do I use the Coq IDE?
+
+I want to see what the current goal looks like, at an intermediate proof step. I don't know how to do that.
+
+** TODO Decreasing arguments
+
+Coq demands that at least one argument in a =Fixpoint= definition of a function be strictly decreasing. This ensures that all functions terminate. How does Coq do this? And why does the author say that Coq's way of doing this is unsophisticated, and that it is "sometimes necessary to write functions in slightly unnatural ways?"
+
+** TODO What is a notation scope?
+
+A notation (infix operator) has precedence, associativity, and a notation scope. What's a notation scope? This isn't too important (it's just for infix operators in Coq!), but the chapter talks about it but never clarifies or defines what a notation scope is.
+
+* Metacognition
+
+I think that the book so far is really fun. I also like the way I am making notes. I love emacs. There are a lot of exercises.
+
+** Notes structure
+
+I am gonna do this template for notes in the future:
+
+- Summary
+- Section 1 (actual notes)
+- ...
+- Optional sections
+- Exercises
+- Questions
+- Reflections
+- Further knowledge
+
+* Further knowledge
+
+** About Coq
+Adapted from https://en.wikipedia.org/wiki/Coq_(software)
+
+Coq is a *interactive theorem prover* released in 1989. Coq works within the theory of the *calculus of inductive constructions* (what?). Coq is not an automated theorem prover.
+
+Coq has a specification language (what?) called *Gallina*. Programs in Gallina abide by the *weak normalization* (what?) property, implying that they always terminate. This avoids the *halting problem*.
+
+** Some History
+
+The development of Coq has been supported since 1984 by French Institute for Research in Computer Science and Automation (INRIA), initiated by Thierry Coquand and  Gérard Huet.
+
+The Association for Computing Machinery awarded Thierry Coquand, Gérard Huet, Christine Paulin-Mohring, Bruno Barras, Jean-Christophe Filliâtre, Hugo Herbelin, Chetan Murthy, Yves Bertot, and Pierre Castéran with the 2013 ACM Software System Award for Coq.
+
+ *Coq* is rooster in French, and comes from the French tradition of naming research development tools after animals. It is also a reference to Coquand's name and CoC (Calculus of Constructions).
+ However, the Coq community has voted to change the name to *"The Rocq Prover"* in coming months.
+
+ *Gallina* means hen in Latin, Spanish, Italian and Catalan.
+
+ Coq was used by Georges Gonthier of Microsoft Research and Benjamin Wenrer of INRIA to create a *surveyable proof* (what?) of the four color theorem in 2002.
+
+ Notable applications include *CompCert*, a optimizing compiler for almost all of the C programming language which is programmed and proven correct in Coq, *Feit-Thompson Theorem* (some substantial group theory thing), and the *Fundamental group* of the circle.
+
+ In 2024, Coq proved the value of the 5-state Busy beaver. The value of the 5-state winning busy beaver was discovered by Heiner Marxen and Jürgen Buntrock back in 1989.
+
+ A recent effort within this field is making these tools use artificial intelligence to automate the formalization of ordinary mathematics.
+
+* TODOs
+*** TODO do exercises
+*** TODO add footnotes and bibliography
+*** TODO proof-read
+*** TODO commit
+
+* End
+
+Next up is: Proof by induction.
 ------
 [[file:sf-notes.org][Back to Top]]

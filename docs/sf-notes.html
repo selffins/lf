@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-01-09 Thu 00:49 -->
+<!-- 2025-01-17 Fri 22:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Logical Foundations</title>
+<title>Basics.v</title>
 <meta name="author" content="selffins" />
 <meta name="generator" content="Org Mode" />
 <style type="text/css">
@@ -197,13 +197,81 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Logical Foundations</h1>
+<h1 class="title">Basics.v</h1>
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6565eaa">1. Basics - Functional Programming in Coq</a></li>
-<li><a href="#org5eb40df">2. w</a></li>
+<li><a href="#org82ce216">1. Summary</a>
+<ul>
+<li><a href="#org8983898">1.1. Terms</a></li>
+</ul>
+</li>
+<li><a href="#org82d08d9">2. Some basic syntax</a></li>
+<li><a href="#org98ebdf4">3. Proof by simplification</a></li>
+<li><a href="#org0f89b22">4. Proof by rewriting</a></li>
+<li><a href="#org779a98f">5. Proof by case analysis</a></li>
+<li><a href="#orge7f40ad">6. Optional: More on Notation</a></li>
+<li><a href="#orgbbcddd3">7. Optional: Fixpoints and Structural Recursion</a></li>
+<li><a href="#org8871c37">8. Exercises</a>
+<ul>
+<li><a href="#org244b4fc">8.1. nandb</a></li>
+<li><a href="#org1632341">8.2. andb3</a></li>
+<li><a href="#org1d7bea0">8.3. factorial</a></li>
+<li><a href="#org856d990">8.4. ltb</a></li>
+<li><a href="#org35058aa">8.5. plus​_id​_exercise</a></li>
+<li><a href="#orgad017f3">8.6. mult​_n​_1</a></li>
+<li><a href="#org8c507b8">8.7. <span class="todo TODO">TODO</span> andb​_true​_elim2</a></li>
+<li><a href="#org3118c9e">8.8. <span class="todo TODO">TODO</span> decreasing (optional)</a></li>
+</ul>
+</li>
+<li><a href="#org1a074e6">9. Exercises (Warmups)</a>
+<ul>
+<li><a href="#orgb3189e0">9.1. <span class="todo TODO">TODO</span> identity​_fn​_applied​_twice</a></li>
+<li><a href="#org30ed904">9.2. <span class="todo TODO">TODO</span> negation​_fn​_applied​_twice</a></li>
+<li><a href="#org46759f7">9.3. <span class="todo TODO">TODO</span> andb​_eq​_orb</a></li>
+</ul>
+</li>
+<li><a href="#org9ab47e0">10. Exercises (&ldquo;Course Late Policies, formalized&rdquo;)</a>
+<ul>
+<li><a href="#orgb232a59">10.1. letter​_comparison</a></li>
+<li><a href="#org1358abb">10.2. grade​_comparison</a></li>
+<li><a href="#org16b37ad">10.3. lower​_letter​_lowers</a></li>
+<li><a href="#org9221ac6">10.4. lower​_grade</a></li>
+<li><a href="#orgcd356b0">10.5. lower​_grade​_lowers</a></li>
+<li><a href="#org1bab53c">10.6. no​_penalty​_for​_mostly​_on​_time</a></li>
+<li><a href="#orgc20524d">10.7. graded​_lowered​_once</a></li>
+</ul>
+</li>
+<li><a href="#orge798c79">11. Exercises (&ldquo;Binary Numerals&rdquo;)</a>
+<ul>
+<li><a href="#org3fde22e">11.1. binary</a></li>
+</ul>
+</li>
+<li><a href="#org68914e8">12. Testing Your Solutions</a></li>
+<li><a href="#org508e24e">13. Questions</a>
+<ul>
+<li><a href="#org9cff563">13.1. Not a (co-)inductive type? (Propositions are not booleans)</a></li>
+<li><a href="#orgf599728">13.2. <span class="todo TODO">TODO</span> There&rsquo;s a difference? (Tuple pattern vs multiple patterns in case analysis)</a></li>
+<li><a href="#orga13c0b5">13.3. <span class="todo TODO">TODO</span> What&rsquo;s the difference between <code>rewrite -&gt;</code> and <code>rewrite &lt;-</code>?</a></li>
+<li><a href="#orgeca5417">13.4. <span class="todo TODO">TODO</span> How do I use the Coq IDE?</a></li>
+<li><a href="#org5c1adad">13.5. <span class="todo TODO">TODO</span> Decreasing arguments</a></li>
+<li><a href="#orgd8069d5">13.6. <span class="todo TODO">TODO</span> What is a notation scope?</a></li>
+</ul>
+</li>
+<li><a href="#orgfb3f8f9">14. Metacognition</a>
+<ul>
+<li><a href="#org7254c87">14.1. Notes structure</a></li>
+</ul>
+</li>
+<li><a href="#orgb723021">15. Further knowledge</a>
+<ul>
+<li><a href="#orged57b91">15.1. About Coq</a></li>
+<li><a href="#org500f2f6">15.2. Some History</a></li>
+</ul>
+</li>
+<li><a href="#orgd7cbf0d">16. TODOs</a></li>
+<li><a href="#orgf087b14">17. End</a></li>
 </ul>
 </div>
 </div>
@@ -211,13 +279,25 @@
 <p>
 <a href="index.html">Homepage</a>
 </p>
-<div id="outline-container-org6565eaa" class="outline-2">
-<h2 id="org6565eaa"><span class="section-number-2">1.</span> Basics - Functional Programming in Coq</h2>
+<div id="outline-container-org82ce216" class="outline-2">
+<h2 id="org82ce216"><span class="section-number-2">1.</span> Summary</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+The chapter introduces Coq&rsquo;s native functional language called Gallina. We also go through proof by simplication, rewriting, and case analysis, and the tactics needed for such proofs. We define natural numbers, booleans; some simple functions on natural numbers and booleans; and prove properties about the functions. We explore Coq&rsquo;s type system.
+</p>
 </div>
-<div id="outline-container-org444d75a" class="outline-3">
-<h3 id="org444d75a"><span class="section-number-3">1.1.</span> Introduction</h3>
+<div id="outline-container-org8983898" class="outline-3">
+<h3 id="org8983898"><span class="section-number-3">1.1.</span> Terms</h3>
 <div class="outline-text-3" id="text-1-1">
+<p>
+functional programming, Gallina, type, type definition syntax, type constructors,  enumerated types, function definition syntax, infix notation, pattern matching, booleans, conditionals, parametrized types, tuple types, examples (proof), proof syntax, <code>reflexivity</code> tactic, <code>simpl</code> tactic, assertion syntax, modules, module syntax, natural numbers, nat type, expression evaluation syntax, arrow types, notation idiom for same type parameters, recursive function definition syntax, infix notation options, algebraic data types, propositions, proof by simplification, universal quantifier, proof goals, <code>intro</code> tactic, assumptions, proof context, proposition keywords: {theorem, lemma, fact, example, remark}, proof by rewriting, tactics, <code>rewrite</code> tactic, <code>admitted</code> command, <code>check</code> command, <code>abort</code> command, proof by case analysis, <code>destruct</code> tactic, <code>rewrite</code> with theorem, <code>eqn</code> annotation, intro pattern, bullets, subgoals, notation scope, precedence, associativity, fixpoints, structural recursion
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org82d08d9" class="outline-2">
+<h2 id="org82d08d9"><span class="section-number-2">2.</span> Some basic syntax</h2>
+<div class="outline-text-2" id="text-2">
 <p>
 Functional programming has code that have no side effects. There is a better connection from programs to mathematical objects.
 </p>
@@ -233,22 +313,11 @@ Other features include algebraic data types (sum, product types), pattern matchi
 <p>
 Coq&rsquo;s native functional language is called <b>Gallina</b>.
 </p>
-</div>
-</div>
-<div id="outline-container-orgd9193e1" class="outline-3">
-<h3 id="orgd9193e1"><span class="section-number-3">1.2.</span> Data and Functions</h3>
-<div class="outline-text-3" id="text-1-2">
-<p>
-Coq&rsquo;s built-in features are small. Because we can build almot all the definitions we need.
-</p>
 
 <p>
-Note that code ends in period.
+Coq&rsquo;s built-in features are small. Because we can build almost all the definitions we need. What follows is some small snippets of interest. Refer to the book for more complete snippets.
 </p>
-</div>
-<div id="outline-container-org44cec58" class="outline-4">
-<h4 id="org44cec58">Enumerated Types</h4>
-<div class="outline-text-4" id="text-org44cec58">
+
 <p>
 Defining a type.
 </p>
@@ -259,6 +328,10 @@ Defining a type.
 .
 </pre>
 </div>
+
+<p>
+In this chapter, they first work with enumerated types. We will see tuple types, parametrized types, and so on as well.
+</p>
 
 <p>
 Defining a function.
@@ -294,7 +367,7 @@ There is a command &ldquo;Compute&rdquo; that evaluates expressions.
 </div>
 
 <p>
-Examples, or &ldquo;unit tests&rdquo;. And our first proof. and usage of tactics.
+Examples, or &ldquo;unit tests&rdquo;. And our first proof, and usage of tactics.
 </p>
 
 <div class="org-src-container">
@@ -304,23 +377,729 @@ Proof. simpl. reflexivity. Qed.
 </div>
 
 <p>
-Infix
+We are trying to prove an <b>example</b> that  applying orb (logical or) to true and false gives us true. We start a <b>proof</b> and use the tactics <b>simplification</b> and <b>reflexivity</b> to prove it. And then we end, so <b>Qed</b>. There will be discussion of proofs shortly.
+</p>
+
+<p>
+Infix notation.
 </p>
 
 <div class="org-src-container">
 <pre class="src src-nil">Notation "x &amp;&amp; y" := (andb x y) = true.
 </pre>
 </div>
+<p>
+Booleans. Conditionals are like in SML:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">if p then x else y
+</pre>
+</div>
+
+<p>
+An interesting thing is that the guard in the conditional will work with any two-valued type. As in, two-valued types are treated the same as booleans in the sense that the first constructor is treated as True and the other constructor as False. This is useful if we want to make datatypes like &ldquo;blackOrWhite&rdquo; which is either &ldquo;black&rdquo; or &ldquo;white&rdquo;.
+</p>
+
+<p>
+We can create <b>Modules</b>, we can use them for namespaces.
+</p>
+
+<p>
+Types are defined with the keyword Inductive.
+</p>
+
+<p>
+Types can be parametrized - a type constructor can take another element of some type.
+</p>
+
+<p>
+A type with a single type constructor with multiple parameters can be used to define a tuple type. E.g.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">Inductive nybble : Type :=
+| bits (b0 b1 b2 b3 : bit).
+</pre>
+</div>
+
+<p>
+So far, the chapter has shown enumerated types, parametrized types, and tuple types. Enumerated types have a finite set of elements. If we want to create an type with an infinite set, like the natural numbers, the type constructor must take itself as a parameter - an inductive definition.
+</p>
+
+<p>
+The chapter differentiates type constructors and functions - both of them &ldquo;take&rdquo; something as input - however, functions are defined by computation rules, but type constructors are simply representations.
+</p>
+
+<p>
+Functions are defined with the &ldquo;Definition&rdquo; keyword. However, to declare a recursive function, we must use the Fixpoint keyword.
+</p>
+
+<p>
+The chapter points out that the simpl tactic has no effect on the proof goals (of the example proofs), only reflexivity does the work. TBD shortly.
+</p>
+
+<p>
+There is a notational convenience: if two arguments have the same type, they can be written together. E.g.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">Fixpoint mult (n m : nat) : nat :=
+  match n with
+  | O =&gt; O
+  | S n' =&gt; plus m (mult n' m)
+  end.
+</pre>
+</div>
+
+<p>
+Coq does really come with not a lot built in. Natural number comparisons are built in by the user, for example.
+</p>
+
+<p>
+Propositions are logical claims. So, 1 =? 0 is an expression that evaluates to a boolean, but 1 = 0 is a logical claim that you can (try) to prove.
+</p>
+
+<p>
+Note that Coq code lines ends with periods.
+</p>
 </div>
 </div>
-<div id="outline-container-orgcc36aae" class="outline-4">
-<h4 id="orgcc36aae">Booleans</h4>
+<div id="outline-container-org98ebdf4" class="outline-2">
+<h2 id="org98ebdf4"><span class="section-number-2">3.</span> Proof by simplification</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+So far, all of the proofs were the same: use <code>simpl</code> to simplify both sides, and then use <code>reflexivity</code> to check that both contain identical values.
+</p>
+
+<p>
+We can use this &ldquo;proof by simplification&rdquo; to establish more interesting properties. <code>0</code> is a neutral element (or identity element) because <code>0 + n</code> reduces to <code>n</code> no matter what <code>n</code> is.
+</p>
+
+<p>
+We have our first theorem:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">Theorem plus_O_n : forall n : nat, 0 + n = n.
+</pre>
+</div>
+
+<p>
+We also used an universal quantifier.
+</p>
+
+<p>
+The chapter notes that the <code>reflexivity</code> tactic is powerful - in the proofs so far, the <code>simpl</code> tactic were actually not required, because <code>reflexivity</code> does some simplification by itself. And, <code>reflexivity</code> actually does <i>more</i> simplification than <code>simpl</code> does! It tries unfolding defined terms, replacing them with their right hand sides. <code>simpl</code> is used when we want an intermediate state, where we need to read and understand the new goal it creates, so that it isn&rsquo;t expanding definitions eagerly like with <code>reflexivity</code> and leave the goal &ldquo;messy&rdquo;.
+</p>
+
+<p>
+The keywords <code>Example</code>, <code>Theorem</code>, <code>Fact</code>, <code>Lemma</code>, <code>Remark</code> mean &ldquo;pretty much the same thing&rdquo; in Coq. It is a matter of style.
+</p>
+
+<p>
+Here&rsquo;s the proof for our theorem.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">Theorem plus_O_n : forall n : nat, 0 + n = n.
+Proof.
+  intros n. simpl. reflexivity.  Qed.
+</pre>
+</div>
+
+<p>
+<code>intros n</code> is basically like saying &ldquo;Suppose n is a natural number&rdquo; in a proof - it fixes some n and progresses the proof by dealing with the universal quantifier. <code>intros n</code> moves the quantifier in the goal to a <i>context</i> of current assumptions.
+</p>
+
+<p>
+A tactic is a command that guides the process of checking some claim. It&rsquo;s a move in the proof.
+</p>
+</div>
+</div>
+<div id="outline-container-org0f89b22" class="outline-2">
+<h2 id="org0f89b22"><span class="section-number-2">4.</span> Proof by rewriting</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+We have a new kind of theorem - one that uses an implication - it&rsquo;s not a universal property of nunbers, it&rsquo;s a specific one that holds if <code>n=m</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">Theorem plus_id_example : forall n m:nat,
+  n = m -&gt;
+  n + n = m + m.
+</pre>
+</div>
+
+<p>
+To prove this, we need to assume the hypotheses - we can use the <code>intro</code> tactic to get all the needed variables into context.
+</p>
+
+<p>
+Because <code>n</code> and <code>m</code> are <i>arbitrary</i> numbers, we can&rsquo;t use simplification, which works on expressions (?). We prove this instead by noticing that if we replace <code>n</code> with <code>m</code> in the right hand side, and <code>n = m</code>, then it holds. This is called <b>proof by rewriting</b>. We use the tactic <code>rewrite</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">Proof.
+  (* move both quantifiers into the context: *)
+  intros n m.
+  (* move the hypothesis into the context: *)
+  intros H.
+  (* rewrite the goal using the hypothesis: *)
+  rewrite -&gt; H.
+  reflexivity.  Qed.
+</pre>
+</div>
+
+<p>
+Note that we move the quantified variables into the context, but we also move the <b>hypothesis</b> into the context - we assume it, then continue with the goal. The <code>rewrite</code> tactic uses the hypothesis.  <code>rewrite -&gt;</code> means rewriting right to left, which is the default. <code>rewrite &lt;-</code> means rewriting left to right.
+</p>
+
+<p>
+We can use the <code>rewrite</code> tactic with a theorem instead of a hypothesis from a context. If the theorem has quantified variables, Coq will try to fill in the appropriate values by matching the theorem with the current goal.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">Theorem mult_n_0_m_0 : forall p q : nat,
+  (p * 0) + (q * 0) = 0.
+Proof.
+  intros p q.
+  rewrite &lt;- mult_n_O.
+  rewrite &lt;- mult_n_O.
+  reflexivity. Qed.
+</pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org5eb40df" class="outline-2">
-<h2 id="org5eb40df"><span class="section-number-2">2.</span> w</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org779a98f" class="outline-2">
+<h2 id="org779a98f"><span class="section-number-2">5.</span> Proof by case analysis</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Not everything can be proved with simplification and rewriting. Unknown values (those quantified over) can block simplification.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">Theorem plus_1_neq_0_firsttry : forall n : nat,
+  (n + 1) =? 0 = false.
+Proof.
+  intros n.
+  simpl.  (* does nothing! *)
+Abort.
+</pre>
+</div>
+
+<p>
+<code>(n + 1)</code> is a term that can&rsquo;t be simplified, because <code>n</code> is general. So, <code>simpl</code> does nothing.
+</p>
+
+<p>
+Instead we have to use case analysis - <code>n</code> is either zero, or a successor of some <code>m</code>.
+</p>
+
+<p>
+If <code>n</code> is zero, then <code>0 + 1</code> is clearly not equal to <code>0</code>. If <code>n</code> is <code>S m</code>, it is enough that it is a successor to say that it is not zero.
+</p>
+
+<p>
+A case analysis is done in Coq using the <code>destruct</code> tactic. It&rsquo;s called destruct because it considers each case where a value uses a certain constructor - and gives you sub-goals for them.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">Theorem plus_1_neq_0 : forall n : nat,
+  (n + 1) =? 0 = false.
+Proof.
+  intros n. destruct n as [| n'] eqn:E.
+  - reflexivity.
+  - reflexivity.   Qed.
+</pre>
+</div>
+
+<p>
+There is an annotation &ldquo;<code>as [| n']</code>&rdquo; - this tells Coq what variable names to use in each sub-goal. Zero does not have a parameter, so it is empty. The annotation <code>eqn:E</code> tells destruct to give a name to the current case, i.e, either <code>n = 0</code>
+or <code>n = S n'</code>. It&rsquo;s optional - you can leave this annotation off and Coq will assign variable names automatically, but that is bad style as the auto-assigned names are usually confusing.
+</p>
+
+<p>
+There are <code>-</code> signs: they are called bullets, they mark the proofs for the generated subgoals and ensure that a subgoal is complete before trying the next one. It&rsquo;s good practice to mark cases with bullets. Bullets are optional, if omitted, Coq asssumes you do the subgoals in order.
+</p>
+
+<p>
+You can use different kinds of bullets for subproofs: <code>+</code>, <code>*</code>, and any repetition (e.g. <code>---</code> or <code>***</code>). Sub-proofs can be enclosed in curly braces.
+</p>
+
+<p>
+The <code>destruct</code> tactic can be used with any inductively defined datatype.
+</p>
+
+<p>
+I learned a new word: involutive - when an operation is its own inverse.
+</p>
+
+<p>
+We may notice that many proofs perform case analysis on a variable right after introducing it, as such:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">intros x y. destruct y as [|y] eqn:E.
+</pre>
+</div>
+
+<p>
+Here is the shorthand in action. We can simply use the intro pattern after <code>intros</code> instead of using the <code>destruct</code> tactic and then using a intro pattern.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">Theorem plus_1_neq_0' : forall n : nat,
+  (n + 1) =? 0 = false.
+Proof.
+  intros [|n].
+  - reflexivity.
+  - reflexivity.  Qed.
+</pre>
+</div>
+
+<p>
+The downside is that we lose the equation recording the assumption in each subgoal, which we got from the <code>eqn:E</code> annotation.
+</p>
+</div>
+</div>
+<div id="outline-container-orge7f40ad" class="outline-2">
+<h2 id="orge7f40ad"><span class="section-number-2">6.</span> Optional: More on Notation</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+There are some chapters labeled &ldquo;Optional&rdquo;. The authors recommend skimming them.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">Notation "x + y" := (plus x y)
+                       (at level 50, left associativity)
+                       : nat_scope.
+Notation "x * y" := (mult x y)
+                       (at level 40, left associativity)
+                       : nat_scope.
+</pre>
+</div>
+
+<p>
+For a notation symbol, we can specify the <b>precedence level</b> and <b>associativity</b>. Coq uses precedence levels from 0 to 100, and left, right, or no associativity.
+</p>
+
+<p>
+Apparently, a notation symbol also has a <b>notation scope</b> (what?).
+</p>
+</div>
+</div>
+<div id="outline-container-orgbbcddd3" class="outline-2">
+<h2 id="orgbbcddd3"><span class="section-number-2">7.</span> Optional: Fixpoints and Structural Recursion</h2>
+<div class="outline-text-2" id="text-7">
+<div class="org-src-container">
+<pre class="src src-nil">Fixpoint plus' (n : nat) (m : nat) : nat :=
+  match n with
+  | O =&gt; m
+  | S n' =&gt; S (plus' n' m)
+  end.
+</pre>
+</div>
+
+<p>
+Here, Coq notes that the function is decreasing in the first argument. We are performing a structural recursion over the argument <code>n</code> - making sure that we only make recursive calls on strictly smaller values of <code>n</code>. This is a proof of termination. Coq <b>demands</b> that some argument of every <code>Fixpoint</code> is decreasing.
+</p>
+
+<p>
+This is a part of Coq&rsquo;s design - it guarantees that every function will terminate. However, apparently, Coq&rsquo;s automatic analysis of whether inputs decrease isn&rsquo;t very sophisticated, and apparently it is sometimes necessary to write functions in slightly unnatural ways. (What?)
+</p>
+</div>
+</div>
+<div id="outline-container-org8871c37" class="outline-2">
+<h2 id="org8871c37"><span class="section-number-2">8.</span> Exercises</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+There are 20 exercises.
+</p>
+</div>
+<div id="outline-container-org244b4fc" class="outline-3">
+<h3 id="org244b4fc"><span class="section-number-3">8.1.</span> nandb</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+How to use <code>simpl</code> and <code>reflexivity</code>.
+</p>
+</div>
+</div>
+<div id="outline-container-org1632341" class="outline-3">
+<h3 id="org1632341"><span class="section-number-3">8.2.</span> andb3</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+How to use <code>simpl</code> and <code>reflexivity</code>.
+</p>
+</div>
+</div>
+<div id="outline-container-org1d7bea0" class="outline-3">
+<h3 id="org1d7bea0"><span class="section-number-3">8.3.</span> factorial</h3>
+<div class="outline-text-3" id="text-8-3">
+<p>
+How to define a fixpoint function.
+</p>
+</div>
+</div>
+<div id="outline-container-org856d990" class="outline-3">
+<h3 id="org856d990"><span class="section-number-3">8.4.</span> ltb</h3>
+</div>
+<div id="outline-container-org35058aa" class="outline-3">
+<h3 id="org35058aa"><span class="section-number-3">8.5.</span> plus​_id​_exercise</h3>
+<div class="outline-text-3" id="text-8-5">
+<p>
+Introducing the <code>intros</code> tactic, for variables and hypotheses.
+</p>
+</div>
+</div>
+<div id="outline-container-orgad017f3" class="outline-3">
+<h3 id="orgad017f3"><span class="section-number-3">8.6.</span> mult​_n​_1</h3>
+<div class="outline-text-3" id="text-8-6">
+<p>
+How to use theorems in proofs.
+</p>
+</div>
+</div>
+<div id="outline-container-org8c507b8" class="outline-3">
+<h3 id="org8c507b8"><span class="section-number-3">8.7.</span> <span class="todo TODO">TODO</span> andb​_true​_elim2</h3>
+<div class="outline-text-3" id="text-8-7">
+<p>
+How to use <code>destruct</code> for case analysis.
+</p>
+</div>
+</div>
+<div id="outline-container-org3118c9e" class="outline-3">
+<h3 id="org3118c9e"><span class="section-number-3">8.8.</span> <span class="todo TODO">TODO</span> decreasing (optional)</h3>
+<div class="outline-text-3" id="text-8-8">
+<p>
+Write a recursive function that terminates on all inputs but gets rejected by Coq&rsquo;s unsophisticated automatic analysis of decreasing arguments.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org1a074e6" class="outline-2">
+<h2 id="org1a074e6"><span class="section-number-2">9.</span> Exercises (Warmups)</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-orgb3189e0" class="outline-3">
+<h3 id="orgb3189e0"><span class="section-number-3">9.1.</span> <span class="todo TODO">TODO</span> identity​_fn​_applied​_twice</h3>
+</div>
+<div id="outline-container-org30ed904" class="outline-3">
+<h3 id="org30ed904"><span class="section-number-3">9.2.</span> <span class="todo TODO">TODO</span> negation​_fn​_applied​_twice</h3>
+</div>
+<div id="outline-container-org46759f7" class="outline-3">
+<h3 id="org46759f7"><span class="section-number-3">9.3.</span> <span class="todo TODO">TODO</span> andb​_eq​_orb</h3>
+</div>
+</div>
+<div id="outline-container-org9ab47e0" class="outline-2">
+<h2 id="org9ab47e0"><span class="section-number-2">10.</span> Exercises (&ldquo;Course Late Policies, formalized&rdquo;)</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-orgb232a59" class="outline-3">
+<h3 id="orgb232a59"><span class="section-number-3">10.1.</span> letter​_comparison</h3>
+</div>
+<div id="outline-container-org1358abb" class="outline-3">
+<h3 id="org1358abb"><span class="section-number-3">10.2.</span> grade​_comparison</h3>
+</div>
+<div id="outline-container-org16b37ad" class="outline-3">
+<h3 id="org16b37ad"><span class="section-number-3">10.3.</span> lower​_letter​_lowers</h3>
+</div>
+<div id="outline-container-org9221ac6" class="outline-3">
+<h3 id="org9221ac6"><span class="section-number-3">10.4.</span> lower​_grade</h3>
+</div>
+<div id="outline-container-orgcd356b0" class="outline-3">
+<h3 id="orgcd356b0"><span class="section-number-3">10.5.</span> lower​_grade​_lowers</h3>
+</div>
+<div id="outline-container-org1bab53c" class="outline-3">
+<h3 id="org1bab53c"><span class="section-number-3">10.6.</span> no​_penalty​_for​_mostly​_on​_time</h3>
+</div>
+<div id="outline-container-orgc20524d" class="outline-3">
+<h3 id="orgc20524d"><span class="section-number-3">10.7.</span> graded​_lowered​_once</h3>
+</div>
+</div>
+<div id="outline-container-orge798c79" class="outline-2">
+<h2 id="orge798c79"><span class="section-number-2">11.</span> Exercises (&ldquo;Binary Numerals&rdquo;)</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+<div id="outline-container-org3fde22e" class="outline-3">
+<h3 id="org3fde22e"><span class="section-number-3">11.1.</span> binary</h3>
+</div>
+</div>
+<div id="outline-container-org68914e8" class="outline-2">
+<h2 id="org68914e8"><span class="section-number-2">12.</span> Testing Your Solutions</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+The test file for this chapter is <code>BasicsTest.v</code>. To run it, make sure you have saved <code>Basics.v</code> to disk. Then first run <code>coqc -Q . LF Basics.v</code> and then run <code>coqc -Q . LF BasicsTest.v</code>; or, if you have make installed, you can run <code>make BasicsTest.vo</code>. (Make sure you do this in a directory that also contains a file named <code>_CoqProject</code> containing the single line <code>-Q . LF.</code>)
+</p>
+
+<p>
+The output is useful:
+</p>
+<ol class="org-ol">
+<li>The actual output from the Coq file itself.</li>
+<li>For each exercise, its point value, whether the type is ok, what assumptions it relies on.</li>
+<li>Maximum number of points in standard and advanced versions of the assignment.</li>
+<li>A list of allowed axioms.</li>
+<li>A summary of whether you have solved each exercise.</li>
+</ol>
+
+<p>
+Manually graded exercises show up but the test script doesn&rsquo;t give a lot of information.
+</p>
+</div>
+</div>
+<div id="outline-container-org508e24e" class="outline-2">
+<h2 id="org508e24e"><span class="section-number-2">13.</span> Questions</h2>
+<div class="outline-text-2" id="text-13">
+</div>
+<div id="outline-container-org9cff563" class="outline-3">
+<h3 id="org9cff563"><span class="section-number-3">13.1.</span> Not a (co-)inductive type? (Propositions are not booleans)</h3>
+<div class="outline-text-3" id="text-13-1">
+<p>
+When doing the factorial exercise, I defined factorial as such:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">Fixpoint factorial (n:nat) : nat :=
+  match n with
+  | 0 =&gt; 1
+  | S n =&gt; if (n &gt; 0) then n * factorial(n-1) else 1
+  end.
+</pre>
+</div>
+
+<p>
+I needed the conditional so that it terminates for negative inputs. Well, I didn&rsquo;t need to do this, because 1) n is a natural number, not an integer 2) n &gt; 0 always because 0 is already matched.
+</p>
+
+<p>
+Anyway, with this conditional, I get the error:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">Error: The term "n0 &gt; 0" has type "Prop" which is not a (co-)inductive type.
+</pre>
+</div>
+
+<p>
+Why is this happening? I am assuming that <code>Prop</code> is the proposition type, are propositions different from booleans? Why is the comparison typed as a <code>Prop</code> instead of a boolean?
+</p>
+
+
+<p>
+<span class="underline">Answer</span>
+</p>
+
+<p>
+Yes, I read later in the chapter that propositions are different from booleans. For example, <code>1 = 0</code> is a <b>logical claim</b>, a proposition you can <b>prove</b>, but <code>1 =? 0</code> (<code>?</code> is boolean equality) is an expression that evaluates to a boolean. So, <code>n0 &gt; 0</code> is type <code>Prop</code> - we need to use a less than operator that is in the boolean world.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf599728" class="outline-3">
+<h3 id="orgf599728"><span class="section-number-3">13.2.</span> <span class="todo TODO">TODO</span> There&rsquo;s a difference? (Tuple pattern vs multiple patterns in case analysis)</h3>
+<div class="outline-text-3" id="text-13-2">
+<p>
+Apparently, there is a difference between the patterns <code>a, b</code> and <code>(a, b)</code>!
+</p>
+
+<p>
+These don&rsquo;t work:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">match leb n m, eqb n m with
+  | true, false =&gt; true
+  | _ =&gt; false
+end.
+</pre>
+</div>
+
+<p>
+The compiler will complain that it expects two patterns for the second case.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">match (leb n m, eqb n m) with
+  | true, false =&gt; true
+  | _ =&gt; false
+end.
+</pre>
+</div>
+
+<p>
+Here, the compiler will complain that it expects one pattern for the first case.
+</p>
+
+<p>
+However, these work:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-nil">match leb n m, eqb n m with
+  | true, false =&gt; true
+  | _, _ =&gt; false
+end.
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-nil">match (leb n m, eqb n m) with
+  | (true, false) =&gt; true
+  | _ =&gt; false
+end.
+</pre>
+</div>
+
+<p>
+Why is there a difference, or what is the difference?
+</p>
+</div>
+</div>
+<div id="outline-container-orga13c0b5" class="outline-3">
+<h3 id="orga13c0b5"><span class="section-number-3">13.3.</span> <span class="todo TODO">TODO</span> What&rsquo;s the difference between <code>rewrite -&gt;</code> and <code>rewrite &lt;-</code>?</h3>
+<div class="outline-text-3" id="text-13-3">
+<p>
+Apparently <code>rewrite -&gt;</code> is rewriting from &ldquo;left to right&rdquo; while <code>rewrite &lt;-</code> is rewriting from &ldquo;right to left&rdquo;.
+</p>
+
+<p>
+What is the difference? When does it matter and what&rsquo;s an example of when it matters?
+</p>
+</div>
+</div>
+<div id="outline-container-orgeca5417" class="outline-3">
+<h3 id="orgeca5417"><span class="section-number-3">13.4.</span> <span class="todo TODO">TODO</span> How do I use the Coq IDE?</h3>
+<div class="outline-text-3" id="text-13-4">
+<p>
+I want to see what the current goal looks like, at an intermediate proof step. I don&rsquo;t know how to do that.
+</p>
+</div>
+</div>
+<div id="outline-container-org5c1adad" class="outline-3">
+<h3 id="org5c1adad"><span class="section-number-3">13.5.</span> <span class="todo TODO">TODO</span> Decreasing arguments</h3>
+<div class="outline-text-3" id="text-13-5">
+<p>
+Coq demands that at least one argument in a <code>Fixpoint</code> definition of a function be strictly decreasing. This ensures that all functions terminate. How does Coq do this? And why does the author say that Coq&rsquo;s way of doing this is unsophisticated, and that it is &ldquo;sometimes necessary to write functions in slightly unnatural ways?&rdquo;
+</p>
+</div>
+</div>
+<div id="outline-container-orgd8069d5" class="outline-3">
+<h3 id="orgd8069d5"><span class="section-number-3">13.6.</span> <span class="todo TODO">TODO</span> What is a notation scope?</h3>
+<div class="outline-text-3" id="text-13-6">
+<p>
+A notation (infix operator) has precedence, associativity, and a notation scope. What&rsquo;s a notation scope? This isn&rsquo;t too important (it&rsquo;s just for infix operators in Coq!), but the chapter talks about it but never clarifies or defines what a notation scope is.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfb3f8f9" class="outline-2">
+<h2 id="orgfb3f8f9"><span class="section-number-2">14.</span> Metacognition</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+I think that the book so far is really fun. I also like the way I am making notes. I love emacs. There are a lot of exercises.
+</p>
+</div>
+<div id="outline-container-org7254c87" class="outline-3">
+<h3 id="org7254c87"><span class="section-number-3">14.1.</span> Notes structure</h3>
+<div class="outline-text-3" id="text-14-1">
+<p>
+I am gonna do this template for notes in the future:
+</p>
+
+<ul class="org-ul">
+<li>Summary</li>
+<li>Section 1 (actual notes)</li>
+<li>&#x2026;</li>
+<li>Optional sections</li>
+<li>Exercises</li>
+<li>Questions</li>
+<li>Reflections</li>
+<li>Further knowledge</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb723021" class="outline-2">
+<h2 id="orgb723021"><span class="section-number-2">15.</span> Further knowledge</h2>
+<div class="outline-text-2" id="text-15">
+</div>
+<div id="outline-container-orged57b91" class="outline-3">
+<h3 id="orged57b91"><span class="section-number-3">15.1.</span> About Coq</h3>
+<div class="outline-text-3" id="text-15-1">
+<p>
+Adapted from <a href="https://en.wikipedia.org/wiki/Coq_(software)">https://en.wikipedia.org/wiki/Coq_(software)</a>
+</p>
+
+<p>
+Coq is a <b>interactive theorem prover</b> released in 1989. Coq works within the theory of the <b>calculus of inductive constructions</b> (what?). Coq is not an automated theorem prover.
+</p>
+
+<p>
+Coq has a specification language (what?) called <b>Gallina</b>. Programs in Gallina abide by the <b>weak normalization</b> (what?) property, implying that they always terminate. This avoids the <b>halting problem</b>.
+</p>
+</div>
+</div>
+<div id="outline-container-org500f2f6" class="outline-3">
+<h3 id="org500f2f6"><span class="section-number-3">15.2.</span> Some History</h3>
+<div class="outline-text-3" id="text-15-2">
+<p>
+The development of Coq has been supported since 1984 by French Institute for Research in Computer Science and Automation (INRIA), initiated by Thierry Coquand and  Gérard Huet.
+</p>
+
+<p>
+The Association for Computing Machinery awarded Thierry Coquand, Gérard Huet, Christine Paulin-Mohring, Bruno Barras, Jean-Christophe Filliâtre, Hugo Herbelin, Chetan Murthy, Yves Bertot, and Pierre Castéran with the 2013 ACM Software System Award for Coq.
+</p>
+
+<p>
+<b>Coq</b> is rooster in French, and comes from the French tradition of naming research development tools after animals. It is also a reference to Coquand&rsquo;s name and CoC (Calculus of Constructions).
+However, the Coq community has voted to change the name to <b>&ldquo;The Rocq Prover&rdquo;</b> in coming months.
+</p>
+
+<p>
+<b>Gallina</b> means hen in Latin, Spanish, Italian and Catalan.
+</p>
+
+<p>
+Coq was used by Georges Gonthier of Microsoft Research and Benjamin Wenrer of INRIA to create a <b>surveyable proof</b> (what?) of the four color theorem in 2002.
+</p>
+
+<p>
+Notable applications include <b>CompCert</b>, a optimizing compiler for almost all of the C programming language which is programmed and proven correct in Coq, <b>Feit-Thompson Theorem</b> (some substantial group theory thing), and the <b>Fundamental group</b> of the circle.
+</p>
+
+<p>
+In 2024, Coq proved the value of the 5-state Busy beaver. The value of the 5-state winning busy beaver was discovered by Heiner Marxen and Jürgen Buntrock back in 1989.
+</p>
+
+<p>
+A recent effort within this field is making these tools use artificial intelligence to automate the formalization of ordinary mathematics.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd7cbf0d" class="outline-2">
+<h2 id="orgd7cbf0d"><span class="section-number-2">16.</span> TODOs</h2>
+<div class="outline-text-2" id="text-16">
+</div>
+<div id="outline-container-orgbb3ba14" class="outline-4">
+<h4 id="orgbb3ba14"><span class="todo TODO">TODO</span> do exercises</h4>
+</div>
+<div id="outline-container-orgc920ffe" class="outline-4">
+<h4 id="orgc920ffe"><span class="todo TODO">TODO</span> add footnotes and bibliography</h4>
+</div>
+<div id="outline-container-org6c108f7" class="outline-4">
+<h4 id="org6c108f7"><span class="todo TODO">TODO</span> proof-read</h4>
+</div>
+<div id="outline-container-orgab1caf1" class="outline-4">
+<h4 id="orgab1caf1"><span class="todo TODO">TODO</span> commit</h4>
+</div>
+</div>
+<div id="outline-container-orgf087b14" class="outline-2">
+<h2 id="orgf087b14"><span class="section-number-2">17.</span> End</h2>
+<div class="outline-text-2" id="text-17">
+<p>
+Next up is: Proof by induction.
+</p>
 <hr />
 <p>
 <a href="sf-notes.html">Back to Top</a>
@@ -330,7 +1109,7 @@ Infix
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: selffins</p>
-<p class="date">Created: 2025-01-09 Thu 00:49</p>
+<p class="date">Created: 2025-01-17 Fri 22:42</p>
 </div>
 </body>
 </html>
