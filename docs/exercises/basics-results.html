@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-01-18 Sat 18:30 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Basics.v Exercises Results</title>
+<meta name="author" content="selffins" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="../custom.css">
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Basics.v Exercises Results</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orge70d52c">1. Summary</a>
+<ul>
+<li><a href="#org95bbffc">1.1. <span class="todo TODO">TODO</span> Manual grading</a></li>
+</ul>
+</li>
+<li><a href="#orgbbb1317">2. Output</a></li>
+</ul>
+</div>
+</div>
+<hr />
+<p>
+<a href="../sf-notes.html">Back to Notes</a>
+</p>
+<div id="outline-container-orge70d52c" class="outline-2">
+<h2 id="orge70d52c"><span class="section-number-2">1.</span> Summary</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Max points - standard: 28</li>
+<li>Max points - advanced: 28</li>
+<li>My score -  27</li>
+</ul>
+</div>
+<div id="outline-container-org95bbffc" class="outline-3">
+<h3 id="org95bbffc"><span class="section-number-3">1.1.</span> <span class="todo TODO">TODO</span> Manual grading</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+There is one <span class="underline">ungraded</span> question, <code>decreasing</code>.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbbb1317" class="outline-2">
+<h2 id="orgbbb1317"><span class="section-number-2">2.</span> Output</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Here&rsquo;s the output after running the make script for <code>Basics.v</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-coq">    = monday
+     : day
+     = tuesday
+     : day
+     = bw_white
+     : bw
+     = bw_black
+     : bw
+true
+     : bool
+true : bool
+     : bool
+negb true : bool
+     : bool
+negb : bool -&gt; bool
+     : bool -&gt; bool
+Playground.foo : rgb
+     : rgb
+foo : bool
+     : bool
+bits B1 B0 B1 B0 : nybble
+     : nybble
+     = false
+     : bool
+     = true
+     : bool
+<span style="color: #AB9DF2; font-weight: bold;">4</span>
+     : nat
+     = <span style="color: #AB9DF2; font-weight: bold;">2</span>
+     : nat
+S : nat -&gt; nat
+     : nat -&gt; nat
+Nat.pred : nat -&gt; nat
+     : nat -&gt; nat
+minustwo : nat -&gt; nat
+     : nat -&gt; nat
+     = <span style="color: #AB9DF2; font-weight: bold;">5</span>
+     : nat
+<span style="color: #AB9DF2; font-weight: bold;">0</span> + <span style="color: #AB9DF2; font-weight: bold;">1</span> + <span style="color: #AB9DF2; font-weight: bold;">1</span> : nat
+     : nat
+mult_n_O
+     : <span style="color: #78DCE8;">forall</span> <span style="color: #FCFCFA;">n</span> : nat, <span style="color: #AB9DF2; font-weight: bold;">0</span> = n * <span style="color: #AB9DF2; font-weight: bold;">0</span>
+mult_n_Sm
+     : <span style="color: #78DCE8;">forall</span> <span style="color: #FCFCFA;">n m</span> : nat, n * m + n = n * S m
+     = Lt
+     : comparison
+     = Eq
+     : comparison
+     = Gt
+     : comparison
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-------------------</span>  nandb  --------------------
+ 
+#&gt; test_nandb4
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">1</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-------------------</span>  andb3  --------------------
+ 
+#&gt; test_andb34
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">1</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-------------------</span>  factorial  --------------------
+ 
+#&gt; test_factorial2
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">1</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-------------------</span>  ltb  --------------------
+ 
+#&gt; test_ltb3
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">1</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-------------------</span>  plus_id_exercise  --------------------
+ 
+#&gt; plus_id_exercise
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">1</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-------------------</span>  mult_n_1  --------------------
+ 
+#&gt; mult_n_1
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">1</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-------------------</span>  andb_true_elim2  --------------------
+ 
+#&gt; andb_true_elim2
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">2</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-------------------</span>  zero_nbeq_plus_1  --------------------
+ 
+#&gt; zero_nbeq_plus_1
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">1</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-------------------</span>  identity_fn_applied_twice  --------------------
+ 
+#&gt; identity_fn_applied_twice
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">1</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-------------------</span>  negation_fn_applied_twice  --------------------
+ 
+#&gt; Manually graded: negation_fn_applied_twice
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">1</span>
+Score: Ungraded
+Comment: None
+ 
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-------------------</span>  letter_comparison  --------------------
+ 
+#&gt; LateDays.letter_comparison_Eq
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">1</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-------------------</span>  grade_comparison  --------------------
+ 
+#&gt; LateDays.test_grade_comparison1
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">0.5</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+#&gt; LateDays.test_grade_comparison2
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">0.5</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+#&gt; LateDays.test_grade_comparison3
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">0.5</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+#&gt; LateDays.test_grade_comparison4
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">0.5</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-------------------</span>  lower_letter_lowers  --------------------
+ 
+#&gt; LateDays.lower_letter_lowers
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">2</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-------------------</span>  lower_grade  --------------------
+ 
+#&gt; LateDays.lower_grade_A_Plus
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">0.25</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+#&gt; LateDays.lower_grade_A_Natural
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">0.25</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+#&gt; LateDays.lower_grade_A_Minus
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">0.25</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+#&gt; LateDays.lower_grade_B_Plus
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">0.25</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+#&gt; LateDays.lower_grade_F_Natural
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">0.25</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+#&gt; LateDays.lower_grade_twice
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">0.25</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+#&gt; LateDays.lower_grade_thrice
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">0.25</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+#&gt; LateDays.lower_grade_F_Minus
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">0.25</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+<span style="color: #FF6188;">Axioms</span>:
+LateDays.lower_grade_F_Minus
+  : LateDays.lower_grade (LateDays.Grade LateDays.F LateDays.Minus) =
+    LateDays.Grade LateDays.F LateDays.Minus
+ 
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-------------------</span>  lower_grade_lowers  --------------------
+ 
+#&gt; LateDays.lower_grade_lowers
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">3</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+<span style="color: #FF6188;">Axioms</span>:
+LateDays.lower_grade_F_Minus
+  : LateDays.lower_grade (LateDays.Grade LateDays.F LateDays.Minus) =
+    LateDays.Grade LateDays.F LateDays.Minus
+ 
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-------------------</span>  no_penalty_for_mostly_on_time  --------------------
+ 
+#&gt; LateDays.no_penalty_for_mostly_on_time
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">2</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-------------------</span>  graded_lowered_once  --------------------
+ 
+#&gt; LateDays.grade_lowered_once
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">2</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-------------------</span>  binary  --------------------
+ 
+#&gt; test_bin_incr1
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">0.5</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+#&gt; test_bin_incr2
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">0.5</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+#&gt; test_bin_incr3
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">0.5</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+#&gt; test_bin_incr4
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">0.5</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+#&gt; test_bin_incr5
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">0.5</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+#&gt; test_bin_incr6
+Possible points: <span style="color: #AB9DF2; font-weight: bold;">0.5</span>
+<span style="color: #78DCE8;">Type</span>: ok
+Assumptions:
+Closed under the global context
+ 
+ 
+Max points - standard: <span style="color: #AB9DF2; font-weight: bold;">28</span>
+Max points - advanced: <span style="color: #AB9DF2; font-weight: bold;">28</span>
+
+Allowed <span style="color: #FF6188;">Axioms</span>:
+functional_extensionality
+FunctionalExtensionality.functional_extensionality_dep
+plus_le
+le_trans
+le_plus_l
+add_le_cases
+Sn_le_Sm__n_le_m
+O_le_n
+
+
+========== Summary ==========
+
+Below <span style="color: #78DCE8;">is</span> a summary <span style="color: #78DCE8;">of</span> the automatically graded exercises that are incomplete.
+
+The output for each exercise can be any <span style="color: #78DCE8;">of</span> the following:
+  <span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-</span> 'Closed under the global context', <span style="color: #78DCE8;">if</span> it <span style="color: #78DCE8;">is</span> complete
+  <span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-</span> 'MANUAL', <span style="color: #78DCE8;">if</span> it <span style="color: #78DCE8;">is</span> manually graded
+  <span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-</span> A list <span style="color: #78DCE8;">of</span> pending axioms, containing unproven assumptions. In this <span style="text-decoration: underline;">case</span>
+    the exercise <span style="color: #78DCE8;">is</span> considered complete, <span style="color: #78DCE8;">if</span> the axioms are all allowed.
+
+========== Standard ==========
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> test_nandb4 ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> test_andb34 ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> test_factorial2 ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> test_ltb3 ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> plus_id_exercise ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> mult_n_1 ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> andb_true_elim2 ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> zero_nbeq_plus_1 ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> identity_fn_applied_twice ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> negation_fn_applied_twice ---------
+MANUAL
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> LateDays.letter_comparison_Eq ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> LateDays.test_grade_comparison1 ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> LateDays.test_grade_comparison2 ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> LateDays.test_grade_comparison3 ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> LateDays.test_grade_comparison4 ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> LateDays.lower_letter_lowers ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> LateDays.lower_grade_A_Plus ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> LateDays.lower_grade_A_Natural ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> LateDays.lower_grade_A_Minus ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> LateDays.lower_grade_B_Plus ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> LateDays.lower_grade_F_Natural ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> LateDays.lower_grade_twice ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> LateDays.lower_grade_thrice ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> LateDays.lower_grade_F_Minus ---------
+<span style="color: #FF6188;">Axioms</span>:
+LateDays.lower_grade_F_Minus
+  : LateDays.lower_grade (LateDays.Grade LateDays.F LateDays.Minus) =
+    LateDays.Grade LateDays.F LateDays.Minus
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> LateDays.lower_grade_lowers ---------
+<span style="color: #FF6188;">Axioms</span>:
+LateDays.lower_grade_F_Minus
+  : LateDays.lower_grade (LateDays.Grade LateDays.F LateDays.Minus) =
+    LateDays.Grade LateDays.F LateDays.Minus
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> LateDays.no_penalty_for_mostly_on_time ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> LateDays.grade_lowered_once ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> test_bin_incr1 ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> test_bin_incr2 ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> test_bin_incr3 ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> test_bin_incr4 ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> test_bin_incr5 ---------
+Closed under the global context
+<span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">----------</span> test_bin_incr6 ---------
+Closed under the global context
+
+=========g Advanced ==========
+</pre>
+</div>
+<hr />
+<p>
+<a href="basics-results.html">Back to Top</a>
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: selffins</p>
+<p class="date">Created: 2025-01-18 Sat 18:30</p>
+</div>
+</body>
+</html>

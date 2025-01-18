@@ -1,0 +1,414 @@
+#+title:Basics.v Exercises Results
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../custom.css">
+
+------
+[[file:../sf-notes.org][Back to Notes]]
+
+
+* Summary
+
++ Max points - standard: 28
++ Max points - advanced: 28
++ My score -  27
+
+** TODO Manual grading
+
+There is one _ungraded_ question, =decreasing=.
+
+* Output
+
+Here's the output after running the make script for =Basics.v=.
+
+#+BEGIN_SRC coq
+    = monday
+     : day
+     = tuesday
+     : day
+     = bw_white
+     : bw
+     = bw_black
+     : bw
+true
+     : bool
+true : bool
+     : bool
+negb true : bool
+     : bool
+negb : bool -> bool
+     : bool -> bool
+Playground.foo : rgb
+     : rgb
+foo : bool
+     : bool
+bits B1 B0 B1 B0 : nybble
+     : nybble
+     = false
+     : bool
+     = true
+     : bool
+4
+     : nat
+     = 2
+     : nat
+S : nat -> nat
+     : nat -> nat
+Nat.pred : nat -> nat
+     : nat -> nat
+minustwo : nat -> nat
+     : nat -> nat
+     = 5
+     : nat
+0 + 1 + 1 : nat
+     : nat
+mult_n_O
+     : forall n : nat, 0 = n * 0
+mult_n_Sm
+     : forall n m : nat, n * m + n = n * S m
+     = Lt
+     : comparison
+     = Eq
+     : comparison
+     = Gt
+     : comparison
+-------------------  nandb  --------------------
+ 
+#> test_nandb4
+Possible points: 1
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+-------------------  andb3  --------------------
+ 
+#> test_andb34
+Possible points: 1
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+-------------------  factorial  --------------------
+ 
+#> test_factorial2
+Possible points: 1
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+-------------------  ltb  --------------------
+ 
+#> test_ltb3
+Possible points: 1
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+-------------------  plus_id_exercise  --------------------
+ 
+#> plus_id_exercise
+Possible points: 1
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+-------------------  mult_n_1  --------------------
+ 
+#> mult_n_1
+Possible points: 1
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+-------------------  andb_true_elim2  --------------------
+ 
+#> andb_true_elim2
+Possible points: 2
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+-------------------  zero_nbeq_plus_1  --------------------
+ 
+#> zero_nbeq_plus_1
+Possible points: 1
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+-------------------  identity_fn_applied_twice  --------------------
+ 
+#> identity_fn_applied_twice
+Possible points: 1
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+-------------------  negation_fn_applied_twice  --------------------
+ 
+#> Manually graded: negation_fn_applied_twice
+Possible points: 1
+Score: Ungraded
+Comment: None
+ 
+-------------------  letter_comparison  --------------------
+ 
+#> LateDays.letter_comparison_Eq
+Possible points: 1
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+-------------------  grade_comparison  --------------------
+ 
+#> LateDays.test_grade_comparison1
+Possible points: 0.5
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+#> LateDays.test_grade_comparison2
+Possible points: 0.5
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+#> LateDays.test_grade_comparison3
+Possible points: 0.5
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+#> LateDays.test_grade_comparison4
+Possible points: 0.5
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+-------------------  lower_letter_lowers  --------------------
+ 
+#> LateDays.lower_letter_lowers
+Possible points: 2
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+-------------------  lower_grade  --------------------
+ 
+#> LateDays.lower_grade_A_Plus
+Possible points: 0.25
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+#> LateDays.lower_grade_A_Natural
+Possible points: 0.25
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+#> LateDays.lower_grade_A_Minus
+Possible points: 0.25
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+#> LateDays.lower_grade_B_Plus
+Possible points: 0.25
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+#> LateDays.lower_grade_F_Natural
+Possible points: 0.25
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+#> LateDays.lower_grade_twice
+Possible points: 0.25
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+#> LateDays.lower_grade_thrice
+Possible points: 0.25
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+#> LateDays.lower_grade_F_Minus
+Possible points: 0.25
+Type: ok
+Assumptions:
+Axioms:
+LateDays.lower_grade_F_Minus
+  : LateDays.lower_grade (LateDays.Grade LateDays.F LateDays.Minus) =
+    LateDays.Grade LateDays.F LateDays.Minus
+ 
+-------------------  lower_grade_lowers  --------------------
+ 
+#> LateDays.lower_grade_lowers
+Possible points: 3
+Type: ok
+Assumptions:
+Axioms:
+LateDays.lower_grade_F_Minus
+  : LateDays.lower_grade (LateDays.Grade LateDays.F LateDays.Minus) =
+    LateDays.Grade LateDays.F LateDays.Minus
+ 
+-------------------  no_penalty_for_mostly_on_time  --------------------
+ 
+#> LateDays.no_penalty_for_mostly_on_time
+Possible points: 2
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+-------------------  graded_lowered_once  --------------------
+ 
+#> LateDays.grade_lowered_once
+Possible points: 2
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+-------------------  binary  --------------------
+ 
+#> test_bin_incr1
+Possible points: 0.5
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+#> test_bin_incr2
+Possible points: 0.5
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+#> test_bin_incr3
+Possible points: 0.5
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+#> test_bin_incr4
+Possible points: 0.5
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+#> test_bin_incr5
+Possible points: 0.5
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+#> test_bin_incr6
+Possible points: 0.5
+Type: ok
+Assumptions:
+Closed under the global context
+ 
+ 
+Max points - standard: 28
+Max points - advanced: 28
+
+Allowed Axioms:
+functional_extensionality
+FunctionalExtensionality.functional_extensionality_dep
+plus_le
+le_trans
+le_plus_l
+add_le_cases
+Sn_le_Sm__n_le_m
+O_le_n
+
+
+========== Summary ==========
+
+Below is a summary of the automatically graded exercises that are incomplete.
+
+The output for each exercise can be any of the following:
+  - 'Closed under the global context', if it is complete
+  - 'MANUAL', if it is manually graded
+  - A list of pending axioms, containing unproven assumptions. In this case
+    the exercise is considered complete, if the axioms are all allowed.
+
+========== Standard ==========
+---------- test_nandb4 ---------
+Closed under the global context
+---------- test_andb34 ---------
+Closed under the global context
+---------- test_factorial2 ---------
+Closed under the global context
+---------- test_ltb3 ---------
+Closed under the global context
+---------- plus_id_exercise ---------
+Closed under the global context
+---------- mult_n_1 ---------
+Closed under the global context
+---------- andb_true_elim2 ---------
+Closed under the global context
+---------- zero_nbeq_plus_1 ---------
+Closed under the global context
+---------- identity_fn_applied_twice ---------
+Closed under the global context
+---------- negation_fn_applied_twice ---------
+MANUAL
+---------- LateDays.letter_comparison_Eq ---------
+Closed under the global context
+---------- LateDays.test_grade_comparison1 ---------
+Closed under the global context
+---------- LateDays.test_grade_comparison2 ---------
+Closed under the global context
+---------- LateDays.test_grade_comparison3 ---------
+Closed under the global context
+---------- LateDays.test_grade_comparison4 ---------
+Closed under the global context
+---------- LateDays.lower_letter_lowers ---------
+Closed under the global context
+---------- LateDays.lower_grade_A_Plus ---------
+Closed under the global context
+---------- LateDays.lower_grade_A_Natural ---------
+Closed under the global context
+---------- LateDays.lower_grade_A_Minus ---------
+Closed under the global context
+---------- LateDays.lower_grade_B_Plus ---------
+Closed under the global context
+---------- LateDays.lower_grade_F_Natural ---------
+Closed under the global context
+---------- LateDays.lower_grade_twice ---------
+Closed under the global context
+---------- LateDays.lower_grade_thrice ---------
+Closed under the global context
+---------- LateDays.lower_grade_F_Minus ---------
+Axioms:
+LateDays.lower_grade_F_Minus
+  : LateDays.lower_grade (LateDays.Grade LateDays.F LateDays.Minus) =
+    LateDays.Grade LateDays.F LateDays.Minus
+---------- LateDays.lower_grade_lowers ---------
+Axioms:
+LateDays.lower_grade_F_Minus
+  : LateDays.lower_grade (LateDays.Grade LateDays.F LateDays.Minus) =
+    LateDays.Grade LateDays.F LateDays.Minus
+---------- LateDays.no_penalty_for_mostly_on_time ---------
+Closed under the global context
+---------- LateDays.grade_lowered_once ---------
+Closed under the global context
+---------- test_bin_incr1 ---------
+Closed under the global context
+---------- test_bin_incr2 ---------
+Closed under the global context
+---------- test_bin_incr3 ---------
+Closed under the global context
+---------- test_bin_incr4 ---------
+Closed under the global context
+---------- test_bin_incr5 ---------
+Closed under the global context
+---------- test_bin_incr6 ---------
+Closed under the global context
+
+=========g Advanced ==========
+#+END_SRC 
+------
+[[file:basics-results.org][Back to Top]]

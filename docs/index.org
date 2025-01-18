@@ -216,28 +216,35 @@ Each directory contains .v files and .html files. The important ones in each dir
     The book's cover page and navigation starting point
 *** deps.html
     Overview of the ordering of chapters
-
 * Health and Wellbeing
-*** The student is required to prioritize their wellbeing and seek assistance if problems are encountered. :)
-*** Working on this independent study actually improves the student's wellbeing! :)
+
+The student is required to prioritize their wellbeing and seek assistance if problems are encountered. In fact, working on this independent study actually improves the student's wellbeing! :)
+
+* Miscellaneous Notes
+
+Besides technical notes, I write notes about the learning process, and related concepts in mathematical logic/proof theory, or interactive theorem proving. They are currently very tentative. Lookie
+[[file:extras.org][here.]]
+
 * Todo-list
-
-A lot of these todo-items are about the webpage and course. That's part of the course goals, to "Build strong habits and a decent familiarity for further in-depth study or research in formal methods." Well, part of strong habits is a good workflow - it'll serve as a way to organize my own knowledge base in the future! It's also just plainly therapeutic :) and serves as a hobby. I really really /really/ love emacs.
-
 *** DONE open github repo
 *** TODO display commit message in the top of the webpage, or latest edit!
+*** TODO arrange this todo list LOL. add priorities
 *** TODO link advisor and student's websites.
 *** TODO github actions, org-publish
 *** TODO create discord group, with discord-github notifications
 *** DONE fix spacing issues
 *** TODO typography. embed iosevka font
+*** TODO maybe revamp the way I do headlines
+*** TODO Headlines should be collapsible
 *** TODO links to attached LOCAL sf book
 *** TODO add tags to sections
 *** TODO make priority tags visible!
 **** TODO revamp how we display exercises. Maybe we should have a summary table showing the number of stars, completion, name, etc.
 *** TODO research org-roam and integrate it for a knowledge base type of organization.
 *** TODO org-agenda integration. There should be a TODOs page where all the todo lists across the pages appear.
-*** TODO make template pages for notes. A new note page should follow the note-structure in 1.14.1.; it should have a previous notes and next notes link, homepage link, back to top link.
+*** TODO make template pages for notes. A new note page should follow the note-structure in 1.14.1.; it should have a previous notes and next notes link, homepage link, back to top link. Files should link to the chapter Coq file.
+*** TODO figure out your "miscellanous notes" idea
 *** TODO add homework submission platform. My own Gradescope????
+
 ------
 [[file:index.org][Back to Top]]

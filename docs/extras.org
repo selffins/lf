@@ -1,0 +1,108 @@
+#+title: Extras
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="custom.css">
+#+OPTIONS: num:2 toc:1
+
+------
+[[file:index.org][Homepage]]
+
+
+* What is this?
+
+A box of notes about the words "Independent Study".
+
+* Principles
+
+** On Notes and the Course Website
+
+A lot of the work (the share will be lesser once a good system is established) are about the webpage and course.
+
+That's intentional -- it's part of the course goals, to "Build strong habits and a decent familiarity for further in-depth study or research in formal methods."
+
+Well, part of strong habits is a good workflow - it'll serve as a way to organize my own knowledge base in the future! It's also just plainly therapeutic :) and serves as a hobby. I really really /really/ love emacs.
+
+And making the notes pretty and comprehensive is literally 60% of the grade. There is another related goal: "Learn to effectively communicate formal methods concepts."
+
+** On metacognition, reflection
+
+One of the ways "Comprehension" gets evaluated is by
+#+BEGIN_QUOTE
+(reflecting) "metacognitively about course progress and learning strategies and broader connections for each week".
+#+END_QUOTE
+
+This involves:
+
+- Documenting the learning process. In rhetoric, we are taught that crafting arguments (e.g. essays) is a form of thinking. The process of writing is much more important than the actual product. Since we *already* have a book, it wouldn't make sense for the notes to *copy* the book. It's more of a *study journal* than it is notes.
+- Asking questions. I note down questions immediately-- as soon as I think of them in the notes.
+- Documenting the working-out of the exercises.
+- Relating the lesson with further concepts. This involves looking things up in the internet, in wikis, in academic resources, papers. I like to read a lot of type theory / formal methods / history of mathematics stuff and it will be a great way to consolidate concepts. This involves looking up concrete examples and industry applications.
+- Original writing. I plan to make original content - essays - about the interesting history surrounding theorem provers. I already have a post about Barendregt. Another idea is studying the origins of the ITP tactics - Frege, Euclid, Aristotle, Leibniz comes to mind. =reflexivity= is obviously a
+- Deep reading. Girard, Frege, Russell, Coquand, Per Martin Lof, Pierce all have so much interesting stuff to say about the theoretical stuff - mathematical logic.
+- An avoidance of AI tools. I love chatbots. I use them *a LOT*. But what I will never use it for is to do the hard work for me. Or even do the researching around for me. It's so fun to learn - AI robs you of that process. Independent study means independent study.,
+
+** Health and Wellbeing
+
+The student is required to prioritize their wellbeing and seek assistance if problems are encountered. In fact, working on this independent study actually improves the student's wellbeing! :)
+
+
+* TODO Notes structure
+
+- Title
+- Table of Contents
+- Summary
+  - Terms
+- Actual notes
+- Exercise Summary
+- Exercises
+- Questions
+- Metacognition section
+- Further reading
+- Next
+
+* Todo-list
+*** DONE open github repo
+*** TODO display commit message in the top of the webpage, or latest edit!
+*** TODO link advisor and student's websites.
+*** TODO github actions, org-publish
+*** TODO create discord group, with discord-github notifications
+*** DONE fix spacing issues
+*** TODO typography. embed iosevka font
+*** TODO maybe revamp the way I do headlines
+*** TODO Headlines should be collapsible
+*** TODO links to attached LOCAL sf book
+*** TODO add tags to sections
+*** TODO make priority tags visible!
+**** TODO revamp how we display exercises. Maybe we should have a summary table showing the number of stars, completion, name, etc.
+*** TODO research org-roam and integrate it for a knowledge base type of organization.
+*** TODO org-agenda integration. There should be a TODOs page where all the todo lists across the pages appear.
+*** TODO make template pages for notes. A new note page should follow the note-structure in 1.14.1.; it should have a previous notes and next notes link, homepage link, back to top link. Files should link to the chapter Coq file.
+*** TODO add homework submission platform. My own Gradescope????
+
+* Article/Broader reading ideas
+
+*** TODO History of proof theory
+
+*** TODO Practical tips
+
+*** TODO Coq applications
+
+*** TODO Interesting developments with AI + ITPs
+
+*** TODO Origins of tactics
+
+Euclid in particular comes to mind.
+
+*** TODO On Brouwer's Automath vision
+
+I've already written this! I just need to publish it now.
+
+*** TODO Comparison of ITPs
+
+I am very interested in particular with Lean and Agda.
+
+*** TODO Girard and Coquand and Martin-Lof
+
+*** TODO HoTT
+
+*** TODO The Logic Front of the Empiricist-Rationalist war
+------
+[[file:extras.org][Back to Top]]
