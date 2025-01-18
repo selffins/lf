@@ -277,30 +277,47 @@ Here, Coq notes that the function is decreasing in the first argument. We are pe
 This is a part of Coq's design - it guarantees that every function will terminate. However, apparently, Coq's automatic analysis of whether inputs decrease isn't very sophisticated, and apparently it is sometimes necessary to write functions in slightly unnatural ways. (What?)
 
 * Exercises
-There are 20 exercises.
+There are 20 exercises in total. The following are the exercises in the main text.
 
 ** [#C] nandb
-How to use =simpl= and =reflexivity=.
+Shows how to use =simpl= and =reflexivity=.
 ** [#C] andb3
-How to use =simpl= and =reflexivity=.
+Same as above.
 ** [#C] factorial
-How to define a fixpoint function.
+Shows how to define a fixpoint function.
 ** [#C] ltb
 ** [#C] plus​_id​_exercise
 Introducing the =intros= tactic, for variables and hypotheses.
 ** [#C] mult​_n​_1
-How to use theorems in proofs.
+Shows to use/invoke theorems in proofs using =rewrite=.
 ** [#B] andb​_true​_elim2
-How to use =destruct= for case analysis. This was a bit tricky before I realized how to step one tactic at a time. You destruct two times. When encountering a contradiction, use it to =rewrite=.
-** TODO [#B] decreasing (optional)
-Write a recursive function that terminates on all inputs but gets rejected by Coq's unsophisticated automatic analysis of decreasing arguments.
-** TODO [#C] zero​_nbeq​_plus​_1
+Shows how to use =destruct= for case analysis. This was a bit tricky before I realized how to step one tactic at a time. You destruct two times. When encountering a contradiction, use it to =rewrite=.
+** [#B] decreasing (optional)
+The problem was to write a recursive function that terminates on all inputs but gets rejected by Coq's unsophisticated automatic analysis of decreasing arguments.
+
+Answer:
+
+#+BEGIN_SRC coq
+Fixpoint summation (i : nat) (n : nat) : nat :=
+  if i =? n
+  then n
+  else i + (summation (i+1) n).
+#+END_SRC
+
+Wow, it's actually interesting how Coq is unable to analyze this simple function as decreasing! They should borrow Why3's =variant= keyword - =n - i= is strictly decreasing. In Why3, you'd have to include this =variant= keyword or else Why3 would complain about the function not being proved as terminating.
+
+** [#C] zero​_nbeq​_plus​_1
+
+Straightforward.
 
 * Exercises (Warmups)
-** TODO identity​_fn​_applied​_twice
 
-** TODO negation​_fn​_applied​_twice
-** TODO [#A] andb​_eq​_orb
+These were pretty straightforward uses of rewrites and/or case analysis.
+
+** [#C] identity​_fn​_applied​_twice
+** [#C] negation​_fn​_applied​_twice
+** [#A] andb​_eq​_orb
+
 * Exercises ("Course Late Policies, formalized")
 ** TODO [#C] letter​_comparison
 ** TODO [#B] grade​_comparison
@@ -459,7 +476,7 @@ The Association for Computing Machinery awarded Thierry Coquand, Gérard Huet, C
  *A recent effort within this field is making these tools use artificial intelligence to automate the formalization of ordinary mathematics.*
 
 ** More about CompCert
-Adapted from https://www.seas.upenn.edu/~cis5000/current/lectures/cis5000-lec01.pdf, slide 20
+Adapted from https://www.seas.upenn.edu/~cis5000/current/lectures/cis5000-lec01.pdf, slide 20.
 
 CompCert is by Xavier Leroy at INRIA. The project was started on 2010.
 
@@ -483,14 +500,19 @@ and machine-checked, has tangible benefits for compiler
 users.
 #+END_QUOTE
 
+** TODO More Coq applications!
+#+CAPTION: There's a fair bit of work around Coq in academia and industry.  Taken from UPenn CIS5000.
+[[./img/coq-applications.png]]
+
 * TODOs
 *** TODO do exercises
 *** TODO add footnotes and bibliography
 *** TODO proof-read
-*** TODO commit
+*** TODO Explain the More Coq Applications image.
+*** TODO add the Further Knowledge section to its own file. We'll keep a copy here though.
 
-* End
+* Next up
 
-Next up is: Proof by induction.
+[[file:sf-notes-1.org][Proof by induction.]]
 ------
 [[file:sf-notes.org][Back to Top]]

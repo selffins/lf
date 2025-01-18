@@ -1493,7 +1493,10 @@ Fixpoint plus' (n : nat) (m : nat) : nat :=
     that it doesn't cause Coq to reject the whole file!) *)
 
 (* FILL IN HERE
-
+Fixpoint summation (i : nat) (n : nat) : nat :=
+  if i =? n
+  then n
+  else i + (summation (i+1) n).  
     [] *)
 
 (* ################################################################# *)
