@@ -10,7 +10,7 @@ From LF Require Export Basics.
 
 (** For this [Require] command to work, Coq needs to be able to
     find a compiled version of the previous chapter ([Basics.v]).
-    This compiled version, called [Basics.vo], is analogous to the
+   This compiled version, called [Basics.vo], is analogous to the
     [.class] files compiled from [.java] source files and the [.o]
     files compiled from [.c] files.
 
