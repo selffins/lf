@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-01-18 Sat 18:24 -->
+<!-- 2025-01-18 Sat 22:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Induction</title>
@@ -193,19 +193,321 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<link rel="stylesheet" type="text/css" href="custom.css">
 </head>
 <body>
 <div id="content" class="content">
 <h1 class="title">Induction</h1>
-<div class="org-center">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orga7dc967">1. Summary</a>
+<ul>
+<li><a href="#orge412caf">1.1. Terms</a></li>
+</ul>
+</li>
+<li><a href="#orgd17c370">2. Proof by Induction: <code>induction</code> tactic</a></li>
+<li><a href="#org421251f">3. Proofs within Proofs: <code>assert</code> tactic</a>
+<ul>
+<li><a href="#org7085ca4">3.1. <code>assert</code> for smarter <code>rewrite</code>​s</a></li>
+</ul>
+</li>
+<li><a href="#org89195df">4. Formal vs. Informal Proof</a></li>
+<li><a href="#org0afcaaf">5. <span class="todo TODO">TODO</span> Exercises</a></li>
+<li><a href="#org0793569">6. <span class="todo TODO">TODO</span> Scores</a></li>
+<li><a href="#org92faa89">7. Questions</a>
+<ul>
+<li><a href="#org5509a75">7.1. <span class="todo TODO">TODO</span> Disjunctive pattern</a></li>
+</ul>
+</li>
+<li><a href="#org6948eb7">8. <span class="todo TODO">TODO</span> Metacognition</a></li>
+<li><a href="#org962d517">9. <span class="todo TODO">TODO</span> Further Knowledge</a></li>
+<li><a href="#org7e40618">10. TODOs</a>
+<ul>
+<li><a href="#org97e2bb6">10.1. <span class="todo TODO">TODO</span> List exercises</a></li>
+<li><a href="#org80a531b">10.2. <span class="todo TODO">TODO</span> Do exercises</a></li>
+</ul>
+</li>
+<li><a href="#org108a743">11. <span class="todo TODO">TODO</span> Next up</a></li>
+</ul>
+</div>
+</div>
+<hr />
 <p>
-Under construction.
+<a href="index.html">Homepage</a> | <a href="sf-notes.html">Previous: Basics.v</a> | <a href="sf-notes-2.html">Next: TBD</a>
 </p>
+<div id="outline-container-orga7dc967" class="outline-2">
+<h2 id="orga7dc967"><span class="section-number-2">1.</span> Summary</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+In this chapter we quickly go over proofs by induction. We introduce the <code>induction</code> and <code>assert</code> tactics. Finally, having now been familiar with Coq proofs, we reflect on the differences between formal and informal mathematical proofs.
+</p>
+</div>
+<div id="outline-container-orge412caf" class="outline-3">
+<h3 id="orge412caf"><span class="section-number-3">1.1.</span> Terms</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+proof by induction, <code>induction</code> tactic, induction hypothesis, principle of induction, sub-theorems, <code>assert</code> tactic, formal proof, informal proof, proofs as communication
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd17c370" class="outline-2">
+<h2 id="orgd17c370"><span class="section-number-2">2.</span> Proof by Induction: <code>induction</code> tactic</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+So far, we&rsquo;ve done proof by simplification, rewriting, case analysis &#x2013; done using several tactics: <code>reflexivity</code>, <code>simpl</code>, <code>intro</code>, <code>rewrite</code>, <code>destruct</code>.
+</p>
+
+<p>
+We have learnt how to close goals by reflexivity, introduce variables and hypotheses, use previous theorems and assumptions, advance the proof by simplifying (computation), and break down goals into subgoals by casing on type constructors.
+</p>
+
+<p>
+We have also briefly learned how to unfold, and how to deal with contradictions.
+</p>
+
+<p>
+In this chapter, we will learn a classic proof technique: induction.
+</p>
+
+<p>
+From the chapter:
+</p>
+<div class="org-src-container">
+<pre class="src src-coq"><span style="color: #FFD866;">(** Recall (from a discrete math course, probably) the _principle of</span>
+<span style="color: #FFD866;">    induction over natural numbers_: If [P(n)] is some proposition</span>
+<span style="color: #FFD866;">    involving a natural number [n] and we want to show that [P] holds for</span>
+<span style="color: #FFD866;">    all numbers [n], we can reason like this:</span>
+<span style="color: #FFD866;">         - show that [P(O)] holds;</span>
+<span style="color: #FFD866;">         - show that, for any [n'], if [P(n')] holds, then so does [P(S</span>
+<span style="color: #FFD866;">           n')];</span>
+<span style="color: #FFD866;">         - conclude that [P(n)] holds for all [n].</span>
+
+<span style="color: #FFD866;">  In Coq, the steps are the same: we begin with the goal of proving</span>
+<span style="color: #FFD866;">    [P(n)] for all [n] and break it down (by applying the [induction]</span>
+<span style="color: #FFD866;">    tactic) into two separate subgoals: one where we must show [P(O)] and</span>
+<span style="color: #FFD866;">    another where we must show [P(n') -&gt; P(S n')].  *)</span>
+</pre>
+</div>
+
+<p>
+The <code>induction</code> tactic is quite straightforward. It also takes an <code>as</code> annotation - setting the variable names for the &ldquo;next element&rdquo; in the inductive step and the induction hypothesis.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-coq"><span style="color: #FF6188;">Theorem</span> <span style="color: #A9DC76;">minus_n_n</span> : <span style="color: #78DCE8;">forall</span> <span style="color: #FCFCFA;">n</span>,
+  minus n n = <span style="color: #AB9DF2; font-weight: bold;">0</span>.
+<span style="color: #FF6188;">Proof</span>.
+    <span style="text-decoration: underline;">intros</span> n. <span style="text-decoration: underline;">induction</span> n <span style="color: #78DCE8;">as</span> [| n' IHn'].
+  <span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-</span> <span style="text-decoration: underline;">simpl</span>. <span style="color: #ff0000;">reflexivity</span>.
+  <span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-</span> <span style="text-decoration: underline;">simpl</span>. <span style="text-decoration: underline;">rewrite</span> -&gt; IHn'. <span style="color: #ff0000;">reflexivity</span>.
+<span style="color: #FF6188;">Qed</span>.
+</pre>
+</div>
+
+<p>
+Note that <code>intros n</code> is redundant here - <code>induction n ...</code> already introduces <code>n</code> to the context.
+</p>
+</div>
+</div>
+<div id="outline-container-org421251f" class="outline-2">
+<h2 id="org421251f"><span class="section-number-2">3.</span> Proofs within Proofs: <code>assert</code> tactic</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+We can use the <code>assert</code> tactic in order to create an anonymous &ldquo;sub-theorem&rdquo; within a proof.
+</p>
+
+<p>
+This mimics &ldquo;informal&rdquo; mathematics, where large proofs are broken into a sequence of theorems &#x2013; and some of these theorems will be too trivial or of little general interest to bother giving it a name.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-coq"><span style="color: #FF6188;">Theorem</span> <span style="color: #A9DC76;">mult_0_plus'</span> : <span style="color: #78DCE8;">forall</span> <span style="color: #FCFCFA;">n m</span> : nat,
+  (n + <span style="color: #AB9DF2; font-weight: bold;">0</span> + <span style="color: #AB9DF2; font-weight: bold;">0</span>) * m = n * m.
+<span style="color: #FF6188;">Proof</span>.
+  <span style="text-decoration: underline;">intros</span> n m.
+  <span style="text-decoration: underline;">assert</span> (<span style="color: #FCFCFA;">H</span>: n + <span style="color: #AB9DF2; font-weight: bold;">0</span> + <span style="color: #AB9DF2; font-weight: bold;">0</span> = n).
+    { <span style="text-decoration: underline;">rewrite</span> add_comm. <span style="text-decoration: underline;">simpl</span>. <span style="text-decoration: underline;">rewrite</span> add_comm. <span style="color: #ff0000;">reflexivity</span>. }<span style="color: #AB9DF2; font-weight: bold;">4</span>
+  <span style="text-decoration: underline;">rewrite</span> -&gt; H.
+  <span style="color: #ff0000;">reflexivity</span>.  <span style="color: #FF6188;">Qed</span>.
+</pre>
+</div>
+</div>
+<div id="outline-container-org7085ca4" class="outline-3">
+<h3 id="org7085ca4"><span class="section-number-3">3.1.</span> <code>assert</code> for smarter <code>rewrite</code>​s</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+This is very important. Too often, <code>rewrite</code> applies rewrites in unintended places.
+</p>
+
+<p>
+Here, we want to prove that <code>(n + m) + (p + q) = (m + n) + (p + q)</code>. The only difference between the two sides of the <code>=</code> is <code>n + m</code> vs. <code>m + n</code> &#x2013; it would be enough to use commutativity of addition: <code>add_comm</code>. But there are three uses of <code>+</code> here, and it turns out that <code>rewrite -&gt; add_comm</code> will target  the outer <code>+</code> and not what we wanted: <code>(n + m)</code>.
+</p>
+
+<p>
+To get through this, we use <code>assert</code> to create a local lemma stating that <code>n + m = m + n</code>, and then rewrite the original equation with the lemma.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-coq"><span style="color: #FF6188;">Theorem</span> <span style="color: #A9DC76;">plus_rearrange</span> : <span style="color: #78DCE8;">forall</span> <span style="color: #FCFCFA;">n m p q</span> : nat,
+  (n + m) + (p + q) = (m + n) + (p + q).
+<span style="color: #FF6188;">Proof</span>.
+  <span style="text-decoration: underline;">intros</span> n m p q.
+  <span style="text-decoration: underline;">assert</span> (<span style="color: #FCFCFA;">H</span>: n + m = m + n).
+  { <span style="text-decoration: underline;">rewrite</span> add_comm. <span style="color: #ff0000;">reflexivity</span>. }
+  <span style="text-decoration: underline;">rewrite</span> H. <span style="color: #ff0000;">reflexivity</span>.  <span style="color: #FF6188;">Qed</span>.
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org89195df" class="outline-2">
+<h2 id="org89195df"><span class="section-number-2">4.</span> Formal vs. Informal Proof</h2>
+<div class="outline-text-2" id="text-4">
+<blockquote>
+<p>
+Informal proofs are algorithms; formal proofs are code.
+</p>
+</blockquote>
+
+<p>
+What counts as a proof of a mathematical claim?
+This has been a question philosophers have been debating - the authors argue that a proof is an act of communication (to instill in the audience the certainty that <code>P</code> is true).
+</p>
+
+<p>
+The authors continue the communication analogy:
+</p>
+
+<p>
+Authors communicate to their readers. The reader can be a human person, or it could be a program like Coq.
+</p>
+
+<p>
+Proofs for humans will be written in natural language, and is therefore <b>informal</b>. Even though such mathematical proofs may be considered &ldquo;rigorous&rdquo;,  the fact that they are in natural language, which has a lot of ambiguityl, means that such proofs are <b>informal</b> by nature. A formal proof uses <b>formal language</b>, and sticks closely to a well-established syntax and semantics.
+</p>
+
+<p>
+There are also different kinds of math readers depending on their expertise. As proofs are an act of communication, and communication depends on context, (informal) proofs can be written in different styles or phrasings to accomodate their audience.
+</p>
+
+<p>
+An excerpt for the different kinds of audiences:
+</p>
+
+<blockquote>
+<p>
+(&#x2026;)  A &ldquo;valid&rdquo; proof is one that
+   makes the reader believe <code>P</code>.  But the same proof may be read by
+   many different readers, some of whom may be convinced by a
+   particular way of phrasing the argument, while others may not be.
+   Some readers may be particularly pedantic, inexperienced, or just
+   plain thick-headed; the only way to convince them will be to make
+   the argument in painstaking detail.  But other readers, more
+   familiar in the area, may find all this detail so overwhelming
+   that they lose the overall thread; all they want is to be told the
+   main ideas, since it is easier for them to fill in the details for
+   themselves than to wade through a written presentation of them.
+</p>
+</blockquote>
+
+<p>
+The following is the most important point about informal proofs.
+</p>
+
+<blockquote>
+<p>
+Ultimately, there is no universal standard, because there is no
+single way of writing an informal proof that is guaranteed to
+convince every conceivable reader.
+</p>
+</blockquote>
+
+<p>
+Proofs written for &ldquo;machines&rdquo; like Coq, i.e. <b>formal proofs</b>, are mechanically derived from a certain set of formal logical rules (which?), and the proof is a recipe that guides the program in checking this fact.
+</p>
+
+<p>
+A formal proof carries in it a mechanical way of verifying that the proof holds.
+</p>
+
+<p>
+Formal proofs are useful in many ways, but they tend to not be very efficient ways of communicating ideas between human beings.
+</p>
+</div>
+</div>
+<div id="outline-container-org0afcaaf" class="outline-2">
+<h2 id="org0afcaaf"><span class="section-number-2">5.</span> <span class="todo TODO">TODO</span> Exercises</h2>
+</div>
+<div id="outline-container-org0793569" class="outline-2">
+<h2 id="org0793569"><span class="section-number-2">6.</span> <span class="todo TODO">TODO</span> Scores</h2>
+</div>
+<div id="outline-container-org92faa89" class="outline-2">
+<h2 id="org92faa89"><span class="section-number-2">7.</span> Questions</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org5509a75" class="outline-3">
+<h3 id="org5509a75"><span class="section-number-3">7.1.</span> <span class="todo TODO">TODO</span> Disjunctive pattern</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+<code>induction</code> uses a <code>as ..</code> pattern. For example, we saw <code>induction n as [| n' IHN']</code>.  If we do <code>induction n as [n' IHN']</code> instead, the compiler complains.
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">Error: Expects a disjunctive pattern with <span style="color: #AB9DF2; font-weight: bold;">2</span> branches.
+</pre>
+</div>
+<p>
+What&rsquo;s a <i>disjunctive pattern</i> and what does it have to do with the <code>induction</code> tactic?
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org6948eb7" class="outline-2">
+<h2 id="org6948eb7"><span class="section-number-2">8.</span> <span class="todo TODO">TODO</span> Metacognition</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+The chapter was pretty straightforward. I like the section on formal versus informal proofs. This book, and the course infrastructure, is excellent. There&rsquo;s a pretty book online, but the better way to learn is by going through the Coq files - the book is derived from the Coq files which have comments -
+</p>
+</div>
+</div>
+<div id="outline-container-org962d517" class="outline-2">
+<h2 id="org962d517"><span class="section-number-2">9.</span> <span class="todo TODO">TODO</span> Further Knowledge</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+The discussion on formal vs informal proofs reminds me of Brouwer&rsquo;s vision for the Automath project, which I have written about before.
+</p>
+</div>
+</div>
+<div id="outline-container-org7e40618" class="outline-2">
+<h2 id="org7e40618"><span class="section-number-2">10.</span> TODOs</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-org97e2bb6" class="outline-3">
+<h3 id="org97e2bb6"><span class="section-number-3">10.1.</span> <span class="todo TODO">TODO</span> List exercises</h3>
+</div>
+
+<div id="outline-container-org80a531b" class="outline-3">
+<h3 id="org80a531b"><span class="section-number-3">10.2.</span> <span class="todo TODO">TODO</span> Do exercises</h3>
+</div>
+</div>
+<div id="outline-container-org108a743" class="outline-2">
+<h2 id="org108a743"><span class="section-number-2">11.</span> <span class="todo TODO">TODO</span> Next up</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+Lists.v
+</p>
+<hr />
+<p>
+<a href="sf-notes.html">Back to Top</a>
+</p>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: selffins</p>
-<p class="date">Created: 2025-01-18 Sat 18:24</p>
+<p class="date">Created: 2025-01-18 Sat 22:56</p>
 </div>
 </body>
 </html>

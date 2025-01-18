@@ -1,0 +1,133 @@
+DIGEST ec3563bb65dba79db9b549bbaf484150
+FLF.MapsTest
+R70:75 Coq.Strings.String <> <> lib
+R101:104 LF.Maps <> <> lib
+ax 118:124 <> MISSING
+mod 141:145 <> Check
+R211:217 LF.MapsTest <> MISSING defax
+R211:217 LF.MapsTest <> MISSING defax
+R410:413 Coq.Init.Datatypes <> Some constr
+R410:413 Coq.Init.Datatypes <> Some constr
+R593:596 Coq.Init.Datatypes <> None constr
+R593:596 Coq.Init.Datatypes <> None constr
+R678:682 LF.MapsTest Check <> mod
+R709:712 LF.Maps <> <> lib
+R722:726 LF.MapsTest Check <> mod
+def 730:738 <> Unnamed_thm
+R735:738 Coq.Init.Logic <> True ind
+R886:898 LF.Maps <> t_update_same prfax
+binder 911:911 <> A:2
+R926:934 LF.Maps <> total_map def
+R936:936 LF.MapsTest <> A:2 var
+binder 922:922 <> m:3
+R944:949 Coq.Strings.String <> string ind
+binder 940:940 <> x:4
+R955:956 Coq.Init.Logic <> eq ind
+R970:975 Coq.Strings.String <> string ind
+R978:978 LF.MapsTest <> A:2 var
+R983:990 LF.Maps <> t_update def
+R992:992 LF.MapsTest <> A:2 var
+R994:994 LF.MapsTest <> m:3 var
+R996:996 LF.MapsTest <> x:4 var
+R999:999 LF.MapsTest <> m:3 var
+R1001:1001 LF.MapsTest <> x:4 var
+R1005:1005 LF.MapsTest <> m:3 var
+R886:898 LF.Maps <> t_update_same prfax
+binder 911:911 <> A:5
+R926:934 LF.Maps <> total_map def
+R936:936 LF.MapsTest <> A:5 var
+binder 922:922 <> m:6
+R944:949 Coq.Strings.String <> string ind
+binder 940:940 <> x:7
+R955:956 Coq.Init.Logic <> eq ind
+R970:975 Coq.Strings.String <> string ind
+R978:978 LF.MapsTest <> A:5 var
+R983:990 LF.Maps <> t_update def
+R992:992 LF.MapsTest <> A:5 var
+R994:994 LF.MapsTest <> m:6 var
+R996:996 LF.MapsTest <> x:7 var
+R999:999 LF.MapsTest <> m:6 var
+R1001:1001 LF.MapsTest <> x:7 var
+R1005:1005 LF.MapsTest <> m:6 var
+R1057:1069 LF.Maps <> t_update_same prfax
+def 1072:1080 <> Unnamed_thm
+R1077:1080 Coq.Init.Logic <> True ind
+R1245:1260 LF.Maps <> t_update_permute prfax
+binder 1273:1273 <> A:8
+R1288:1296 LF.Maps <> total_map def
+R1298:1298 LF.MapsTest <> A:8 var
+binder 1284:1284 <> m:9
+R1310:1310 LF.MapsTest <> A:8 var
+binder 1302:1303 <> v1:10
+binder 1305:1306 <> v2:11
+R1322:1327 Coq.Strings.String <> string ind
+binder 1314:1315 <> x1:12
+binder 1317:1318 <> x2:13
+R1338:1340 Coq.Init.Logic <> not def
+R1344:1345 Coq.Init.Logic <> eq ind
+R1347:1352 Coq.Strings.String <> string ind
+R1354:1355 LF.MapsTest <> x2:13 var
+R1357:1358 LF.MapsTest <> x1:12 var
+R1365:1366 Coq.Init.Logic <> eq ind
+R1380:1385 Coq.Strings.String <> string ind
+R1388:1388 LF.MapsTest <> A:8 var
+R1393:1400 LF.Maps <> t_update def
+R1402:1402 LF.MapsTest <> A:8 var
+R1406:1413 LF.Maps <> t_update def
+R1415:1415 LF.MapsTest <> A:8 var
+R1417:1417 LF.MapsTest <> m:9 var
+R1419:1420 LF.MapsTest <> x2:13 var
+R1422:1423 LF.MapsTest <> v2:11 var
+R1426:1427 LF.MapsTest <> x1:12 var
+R1429:1430 LF.MapsTest <> v1:10 var
+R1438:1445 LF.Maps <> t_update def
+R1447:1447 LF.MapsTest <> A:8 var
+R1451:1458 LF.Maps <> t_update def
+R1460:1460 LF.MapsTest <> A:8 var
+R1462:1462 LF.MapsTest <> m:9 var
+R1464:1465 LF.MapsTest <> x1:12 var
+R1467:1468 LF.MapsTest <> v1:10 var
+R1471:1472 LF.MapsTest <> x2:13 var
+R1474:1475 LF.MapsTest <> v2:11 var
+R1245:1260 LF.Maps <> t_update_permute prfax
+binder 1273:1273 <> A:14
+R1288:1296 LF.Maps <> total_map def
+R1298:1298 LF.MapsTest <> A:14 var
+binder 1284:1284 <> m:15
+R1310:1310 LF.MapsTest <> A:14 var
+binder 1302:1303 <> v1:16
+binder 1305:1306 <> v2:17
+R1322:1327 Coq.Strings.String <> string ind
+binder 1314:1315 <> x1:18
+binder 1317:1318 <> x2:19
+R1338:1340 Coq.Init.Logic <> not def
+R1344:1345 Coq.Init.Logic <> eq ind
+R1347:1352 Coq.Strings.String <> string ind
+R1354:1355 LF.MapsTest <> x2:19 var
+R1357:1358 LF.MapsTest <> x1:18 var
+R1365:1366 Coq.Init.Logic <> eq ind
+R1380:1385 Coq.Strings.String <> string ind
+R1388:1388 LF.MapsTest <> A:14 var
+R1393:1400 LF.Maps <> t_update def
+R1402:1402 LF.MapsTest <> A:14 var
+R1406:1413 LF.Maps <> t_update def
+R1415:1415 LF.MapsTest <> A:14 var
+R1417:1417 LF.MapsTest <> m:15 var
+R1419:1420 LF.MapsTest <> x2:19 var
+R1422:1423 LF.MapsTest <> v2:17 var
+R1426:1427 LF.MapsTest <> x1:18 var
+R1429:1430 LF.MapsTest <> v1:16 var
+R1438:1445 LF.Maps <> t_update def
+R1447:1447 LF.MapsTest <> A:14 var
+R1451:1458 LF.Maps <> t_update def
+R1460:1460 LF.MapsTest <> A:14 var
+R1462:1462 LF.MapsTest <> m:15 var
+R1464:1465 LF.MapsTest <> x1:18 var
+R1467:1468 LF.MapsTest <> v1:16 var
+R1471:1472 LF.MapsTest <> x2:19 var
+R1474:1475 LF.MapsTest <> v2:17 var
+R1528:1543 LF.Maps <> t_update_permute prfax
+def 1546:1554 <> Unnamed_thm
+R1551:1554 Coq.Init.Logic <> True ind
+R2526:2538 LF.Maps <> t_update_same prfax
+R2606:2621 LF.Maps <> t_update_permute prfax

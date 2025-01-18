@@ -1,0 +1,549 @@
+DIGEST 59f7b5b5f5ac1cb4564690ca508c90ec
+FLF.ProofObjectsTest
+R70:75 Coq.Strings.String <> <> lib
+R101:112 LF.ProofObjects <> <> lib
+ax 126:132 <> MISSING
+mod 149:153 <> Check
+R219:225 LF.ProofObjectsTest <> MISSING defax
+R219:225 LF.ProofObjectsTest <> MISSING defax
+R418:421 Coq.Init.Datatypes <> Some constr
+R418:421 Coq.Init.Datatypes <> Some constr
+R601:604 Coq.Init.Datatypes <> None constr
+R601:604 Coq.Init.Datatypes <> None constr
+R686:690 LF.ProofObjectsTest Check <> mod
+R717:728 LF.ProofObjects <> <> lib
+R738:742 LF.ProofObjectsTest Check <> mod
+def 746:754 <> Unnamed_thm
+R751:754 Coq.Init.Logic <> True ind
+R893:896 LF.ProofObjects <> ev_8 prfax
+R900:901 LF.ProofObjects <> ev ind
+R893:896 LF.ProofObjects <> ev_8 prfax
+R900:901 LF.ProofObjects <> ev ind
+R955:958 LF.ProofObjects <> ev_8 prfax
+def 961:969 <> Unnamed_thm
+R966:969 Coq.Init.Logic <> True ind
+R1042:1046 LF.ProofObjects <> ev_8' prfax
+R1050:1051 LF.ProofObjects <> ev ind
+R1042:1046 LF.ProofObjects <> ev_8' prfax
+R1050:1051 LF.ProofObjects <> ev ind
+R1105:1109 LF.ProofObjects <> ev_8' prfax
+def 1112:1120 <> Unnamed_thm
+R1117:1120 Coq.Init.Logic <> True ind
+R1277:1291 LF.ProofObjects Props conj_fact prfax
+binder 1304:1304 <> P:2
+binder 1306:1306 <> Q:3
+binder 1308:1308 <> R:4
+R1323:1325 Coq.Init.Logic <> and ind
+R1329:1329 LF.ProofObjectsTest <> Q:3 var
+R1327:1327 LF.ProofObjectsTest <> P:2 var
+R1337:1339 Coq.Init.Logic <> and ind
+R1343:1343 LF.ProofObjectsTest <> R:4 var
+R1341:1341 LF.ProofObjectsTest <> Q:3 var
+R1347:1349 Coq.Init.Logic <> and ind
+R1353:1353 LF.ProofObjectsTest <> R:4 var
+R1351:1351 LF.ProofObjectsTest <> P:2 var
+R1277:1291 LF.ProofObjects Props conj_fact prfax
+binder 1304:1304 <> P:5
+binder 1306:1306 <> Q:6
+binder 1308:1308 <> R:7
+R1323:1325 Coq.Init.Logic <> and ind
+R1329:1329 LF.ProofObjectsTest <> Q:6 var
+R1327:1327 LF.ProofObjectsTest <> P:5 var
+R1337:1339 Coq.Init.Logic <> and ind
+R1343:1343 LF.ProofObjectsTest <> R:7 var
+R1341:1341 LF.ProofObjectsTest <> Q:6 var
+R1347:1349 Coq.Init.Logic <> and ind
+R1353:1353 LF.ProofObjectsTest <> R:7 var
+R1351:1351 LF.ProofObjectsTest <> P:5 var
+R1405:1419 LF.ProofObjects Props conj_fact prfax
+def 1422:1430 <> Unnamed_thm
+R1427:1430 Coq.Init.Logic <> True ind
+R1589:1604 LF.ProofObjects Props or_commut' prfax
+binder 1616:1616 <> P:8
+binder 1618:1618 <> Q:9
+R1633:1634 Coq.Init.Logic <> or ind
+R1638:1638 LF.ProofObjectsTest <> Q:9 var
+R1636:1636 LF.ProofObjectsTest <> P:8 var
+R1642:1643 Coq.Init.Logic <> or ind
+R1647:1647 LF.ProofObjectsTest <> P:8 var
+R1645:1645 LF.ProofObjectsTest <> Q:9 var
+R1589:1604 LF.ProofObjects Props or_commut' prfax
+binder 1616:1616 <> P:10
+binder 1618:1618 <> Q:11
+R1633:1634 Coq.Init.Logic <> or ind
+R1638:1638 LF.ProofObjectsTest <> Q:11 var
+R1636:1636 LF.ProofObjectsTest <> P:10 var
+R1642:1643 Coq.Init.Logic <> or ind
+R1647:1647 LF.ProofObjectsTest <> P:10 var
+R1645:1645 LF.ProofObjectsTest <> Q:11 var
+R1699:1714 LF.ProofObjects Props or_commut' prfax
+def 1717:1725 <> Unnamed_thm
+R1722:1725 Coq.Init.Logic <> True ind
+R1880:1893 LF.ProofObjects Props ex_ev_Sn prfax
+R1898:1899 Coq.Init.Logic <> ex ind
+R1901:1903 Coq.Init.Datatypes <> nat ind
+R1914:1916 Coq.Init.Datatypes <> nat ind
+binder 1910:1910 <> n:12
+R1921:1922 LF.ProofObjects <> ev ind
+R1925:1925 Coq.Init.Datatypes <> S constr
+R1927:1927 LF.ProofObjectsTest <> n:12 var
+R1880:1893 LF.ProofObjects Props ex_ev_Sn prfax
+R1898:1899 Coq.Init.Logic <> ex ind
+R1901:1903 Coq.Init.Datatypes <> nat ind
+R1914:1916 Coq.Init.Datatypes <> nat ind
+binder 1910:1910 <> n:13
+R1921:1922 LF.ProofObjects <> ev ind
+R1925:1925 Coq.Init.Datatypes <> S constr
+R1927:1927 LF.ProofObjectsTest <> n:13 var
+R1981:1994 LF.ProofObjects Props ex_ev_Sn prfax
+def 1997:2005 <> Unnamed_thm
+R2002:2005 Coq.Init.Logic <> True ind
+R2160:2173 LF.ProofObjects Props ex_match prfax
+binder 2186:2186 <> A:14
+R2214:2214 LF.ProofObjectsTest <> A:14 var
+binder 2197:2197 <> P:15
+binder 2199:2199 <> Q:16
+R2243:2243 LF.ProofObjectsTest <> A:14 var
+binder 2239:2239 <> x:17
+R2251:2251 LF.ProofObjectsTest <> P:15 var
+R2253:2253 LF.ProofObjectsTest <> x:17 var
+R2257:2257 LF.ProofObjectsTest <> Q:16 var
+R2259:2259 LF.ProofObjectsTest <> x:17 var
+R2268:2269 Coq.Init.Logic <> ex ind
+R2271:2271 LF.ProofObjectsTest <> A:14 var
+R2282:2282 LF.ProofObjectsTest <> A:14 var
+binder 2278:2278 <> x:18
+R2287:2287 LF.ProofObjectsTest <> P:15 var
+R2289:2289 LF.ProofObjectsTest <> x:18 var
+R2296:2297 Coq.Init.Logic <> ex ind
+R2299:2299 LF.ProofObjectsTest <> A:14 var
+R2310:2310 LF.ProofObjectsTest <> A:14 var
+binder 2306:2306 <> x:19
+R2315:2315 LF.ProofObjectsTest <> Q:16 var
+R2317:2317 LF.ProofObjectsTest <> x:19 var
+R2160:2173 LF.ProofObjects Props ex_match prfax
+binder 2186:2186 <> A:20
+R2214:2214 LF.ProofObjectsTest <> A:20 var
+binder 2197:2197 <> P:21
+binder 2199:2199 <> Q:22
+R2243:2243 LF.ProofObjectsTest <> A:20 var
+binder 2239:2239 <> x:23
+R2251:2251 LF.ProofObjectsTest <> P:21 var
+R2253:2253 LF.ProofObjectsTest <> x:23 var
+R2257:2257 LF.ProofObjectsTest <> Q:22 var
+R2259:2259 LF.ProofObjectsTest <> x:23 var
+R2268:2269 Coq.Init.Logic <> ex ind
+R2271:2271 LF.ProofObjectsTest <> A:20 var
+R2282:2282 LF.ProofObjectsTest <> A:20 var
+binder 2278:2278 <> x:24
+R2287:2287 LF.ProofObjectsTest <> P:21 var
+R2289:2289 LF.ProofObjectsTest <> x:24 var
+R2296:2297 Coq.Init.Logic <> ex ind
+R2299:2299 LF.ProofObjectsTest <> A:20 var
+R2310:2310 LF.ProofObjectsTest <> A:20 var
+binder 2306:2306 <> x:25
+R2315:2315 LF.ProofObjectsTest <> Q:22 var
+R2317:2317 LF.ProofObjectsTest <> x:25 var
+R2370:2383 LF.ProofObjects Props ex_match prfax
+def 2386:2394 <> Unnamed_thm
+R2391:2394 Coq.Init.Logic <> True ind
+R2561:2580 LF.ProofObjects Props p_implies_true prfax
+binder 2592:2592 <> P:26
+R2607:2607 LF.ProofObjectsTest <> P:26 var
+R2611:2620 LF.ProofObjects Props True ind
+R2561:2580 LF.ProofObjects Props p_implies_true prfax
+binder 2592:2592 <> P:27
+R2607:2607 LF.ProofObjectsTest <> P:27 var
+R2611:2620 LF.ProofObjects Props True ind
+R2672:2691 LF.ProofObjects Props p_implies_true prfax
+def 2694:2702 <> Unnamed_thm
+R2699:2702 Coq.Init.Logic <> True ind
+R2879:2903 LF.ProofObjects Props ex_falso_quodlibet' prfax
+binder 2915:2915 <> P:28
+R2930:2940 LF.ProofObjects Props False ind
+R2944:2944 LF.ProofObjectsTest <> P:28 var
+R2879:2903 LF.ProofObjects Props ex_falso_quodlibet' prfax
+binder 2915:2915 <> P:29
+R2930:2940 LF.ProofObjects Props False ind
+R2944:2944 LF.ProofObjectsTest <> P:29 var
+R2996:3020 LF.ProofObjects Props ex_falso_quodlibet' prfax
+def 3023:3031 <> Unnamed_thm
+R3028:3031 Coq.Init.Logic <> True ind
+R3197:3222 LF.ProofObjects EqualityPlayground eq_cons prfax
+binder 3235:3235 <> X:30
+R3254:3254 LF.ProofObjectsTest <> X:30 var
+binder 3246:3247 <> h1:31
+binder 3249:3250 <> h2:32
+R3266:3269 LF.Poly <> list ind
+R3271:3271 LF.ProofObjectsTest <> X:30 var
+binder 3258:3259 <> t1:33
+binder 3261:3262 <> t2:34
+R3283:3303 LF.ProofObjects EqualityPlayground eq ind
+R3305:3305 LF.ProofObjectsTest <> X:30 var
+R3307:3308 LF.ProofObjectsTest <> h1:31 var
+R3310:3311 LF.ProofObjectsTest <> h2:32 var
+R3323:3343 LF.ProofObjects EqualityPlayground eq ind
+R3346:3349 LF.Poly <> list ind
+R3351:3351 LF.ProofObjectsTest <> X:30 var
+R3354:3355 LF.ProofObjectsTest <> t1:33 var
+R3357:3358 LF.ProofObjectsTest <> t2:34 var
+R3364:3384 LF.ProofObjects EqualityPlayground eq ind
+R3387:3390 LF.Poly <> list ind
+R3392:3392 LF.ProofObjectsTest <> X:30 var
+R3397:3400 LF.Poly <> cons constr
+R3402:3402 LF.ProofObjectsTest <> X:30 var
+R3404:3405 LF.ProofObjectsTest <> h1:31 var
+R3407:3408 LF.ProofObjectsTest <> t1:33 var
+R3413:3416 LF.Poly <> cons constr
+R3418:3418 LF.ProofObjectsTest <> X:30 var
+R3420:3421 LF.ProofObjectsTest <> h2:32 var
+R3423:3424 LF.ProofObjectsTest <> t2:34 var
+R3197:3222 LF.ProofObjects EqualityPlayground eq_cons prfax
+binder 3235:3235 <> X:35
+R3254:3254 LF.ProofObjectsTest <> X:35 var
+binder 3246:3247 <> h1:36
+binder 3249:3250 <> h2:37
+R3266:3269 LF.Poly <> list ind
+R3271:3271 LF.ProofObjectsTest <> X:35 var
+binder 3258:3259 <> t1:38
+binder 3261:3262 <> t2:39
+R3283:3303 LF.ProofObjects EqualityPlayground eq ind
+R3305:3305 LF.ProofObjectsTest <> X:35 var
+R3307:3308 LF.ProofObjectsTest <> h1:36 var
+R3310:3311 LF.ProofObjectsTest <> h2:37 var
+R3323:3343 LF.ProofObjects EqualityPlayground eq ind
+R3346:3349 LF.Poly <> list ind
+R3351:3351 LF.ProofObjectsTest <> X:35 var
+R3354:3355 LF.ProofObjectsTest <> t1:38 var
+R3357:3358 LF.ProofObjectsTest <> t2:39 var
+R3364:3384 LF.ProofObjects EqualityPlayground eq ind
+R3387:3390 LF.Poly <> list ind
+R3392:3392 LF.ProofObjectsTest <> X:35 var
+R3397:3400 LF.Poly <> cons constr
+R3402:3402 LF.ProofObjectsTest <> X:35 var
+R3404:3405 LF.ProofObjectsTest <> h1:36 var
+R3407:3408 LF.ProofObjectsTest <> t1:38 var
+R3413:3416 LF.Poly <> cons constr
+R3418:3418 LF.ProofObjectsTest <> X:35 var
+R3420:3421 LF.ProofObjectsTest <> h2:37 var
+R3423:3424 LF.ProofObjectsTest <> t2:39 var
+R3477:3502 LF.ProofObjects EqualityPlayground eq_cons prfax
+def 3505:3513 <> Unnamed_thm
+R3510:3513 Coq.Init.Logic <> True ind
+R3717:3761 LF.ProofObjects EqualityPlayground equality__leibniz_equality prfax
+binder 3774:3774 <> X:40
+R3791:3791 LF.ProofObjectsTest <> X:40 var
+binder 3785:3785 <> x:41
+binder 3787:3787 <> y:42
+R3800:3820 LF.ProofObjects EqualityPlayground eq ind
+R3822:3822 LF.ProofObjectsTest <> X:40 var
+R3824:3824 LF.ProofObjectsTest <> x:41 var
+R3826:3826 LF.ProofObjectsTest <> y:42 var
+R3848:3848 LF.ProofObjectsTest <> X:40 var
+binder 3833:3833 <> P:43
+R3862:3862 LF.ProofObjectsTest <> P:43 var
+R3864:3864 LF.ProofObjectsTest <> x:41 var
+R3868:3868 LF.ProofObjectsTest <> P:43 var
+R3870:3870 LF.ProofObjectsTest <> y:42 var
+R3717:3761 LF.ProofObjects EqualityPlayground equality__leibniz_equality prfax
+binder 3774:3774 <> X:44
+R3791:3791 LF.ProofObjectsTest <> X:44 var
+binder 3785:3785 <> x:45
+binder 3787:3787 <> y:46
+R3800:3820 LF.ProofObjects EqualityPlayground eq ind
+R3822:3822 LF.ProofObjectsTest <> X:44 var
+R3824:3824 LF.ProofObjectsTest <> x:45 var
+R3826:3826 LF.ProofObjectsTest <> y:46 var
+R3848:3848 LF.ProofObjectsTest <> X:44 var
+binder 3833:3833 <> P:47
+R3862:3862 LF.ProofObjectsTest <> P:47 var
+R3864:3864 LF.ProofObjectsTest <> x:45 var
+R3868:3868 LF.ProofObjectsTest <> P:47 var
+R3870:3870 LF.ProofObjectsTest <> y:46 var
+R3922:3966 LF.ProofObjects EqualityPlayground equality__leibniz_equality prfax
+def 3969:3977 <> Unnamed_thm
+R3974:3977 Coq.Init.Logic <> True ind
+R4191:4240 LF.ProofObjects EqualityPlayground equality__leibniz_equality_term prfax
+binder 4253:4253 <> X:48
+R4270:4270 LF.ProofObjectsTest <> X:48 var
+binder 4264:4264 <> x:49
+binder 4266:4266 <> y:50
+R4279:4299 LF.ProofObjects EqualityPlayground eq ind
+R4301:4301 LF.ProofObjectsTest <> X:48 var
+R4303:4303 LF.ProofObjectsTest <> x:49 var
+R4305:4305 LF.ProofObjectsTest <> y:50 var
+R4327:4327 LF.ProofObjectsTest <> X:48 var
+binder 4312:4312 <> P:51
+R4341:4341 LF.ProofObjectsTest <> P:51 var
+R4343:4343 LF.ProofObjectsTest <> x:49 var
+R4347:4347 LF.ProofObjectsTest <> P:51 var
+R4349:4349 LF.ProofObjectsTest <> y:50 var
+R4191:4240 LF.ProofObjects EqualityPlayground equality__leibniz_equality_term prfax
+binder 4253:4253 <> X:52
+R4270:4270 LF.ProofObjectsTest <> X:52 var
+binder 4264:4264 <> x:53
+binder 4266:4266 <> y:54
+R4279:4299 LF.ProofObjects EqualityPlayground eq ind
+R4301:4301 LF.ProofObjectsTest <> X:52 var
+R4303:4303 LF.ProofObjectsTest <> x:53 var
+R4305:4305 LF.ProofObjectsTest <> y:54 var
+R4327:4327 LF.ProofObjectsTest <> X:52 var
+binder 4312:4312 <> P:55
+R4341:4341 LF.ProofObjectsTest <> P:55 var
+R4343:4343 LF.ProofObjectsTest <> x:53 var
+R4347:4347 LF.ProofObjectsTest <> P:55 var
+R4349:4349 LF.ProofObjectsTest <> y:54 var
+R4401:4450 LF.ProofObjects EqualityPlayground equality__leibniz_equality_term prfax
+def 4453:4461 <> Unnamed_thm
+R4458:4461 Coq.Init.Logic <> True ind
+R4612:4620 LF.ProofObjects <> and_assoc prfax
+binder 4632:4632 <> P:56
+binder 4634:4634 <> Q:57
+binder 4636:4636 <> R:58
+R4651:4653 Coq.Init.Logic <> and ind
+R4658:4660 Coq.Init.Logic <> and ind
+R4664:4664 LF.ProofObjectsTest <> R:58 var
+R4662:4662 LF.ProofObjectsTest <> Q:57 var
+R4655:4655 LF.ProofObjectsTest <> P:56 var
+R4669:4671 Coq.Init.Logic <> and ind
+R4683:4683 LF.ProofObjectsTest <> R:58 var
+R4674:4676 Coq.Init.Logic <> and ind
+R4680:4680 LF.ProofObjectsTest <> Q:57 var
+R4678:4678 LF.ProofObjectsTest <> P:56 var
+R4612:4620 LF.ProofObjects <> and_assoc prfax
+binder 4632:4632 <> P:59
+binder 4634:4634 <> Q:60
+binder 4636:4636 <> R:61
+R4651:4653 Coq.Init.Logic <> and ind
+R4658:4660 Coq.Init.Logic <> and ind
+R4664:4664 LF.ProofObjectsTest <> R:61 var
+R4662:4662 LF.ProofObjectsTest <> Q:60 var
+R4655:4655 LF.ProofObjectsTest <> P:59 var
+R4669:4671 Coq.Init.Logic <> and ind
+R4683:4683 LF.ProofObjectsTest <> R:61 var
+R4674:4676 Coq.Init.Logic <> and ind
+R4680:4680 LF.ProofObjectsTest <> Q:60 var
+R4678:4678 LF.ProofObjectsTest <> P:59 var
+R4735:4743 LF.ProofObjects <> and_assoc prfax
+def 4746:4754 <> Unnamed_thm
+R4751:4754 Coq.Init.Logic <> True ind
+R4933:4955 LF.ProofObjects <> or_distributes_over_and prfax
+binder 4967:4967 <> P:62
+binder 4969:4969 <> Q:63
+binder 4971:4971 <> R:64
+R4981:4983 Coq.Init.Logic <> iff def
+R5003:5005 Coq.Init.Logic <> and ind
+R5017:5018 Coq.Init.Logic <> or ind
+R5022:5022 LF.ProofObjectsTest <> R:64 var
+R5020:5020 LF.ProofObjectsTest <> P:62 var
+R5008:5009 Coq.Init.Logic <> or ind
+R5013:5013 LF.ProofObjectsTest <> Q:63 var
+R5011:5011 LF.ProofObjectsTest <> P:62 var
+R4986:4987 Coq.Init.Logic <> or ind
+R4992:4994 Coq.Init.Logic <> and ind
+R4998:4998 LF.ProofObjectsTest <> R:64 var
+R4996:4996 LF.ProofObjectsTest <> Q:63 var
+R4989:4989 LF.ProofObjectsTest <> P:62 var
+R4933:4955 LF.ProofObjects <> or_distributes_over_and prfax
+binder 4967:4967 <> P:65
+binder 4969:4969 <> Q:66
+binder 4971:4971 <> R:67
+R4981:4983 Coq.Init.Logic <> iff def
+R5003:5005 Coq.Init.Logic <> and ind
+R5017:5018 Coq.Init.Logic <> or ind
+R5022:5022 LF.ProofObjectsTest <> R:67 var
+R5020:5020 LF.ProofObjectsTest <> P:65 var
+R5008:5009 Coq.Init.Logic <> or ind
+R5013:5013 LF.ProofObjectsTest <> Q:66 var
+R5011:5011 LF.ProofObjectsTest <> P:65 var
+R4986:4987 Coq.Init.Logic <> or ind
+R4992:4994 Coq.Init.Logic <> and ind
+R4998:4998 LF.ProofObjectsTest <> R:67 var
+R4996:4996 LF.ProofObjectsTest <> Q:66 var
+R4989:4989 LF.ProofObjectsTest <> P:65 var
+R5076:5098 LF.ProofObjects <> or_distributes_over_and prfax
+def 5101:5109 <> Unnamed_thm
+R5106:5109 Coq.Init.Logic <> True ind
+R5261:5270 LF.ProofObjects <> double_neg prfax
+binder 5282:5282 <> P:68
+R5297:5297 LF.ProofObjectsTest <> P:68 var
+R5301:5303 Coq.Init.Logic <> not def
+R5306:5308 Coq.Init.Logic <> not def
+R5310:5310 LF.ProofObjectsTest <> P:68 var
+R5261:5270 LF.ProofObjects <> double_neg prfax
+binder 5282:5282 <> P:69
+R5297:5297 LF.ProofObjectsTest <> P:69 var
+R5301:5303 Coq.Init.Logic <> not def
+R5306:5308 Coq.Init.Logic <> not def
+R5310:5310 LF.ProofObjectsTest <> P:69 var
+R5363:5372 LF.ProofObjects <> double_neg prfax
+def 5375:5383 <> Unnamed_thm
+R5380:5383 Coq.Init.Logic <> True ind
+R5481:5510 LF.ProofObjects <> contradiction_implies_anything prfax
+binder 5522:5522 <> P:70
+binder 5524:5524 <> Q:71
+R5539:5541 Coq.Init.Logic <> and ind
+R5546:5548 Coq.Init.Logic <> not def
+R5550:5550 LF.ProofObjectsTest <> P:70 var
+R5543:5543 LF.ProofObjectsTest <> P:70 var
+R5555:5555 LF.ProofObjectsTest <> Q:71 var
+R5481:5510 LF.ProofObjects <> contradiction_implies_anything prfax
+binder 5522:5522 <> P:72
+binder 5524:5524 <> Q:73
+R5539:5541 Coq.Init.Logic <> and ind
+R5546:5548 Coq.Init.Logic <> not def
+R5550:5550 LF.ProofObjectsTest <> P:72 var
+R5543:5543 LF.ProofObjectsTest <> P:72 var
+R5555:5555 LF.ProofObjectsTest <> Q:73 var
+R5607:5636 LF.ProofObjects <> contradiction_implies_anything prfax
+def 5639:5647 <> Unnamed_thm
+R5644:5647 Coq.Init.Logic <> True ind
+R5731:5746 LF.ProofObjects <> de_morgan_not_or prfax
+binder 5759:5759 <> P:74
+binder 5761:5761 <> Q:75
+R5776:5778 Coq.Init.Logic <> not def
+R5781:5782 Coq.Init.Logic <> or ind
+R5786:5786 LF.ProofObjectsTest <> Q:75 var
+R5784:5784 LF.ProofObjectsTest <> P:74 var
+R5791:5793 Coq.Init.Logic <> and ind
+R5804:5806 Coq.Init.Logic <> not def
+R5808:5808 LF.ProofObjectsTest <> Q:75 var
+R5796:5798 Coq.Init.Logic <> not def
+R5800:5800 LF.ProofObjectsTest <> P:74 var
+R5731:5746 LF.ProofObjects <> de_morgan_not_or prfax
+binder 5759:5759 <> P:76
+binder 5761:5761 <> Q:77
+R5776:5778 Coq.Init.Logic <> not def
+R5781:5782 Coq.Init.Logic <> or ind
+R5786:5786 LF.ProofObjectsTest <> Q:77 var
+R5784:5784 LF.ProofObjectsTest <> P:76 var
+R5791:5793 Coq.Init.Logic <> and ind
+R5804:5806 Coq.Init.Logic <> not def
+R5808:5808 LF.ProofObjectsTest <> Q:77 var
+R5796:5798 Coq.Init.Logic <> not def
+R5800:5800 LF.ProofObjectsTest <> P:76 var
+R5861:5876 LF.ProofObjects <> de_morgan_not_or prfax
+def 5879:5887 <> Unnamed_thm
+R5884:5887 Coq.Init.Logic <> True ind
+R6033:6037 LF.ProofObjects <> curry prfax
+binder 6050:6050 <> P:78
+binder 6052:6052 <> Q:79
+binder 6054:6054 <> R:80
+R6080:6082 Coq.Init.Logic <> and ind
+R6086:6086 LF.ProofObjectsTest <> Q:79 var
+R6084:6084 LF.ProofObjectsTest <> P:78 var
+R6089:6089 LF.ProofObjectsTest <> R:80 var
+R6097:6097 LF.ProofObjectsTest <> P:78 var
+R6105:6105 LF.ProofObjectsTest <> Q:79 var
+R6109:6109 LF.ProofObjectsTest <> R:80 var
+R6033:6037 LF.ProofObjects <> curry prfax
+binder 6050:6050 <> P:81
+binder 6052:6052 <> Q:82
+binder 6054:6054 <> R:83
+R6080:6082 Coq.Init.Logic <> and ind
+R6086:6086 LF.ProofObjectsTest <> Q:82 var
+R6084:6084 LF.ProofObjectsTest <> P:81 var
+R6089:6089 LF.ProofObjectsTest <> R:83 var
+R6097:6097 LF.ProofObjectsTest <> P:81 var
+R6105:6105 LF.ProofObjectsTest <> Q:82 var
+R6109:6109 LF.ProofObjectsTest <> R:83 var
+R6161:6165 LF.ProofObjects <> curry prfax
+def 6168:6176 <> Unnamed_thm
+R6173:6176 Coq.Init.Logic <> True ind
+R6251:6257 LF.ProofObjects <> uncurry prfax
+binder 6270:6270 <> P:84
+binder 6272:6272 <> Q:85
+binder 6274:6274 <> R:86
+R6301:6301 LF.ProofObjectsTest <> P:84 var
+R6309:6309 LF.ProofObjectsTest <> Q:85 var
+R6313:6313 LF.ProofObjectsTest <> R:86 var
+R6321:6323 Coq.Init.Logic <> and ind
+R6327:6327 LF.ProofObjectsTest <> Q:85 var
+R6325:6325 LF.ProofObjectsTest <> P:84 var
+R6331:6331 LF.ProofObjectsTest <> R:86 var
+R6251:6257 LF.ProofObjects <> uncurry prfax
+binder 6270:6270 <> P:87
+binder 6272:6272 <> Q:88
+binder 6274:6274 <> R:89
+R6301:6301 LF.ProofObjectsTest <> P:87 var
+R6309:6309 LF.ProofObjectsTest <> Q:88 var
+R6313:6313 LF.ProofObjectsTest <> R:89 var
+R6321:6323 Coq.Init.Logic <> and ind
+R6327:6327 LF.ProofObjectsTest <> Q:88 var
+R6325:6325 LF.ProofObjectsTest <> P:87 var
+R6331:6331 LF.ProofObjectsTest <> R:89 var
+R6383:6389 LF.ProofObjects <> uncurry prfax
+def 6392:6400 <> Unnamed_thm
+R6397:6400 Coq.Init.Logic <> True ind
+R6583:6598 LF.ProofObjects <> pe_implies_or_eq prfax
+R6615:6642 LF.ProofObjects <> propositional_extensionality def
+binder 6646:6646 <> P:90
+binder 6648:6648 <> Q:91
+R6661:6662 Coq.Init.Logic <> eq ind
+R6670:6671 Coq.Init.Logic <> or ind
+R6675:6675 LF.ProofObjectsTest <> Q:91 var
+R6673:6673 LF.ProofObjectsTest <> P:90 var
+R6679:6680 Coq.Init.Logic <> or ind
+R6684:6684 LF.ProofObjectsTest <> P:90 var
+R6682:6682 LF.ProofObjectsTest <> Q:91 var
+R6583:6598 LF.ProofObjects <> pe_implies_or_eq prfax
+R6615:6642 LF.ProofObjects <> propositional_extensionality def
+binder 6646:6646 <> P:92
+binder 6648:6648 <> Q:93
+R6661:6662 Coq.Init.Logic <> eq ind
+R6670:6671 Coq.Init.Logic <> or ind
+R6675:6675 LF.ProofObjectsTest <> Q:93 var
+R6673:6673 LF.ProofObjectsTest <> P:92 var
+R6679:6680 Coq.Init.Logic <> or ind
+R6684:6684 LF.ProofObjectsTest <> P:92 var
+R6682:6682 LF.ProofObjectsTest <> Q:93 var
+R6737:6752 LF.ProofObjects <> pe_implies_or_eq prfax
+def 6755:6763 <> Unnamed_thm
+R6760:6763 Coq.Init.Logic <> True ind
+R6950:6967 LF.ProofObjects <> pe_implies_true_eq prfax
+R6984:7011 LF.ProofObjects <> propositional_extensionality def
+binder 7015:7015 <> P:94
+R7030:7030 LF.ProofObjectsTest <> P:94 var
+R7036:7037 Coq.Init.Logic <> eq ind
+R7044:7047 Coq.Init.Logic <> True ind
+R7049:7049 LF.ProofObjectsTest <> P:94 var
+R6950:6967 LF.ProofObjects <> pe_implies_true_eq prfax
+R6984:7011 LF.ProofObjects <> propositional_extensionality def
+binder 7015:7015 <> P:95
+R7030:7030 LF.ProofObjectsTest <> P:95 var
+R7036:7037 Coq.Init.Logic <> eq ind
+R7044:7047 Coq.Init.Logic <> True ind
+R7049:7049 LF.ProofObjectsTest <> P:95 var
+R7101:7118 LF.ProofObjects <> pe_implies_true_eq prfax
+def 7121:7129 <> Unnamed_thm
+R7126:7129 Coq.Init.Logic <> True ind
+R7306:7318 LF.ProofObjects <> pe_implies_pi prfax
+R7333:7360 LF.ProofObjects <> propositional_extensionality def
+R7363:7379 LF.ProofObjects <> proof_irrelevance def
+R7306:7318 LF.ProofObjects <> pe_implies_pi prfax
+R7333:7360 LF.ProofObjects <> propositional_extensionality def
+R7363:7379 LF.ProofObjects <> proof_irrelevance def
+R7431:7443 LF.ProofObjects <> pe_implies_pi prfax
+def 7446:7454 <> Unnamed_thm
+R7451:7454 Coq.Init.Logic <> True ind
+R8419:8422 LF.ProofObjects <> ev_8 prfax
+R8479:8483 LF.ProofObjects <> ev_8' prfax
+R8550:8564 LF.ProofObjects Props conj_fact prfax
+R8632:8647 LF.ProofObjects Props or_commut' prfax
+R8713:8726 LF.ProofObjects Props ex_ev_Sn prfax
+R8792:8805 LF.ProofObjects Props ex_match prfax
+R8877:8896 LF.ProofObjects Props p_implies_true prfax
+R8973:8997 LF.ProofObjects Props ex_falso_quodlibet' prfax
+R9075:9100 LF.ProofObjects EqualityPlayground eq_cons prfax
+R9197:9241 LF.ProofObjects EqualityPlayground equality__leibniz_equality prfax
+R9343:9392 LF.ProofObjects EqualityPlayground equality__leibniz_equality_term prfax
+R9453:9461 LF.ProofObjects <> and_assoc prfax
+R9536:9558 LF.ProofObjects <> or_distributes_over_and prfax
+R9620:9629 LF.ProofObjects <> double_neg prfax
+R9711:9740 LF.ProofObjects <> contradiction_implies_anything prfax
+R9808:9823 LF.ProofObjects <> de_morgan_not_or prfax
+R9880:9884 LF.ProofObjects <> curry prfax
+R9943:9949 LF.ProofObjects <> uncurry prfax
+R10067:10082 LF.ProofObjects <> pe_implies_or_eq prfax
+R10152:10169 LF.ProofObjects <> pe_implies_true_eq prfax
+R10234:10246 LF.ProofObjects <> pe_implies_pi prfax

@@ -1,0 +1,390 @@
+DIGEST 1e85f46fc5a580ba24030c044841ca4f
+FLF.InductionTest
+R70:75 Coq.Strings.String <> <> lib
+R101:109 LF.Induction <> <> lib
+ax 123:129 <> MISSING
+mod 146:150 <> Check
+R216:222 LF.InductionTest <> MISSING defax
+R216:222 LF.InductionTest <> MISSING defax
+R415:418 Coq.Init.Datatypes <> Some constr
+R415:418 Coq.Init.Datatypes <> Some constr
+R598:601 Coq.Init.Datatypes <> None constr
+R598:601 Coq.Init.Datatypes <> None constr
+R683:687 LF.InductionTest Check <> mod
+R714:722 LF.Induction <> <> lib
+R732:736 LF.InductionTest Check <> mod
+def 740:748 <> Unnamed_thm
+R745:748 Coq.Init.Logic <> True ind
+R894:900 LF.Induction <> mul_0_r prfax
+R915:917 Coq.Init.Datatypes <> nat ind
+binder 911:911 <> n:2
+R921:922 Coq.Init.Logic <> eq ind
+R924:926 Coq.Init.Datatypes <> nat ind
+R929:935 Coq.Init.Nat <> mul def
+R937:937 LF.InductionTest <> n:2 var
+R894:900 LF.Induction <> mul_0_r prfax
+R915:917 Coq.Init.Datatypes <> nat ind
+binder 911:911 <> n:3
+R921:922 Coq.Init.Logic <> eq ind
+R924:926 Coq.Init.Datatypes <> nat ind
+R929:935 Coq.Init.Nat <> mul def
+R937:937 LF.InductionTest <> n:3 var
+R994:1000 LF.Induction <> mul_0_r prfax
+def 1003:1011 <> Unnamed_thm
+R1008:1011 Coq.Init.Logic <> True ind
+R1090:1098 LF.Induction <> plus_n_Sm prfax
+R1115:1117 Coq.Init.Datatypes <> nat ind
+binder 1109:1109 <> n:4
+binder 1111:1111 <> m:5
+R1121:1122 Coq.Init.Logic <> eq ind
+R1124:1126 Coq.Init.Datatypes <> nat ind
+R1129:1129 Coq.Init.Datatypes <> S constr
+R1132:1138 Coq.Init.Nat <> add def
+R1140:1140 LF.InductionTest <> n:4 var
+R1142:1142 LF.InductionTest <> m:5 var
+R1147:1153 Coq.Init.Nat <> add def
+R1155:1155 LF.InductionTest <> n:4 var
+R1158:1158 Coq.Init.Datatypes <> S constr
+R1160:1160 LF.InductionTest <> m:5 var
+R1090:1098 LF.Induction <> plus_n_Sm prfax
+R1115:1117 Coq.Init.Datatypes <> nat ind
+binder 1109:1109 <> n:6
+binder 1111:1111 <> m:7
+R1121:1122 Coq.Init.Logic <> eq ind
+R1124:1126 Coq.Init.Datatypes <> nat ind
+R1129:1129 Coq.Init.Datatypes <> S constr
+R1132:1138 Coq.Init.Nat <> add def
+R1140:1140 LF.InductionTest <> n:6 var
+R1142:1142 LF.InductionTest <> m:7 var
+R1147:1153 Coq.Init.Nat <> add def
+R1155:1155 LF.InductionTest <> n:6 var
+R1158:1158 Coq.Init.Datatypes <> S constr
+R1160:1160 LF.InductionTest <> m:7 var
+R1214:1222 LF.Induction <> plus_n_Sm prfax
+def 1225:1233 <> Unnamed_thm
+R1230:1233 Coq.Init.Logic <> True ind
+R1311:1318 LF.Induction <> add_comm prfax
+R1335:1337 Coq.Init.Datatypes <> nat ind
+binder 1329:1329 <> n:8
+binder 1331:1331 <> m:9
+R1341:1342 Coq.Init.Logic <> eq ind
+R1344:1346 Coq.Init.Datatypes <> nat ind
+R1349:1355 Coq.Init.Nat <> add def
+R1357:1357 LF.InductionTest <> n:8 var
+R1359:1359 LF.InductionTest <> m:9 var
+R1363:1369 Coq.Init.Nat <> add def
+R1371:1371 LF.InductionTest <> m:9 var
+R1373:1373 LF.InductionTest <> n:8 var
+R1311:1318 LF.Induction <> add_comm prfax
+R1335:1337 Coq.Init.Datatypes <> nat ind
+binder 1329:1329 <> n:10
+binder 1331:1331 <> m:11
+R1341:1342 Coq.Init.Logic <> eq ind
+R1344:1346 Coq.Init.Datatypes <> nat ind
+R1349:1355 Coq.Init.Nat <> add def
+R1357:1357 LF.InductionTest <> n:10 var
+R1359:1359 LF.InductionTest <> m:11 var
+R1363:1369 Coq.Init.Nat <> add def
+R1371:1371 LF.InductionTest <> m:11 var
+R1373:1373 LF.InductionTest <> n:10 var
+R1426:1433 LF.Induction <> add_comm prfax
+def 1436:1444 <> Unnamed_thm
+R1441:1444 Coq.Init.Logic <> True ind
+R1523:1531 LF.Induction <> add_assoc prfax
+R1551:1553 Coq.Init.Datatypes <> nat ind
+binder 1543:1543 <> n:12
+binder 1545:1545 <> m:13
+binder 1547:1547 <> p:14
+R1558:1559 Coq.Init.Logic <> eq ind
+R1561:1563 Coq.Init.Datatypes <> nat ind
+R1566:1572 Coq.Init.Nat <> add def
+R1574:1574 LF.InductionTest <> n:12 var
+R1577:1583 Coq.Init.Nat <> add def
+R1585:1585 LF.InductionTest <> m:13 var
+R1587:1587 LF.InductionTest <> p:14 var
+R1592:1598 Coq.Init.Nat <> add def
+R1601:1607 Coq.Init.Nat <> add def
+R1609:1609 LF.InductionTest <> n:12 var
+R1611:1611 LF.InductionTest <> m:13 var
+R1614:1614 LF.InductionTest <> p:14 var
+R1523:1531 LF.Induction <> add_assoc prfax
+R1551:1553 Coq.Init.Datatypes <> nat ind
+binder 1543:1543 <> n:15
+binder 1545:1545 <> m:16
+binder 1547:1547 <> p:17
+R1558:1559 Coq.Init.Logic <> eq ind
+R1561:1563 Coq.Init.Datatypes <> nat ind
+R1566:1572 Coq.Init.Nat <> add def
+R1574:1574 LF.InductionTest <> n:15 var
+R1577:1583 Coq.Init.Nat <> add def
+R1585:1585 LF.InductionTest <> m:16 var
+R1587:1587 LF.InductionTest <> p:17 var
+R1592:1598 Coq.Init.Nat <> add def
+R1601:1607 Coq.Init.Nat <> add def
+R1609:1609 LF.InductionTest <> n:15 var
+R1611:1611 LF.InductionTest <> m:16 var
+R1614:1614 LF.InductionTest <> p:17 var
+R1667:1675 LF.Induction <> add_assoc prfax
+def 1678:1686 <> Unnamed_thm
+R1683:1686 Coq.Init.Logic <> True ind
+R1841:1851 LF.Induction <> double_plus prfax
+R1866:1868 Coq.Init.Datatypes <> nat ind
+binder 1862:1862 <> n:18
+R1872:1873 Coq.Init.Logic <> eq ind
+R1875:1877 Coq.Init.Datatypes <> nat ind
+R1880:1885 LF.Induction <> double def
+R1887:1887 LF.InductionTest <> n:18 var
+R1891:1897 Coq.Init.Nat <> add def
+R1899:1899 LF.InductionTest <> n:18 var
+R1901:1901 LF.InductionTest <> n:18 var
+R1841:1851 LF.Induction <> double_plus prfax
+R1866:1868 Coq.Init.Datatypes <> nat ind
+binder 1862:1862 <> n:19
+R1872:1873 Coq.Init.Logic <> eq ind
+R1875:1877 Coq.Init.Datatypes <> nat ind
+R1880:1885 LF.Induction <> double def
+R1887:1887 LF.InductionTest <> n:19 var
+R1891:1897 Coq.Init.Nat <> add def
+R1899:1899 LF.InductionTest <> n:19 var
+R1901:1901 LF.InductionTest <> n:19 var
+R1954:1964 LF.Induction <> double_plus prfax
+def 1967:1975 <> Unnamed_thm
+R1972:1975 Coq.Init.Logic <> True ind
+R2124:2131 LF.Induction <> eqb_refl prfax
+R2146:2148 Coq.Init.Datatypes <> nat ind
+binder 2142:2142 <> n:20
+R2152:2153 Coq.Init.Logic <> eq ind
+R2155:2158 LF.Basics <> bool ind
+R2161:2163 LF.Basics <> eqb def
+R2165:2165 LF.InductionTest <> n:20 var
+R2167:2167 LF.InductionTest <> n:20 var
+R2170:2173 LF.Basics <> true constr
+R2124:2131 LF.Induction <> eqb_refl prfax
+R2146:2148 Coq.Init.Datatypes <> nat ind
+binder 2142:2142 <> n:21
+R2152:2153 Coq.Init.Logic <> eq ind
+R2155:2158 LF.Basics <> bool ind
+R2161:2163 LF.Basics <> eqb def
+R2165:2165 LF.InductionTest <> n:21 var
+R2167:2167 LF.InductionTest <> n:21 var
+R2170:2173 LF.Basics <> true constr
+R2225:2232 LF.Induction <> eqb_refl prfax
+def 2235:2243 <> Unnamed_thm
+R2240:2243 Coq.Init.Logic <> True ind
+R2452:2485 LF.Induction <> manual_grade_for_add_comm_informal def
+R2638:2649 LF.Induction <> add_shuffle3 prfax
+R2669:2671 Coq.Init.Datatypes <> nat ind
+binder 2661:2661 <> n:22
+binder 2663:2663 <> m:23
+binder 2665:2665 <> p:24
+R2676:2677 Coq.Init.Logic <> eq ind
+R2679:2681 Coq.Init.Datatypes <> nat ind
+R2684:2690 Coq.Init.Nat <> add def
+R2692:2692 LF.InductionTest <> n:22 var
+R2695:2701 Coq.Init.Nat <> add def
+R2703:2703 LF.InductionTest <> m:23 var
+R2705:2705 LF.InductionTest <> p:24 var
+R2710:2716 Coq.Init.Nat <> add def
+R2718:2718 LF.InductionTest <> m:23 var
+R2721:2727 Coq.Init.Nat <> add def
+R2729:2729 LF.InductionTest <> n:22 var
+R2731:2731 LF.InductionTest <> p:24 var
+R2638:2649 LF.Induction <> add_shuffle3 prfax
+R2669:2671 Coq.Init.Datatypes <> nat ind
+binder 2661:2661 <> n:25
+binder 2663:2663 <> m:26
+binder 2665:2665 <> p:27
+R2676:2677 Coq.Init.Logic <> eq ind
+R2679:2681 Coq.Init.Datatypes <> nat ind
+R2684:2690 Coq.Init.Nat <> add def
+R2692:2692 LF.InductionTest <> n:25 var
+R2695:2701 Coq.Init.Nat <> add def
+R2703:2703 LF.InductionTest <> m:26 var
+R2705:2705 LF.InductionTest <> p:27 var
+R2710:2716 Coq.Init.Nat <> add def
+R2718:2718 LF.InductionTest <> m:26 var
+R2721:2727 Coq.Init.Nat <> add def
+R2729:2729 LF.InductionTest <> n:25 var
+R2731:2731 LF.InductionTest <> p:27 var
+R2785:2796 LF.Induction <> add_shuffle3 prfax
+def 2799:2807 <> Unnamed_thm
+R2804:2807 Coq.Init.Logic <> True ind
+R2883:2890 LF.Induction <> mul_comm prfax
+R2907:2909 Coq.Init.Datatypes <> nat ind
+binder 2901:2901 <> m:28
+binder 2903:2903 <> n:29
+R2913:2914 Coq.Init.Logic <> eq ind
+R2916:2918 Coq.Init.Datatypes <> nat ind
+R2921:2927 Coq.Init.Nat <> mul def
+R2929:2929 LF.InductionTest <> m:28 var
+R2931:2931 LF.InductionTest <> n:29 var
+R2935:2941 Coq.Init.Nat <> mul def
+R2943:2943 LF.InductionTest <> n:29 var
+R2945:2945 LF.InductionTest <> m:28 var
+R2883:2890 LF.Induction <> mul_comm prfax
+R2907:2909 Coq.Init.Datatypes <> nat ind
+binder 2901:2901 <> m:30
+binder 2903:2903 <> n:31
+R2913:2914 Coq.Init.Logic <> eq ind
+R2916:2918 Coq.Init.Datatypes <> nat ind
+R2921:2927 Coq.Init.Nat <> mul def
+R2929:2929 LF.InductionTest <> m:30 var
+R2931:2931 LF.InductionTest <> n:31 var
+R2935:2941 Coq.Init.Nat <> mul def
+R2943:2943 LF.InductionTest <> n:31 var
+R2945:2945 LF.InductionTest <> m:30 var
+R2998:3005 LF.Induction <> mul_comm prfax
+def 3008:3016 <> Unnamed_thm
+R3013:3016 Coq.Init.Logic <> True ind
+R3183:3202 LF.Induction <> bin_to_nat_pres_incr prfax
+R3218:3220 LF.Induction <> bin ind
+binder 3214:3214 <> b:32
+R3224:3225 Coq.Init.Logic <> eq ind
+R3227:3229 Coq.Init.Datatypes <> nat ind
+R3232:3241 LF.Induction <> bin_to_nat prfax
+R3244:3247 LF.Induction <> incr prfax
+R3249:3249 LF.InductionTest <> b:32 var
+R3254:3260 Coq.Init.Nat <> add def
+R3265:3274 LF.Induction <> bin_to_nat prfax
+R3276:3276 LF.InductionTest <> b:32 var
+R3183:3202 LF.Induction <> bin_to_nat_pres_incr prfax
+R3218:3220 LF.Induction <> bin ind
+binder 3214:3214 <> b:33
+R3224:3225 Coq.Init.Logic <> eq ind
+R3227:3229 Coq.Init.Datatypes <> nat ind
+R3232:3241 LF.Induction <> bin_to_nat prfax
+R3244:3247 LF.Induction <> incr prfax
+R3249:3249 LF.InductionTest <> b:33 var
+R3254:3260 Coq.Init.Nat <> add def
+R3265:3274 LF.Induction <> bin_to_nat prfax
+R3276:3276 LF.InductionTest <> b:33 var
+R3330:3349 LF.Induction <> bin_to_nat_pres_incr prfax
+def 3352:3360 <> Unnamed_thm
+R3357:3360 Coq.Init.Logic <> True ind
+R3515:3525 LF.Induction <> nat_bin_nat prfax
+R3540:3542 Coq.Init.Datatypes <> nat ind
+binder 3536:3536 <> n:34
+R3546:3547 Coq.Init.Logic <> eq ind
+R3549:3551 Coq.Init.Datatypes <> nat ind
+R3554:3563 LF.Induction <> bin_to_nat prfax
+R3566:3575 LF.Induction <> nat_to_bin prfax
+R3577:3577 LF.InductionTest <> n:34 var
+R3581:3581 LF.InductionTest <> n:34 var
+R3515:3525 LF.Induction <> nat_bin_nat prfax
+R3540:3542 Coq.Init.Datatypes <> nat ind
+binder 3536:3536 <> n:35
+R3546:3547 Coq.Init.Logic <> eq ind
+R3549:3551 Coq.Init.Datatypes <> nat ind
+R3554:3563 LF.Induction <> bin_to_nat prfax
+R3566:3575 LF.Induction <> nat_to_bin prfax
+R3577:3577 LF.InductionTest <> n:35 var
+R3581:3581 LF.InductionTest <> n:35 var
+R3633:3643 LF.Induction <> nat_bin_nat prfax
+def 3646:3654 <> Unnamed_thm
+R3651:3654 Coq.Init.Logic <> True ind
+R3828:3838 LF.Induction <> double_incr prfax
+R3853:3855 Coq.Init.Datatypes <> nat ind
+binder 3849:3849 <> n:36
+R3859:3860 Coq.Init.Logic <> eq ind
+R3862:3864 Coq.Init.Datatypes <> nat ind
+R3867:3872 LF.Induction <> double def
+R3875:3875 Coq.Init.Datatypes <> S constr
+R3877:3877 LF.InductionTest <> n:36 var
+R3882:3882 Coq.Init.Datatypes <> S constr
+R3885:3885 Coq.Init.Datatypes <> S constr
+R3888:3893 LF.Induction <> double def
+R3895:3895 LF.InductionTest <> n:36 var
+R3828:3838 LF.Induction <> double_incr prfax
+R3853:3855 Coq.Init.Datatypes <> nat ind
+binder 3849:3849 <> n:37
+R3859:3860 Coq.Init.Logic <> eq ind
+R3862:3864 Coq.Init.Datatypes <> nat ind
+R3867:3872 LF.Induction <> double def
+R3875:3875 Coq.Init.Datatypes <> S constr
+R3877:3877 LF.InductionTest <> n:37 var
+R3882:3882 Coq.Init.Datatypes <> S constr
+R3885:3885 Coq.Init.Datatypes <> S constr
+R3888:3893 LF.Induction <> double def
+R3895:3895 LF.InductionTest <> n:37 var
+R3950:3960 LF.Induction <> double_incr prfax
+def 3963:3971 <> Unnamed_thm
+R3968:3971 Coq.Init.Logic <> True ind
+R4074:4088 LF.Induction <> double_bin_zero prfax
+R4093:4094 Coq.Init.Logic <> eq ind
+R4096:4098 LF.Induction <> bin ind
+R4101:4110 LF.Induction <> double_bin prfax
+R4112:4112 LF.Induction <> Z constr
+R4115:4115 LF.Induction <> Z constr
+R4074:4088 LF.Induction <> double_bin_zero prfax
+R4093:4094 Coq.Init.Logic <> eq ind
+R4096:4098 LF.Induction <> bin ind
+R4101:4110 LF.Induction <> double_bin prfax
+R4112:4112 LF.Induction <> Z constr
+R4115:4115 LF.Induction <> Z constr
+R4167:4181 LF.Induction <> double_bin_zero prfax
+def 4184:4192 <> Unnamed_thm
+R4189:4192 Coq.Init.Logic <> True ind
+R4293:4307 LF.Induction <> double_incr_bin prfax
+R4323:4325 LF.Induction <> bin ind
+binder 4319:4319 <> b:38
+R4329:4330 Coq.Init.Logic <> eq ind
+R4332:4334 LF.Induction <> bin ind
+R4337:4346 LF.Induction <> double_bin prfax
+R4349:4352 LF.Induction <> incr prfax
+R4354:4354 LF.InductionTest <> b:38 var
+R4359:4362 LF.Induction <> incr prfax
+R4365:4368 LF.Induction <> incr prfax
+R4371:4380 LF.Induction <> double_bin prfax
+R4382:4382 LF.InductionTest <> b:38 var
+R4293:4307 LF.Induction <> double_incr_bin prfax
+R4323:4325 LF.Induction <> bin ind
+binder 4319:4319 <> b:39
+R4329:4330 Coq.Init.Logic <> eq ind
+R4332:4334 LF.Induction <> bin ind
+R4337:4346 LF.Induction <> double_bin prfax
+R4349:4352 LF.Induction <> incr prfax
+R4354:4354 LF.InductionTest <> b:39 var
+R4359:4362 LF.Induction <> incr prfax
+R4365:4368 LF.Induction <> incr prfax
+R4371:4380 LF.Induction <> double_bin prfax
+R4382:4382 LF.InductionTest <> b:39 var
+R4437:4451 LF.Induction <> double_incr_bin prfax
+def 4454:4462 <> Unnamed_thm
+R4459:4462 Coq.Init.Logic <> True ind
+R4635:4645 LF.Induction <> bin_nat_bin prfax
+R4661:4663 LF.Induction <> bin ind
+binder 4657:4657 <> b:40
+R4667:4668 Coq.Init.Logic <> eq ind
+R4670:4672 LF.Induction <> bin ind
+R4675:4684 LF.Induction <> nat_to_bin prfax
+R4687:4696 LF.Induction <> bin_to_nat prfax
+R4698:4698 LF.InductionTest <> b:40 var
+R4703:4711 LF.Induction <> normalize prfax
+R4713:4713 LF.InductionTest <> b:40 var
+R4635:4645 LF.Induction <> bin_nat_bin prfax
+R4661:4663 LF.Induction <> bin ind
+binder 4657:4657 <> b:41
+R4667:4668 Coq.Init.Logic <> eq ind
+R4670:4672 LF.Induction <> bin ind
+R4675:4684 LF.Induction <> nat_to_bin prfax
+R4687:4696 LF.Induction <> bin_to_nat prfax
+R4698:4698 LF.InductionTest <> b:41 var
+R4703:4711 LF.Induction <> normalize prfax
+R4713:4713 LF.InductionTest <> b:41 var
+R4766:4776 LF.Induction <> bin_nat_bin prfax
+def 4779:4787 <> Unnamed_thm
+R4784:4787 Coq.Init.Logic <> True ind
+R5755:5761 LF.Induction <> mul_0_r prfax
+R5822:5830 LF.Induction <> plus_n_Sm prfax
+R5890:5897 LF.Induction <> add_comm prfax
+R5958:5966 LF.Induction <> add_assoc prfax
+R6029:6039 LF.Induction <> double_plus prfax
+R6099:6106 LF.Induction <> eqb_refl prfax
+R6170:6181 LF.Induction <> add_shuffle3 prfax
+R6241:6248 LF.Induction <> mul_comm prfax
+R6320:6339 LF.Induction <> bin_to_nat_pres_incr prfax
+R6402:6412 LF.Induction <> nat_bin_nat prfax
+R6589:6599 LF.Induction <> double_incr prfax
+R6666:6680 LF.Induction <> double_bin_zero prfax
+R6747:6761 LF.Induction <> double_incr_bin prfax
+R6824:6834 LF.Induction <> bin_nat_bin prfax

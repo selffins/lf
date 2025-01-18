@@ -3,6 +3,8 @@
 #+OPTIONS: num:2 toc:1
 
 Latest notes: [[file:sf-notes.org][Basics.v]] <2025-01-18 Sat>
+GitHub repo: https://github.com/selffins/lf
+
 * Information
 *** Advisor: Giselle Reis (greis)
 *** Student: (Earl) Louis Quilling (equillin)
@@ -115,28 +117,28 @@ There is a suggested schedule.
 *** [#C] Property based testing
 * Schedule
 
-|---------+-------------+-------------+-----------------+------------------|
-| Week    | Date        | Content     | Notes           | Org Timestamp    |
-|---------+-------------+-------------+-----------------+------------------|
-| Week 0  | January 9   | Intro       | [[file:sf-notes.org][fn:sf-notes.org]] | <2025-01-09 Thu> |
-| Week 1  | January 13  | LF          | [[file:sf-notes.org][fn:sf-notes.org]] | <2025-01-13 Mon> |
-| Week 2  | January 20  | LF          |                 | <2025-01-20 Mon> |
-| Week 3  | January 27  | LF          |                 | <2025-01-27 Mon> |
-| Week 4  | February 3  | LF          |                 | <2025-02-03 Mon> |
-| Week 5  | February 10 | LF          |                 | <2025-02-10 Mon> |
-| Week 6  | February 17 | LF          |                 | <2025-02-17 Mon> |
-| Week 7  | February 24 | Break (LF)  |                 | <2025-02-24 Mon> |
-| Week 8  | March 3     | PLF         |                 | <2025-03-03 Mon> |
-| Week 9  | March 10    | PLF         |                 | <2025-03-10 Mon> |
-| Week 10 | March 17    | PLF         |                 | <2025-03-17 Mon> |
-| Week 11 | March 24    | VFA         |                 | <2025-03-24 Mon> |
-| Week 12 | March 31    | Break (VFA) |                 | <2025-03-31 Mon> |
-| Week 13 | April 7     | VFA         |                 | <2025-04-07 Mon> |
-| Week 14 | April 14    | VFA         |                 | <2025-04-14 Mon> |
-| Week 15 | April 21    | VFA         |                 | <2025-04-21 Mon> |
-| Week 16 | April 28    | VFA         |                 | <2025-04-28 Mon> |
-| Week 16 | May 1       | Conclusion  |                 | <2025-05-01 Thu> |
-|---------+-------------+-------------+-----------------+------------------|
+|---------+-------------+-------------+---------------------------------+------------------|
+| Week    | Date        | Content     | Notes                           | Org Timestamp    |
+|---------+-------------+-------------+---------------------------------+------------------|
+| Week 0  | January 9   | Intro       | [[file:index.org][Syllabus]]                        | <2025-01-09 Thu> |
+| Week 1  | January 13  | LF          | [[file:sf-notes.org][Basics.v]]; [[file:sf-notes-1.org][Induction.v]];          | <2025-01-13 Mon> |
+| Week 2  | January 20  | LF          | Lists.v; Poly.v;                | <2025-01-20 Mon> |
+| Week 3  | January 27  | LF          | Tactics.v;                      | <2025-01-27 Mon> |
+| Week 4  | February 3  | LF          | Logic.v;                        | <2025-02-03 Mon> |
+| Week 5  | February 10 | LF          | IndProp.v; ProofObjects.v       | <2025-02-10 Mon> |
+| Week 6  | February 17 | LF          | ProofObjects.v; IndPrinciples.v | <2025-02-17 Mon> |
+| Week 7  | February 24 | Break (LF)  | Maps.v; Imp.v; Extraction.v     | <2025-02-24 Mon> |
+| Week 8  | March 3     | PLF         | Imp.v; Auto.v;                  | <2025-03-03 Mon> |
+| Week 9  | March 10    | PLF         | Equiv.v; Hoare.v                | <2025-03-10 Mon> |
+| Week 10 | March 17    | PLF         | Hoare2.v                        | <2025-03-17 Mon> |
+| Week 11 | March 24    | PLF         | Smallstep.v; Types.v            | <2025-03-24 Mon> |
+| Week 12 | March 31    | Break (PLF) | Stlc.v                          | <2025-03-31 Mon> |
+| Week 13 | April 7     | VFA         |                                 | <2025-04-07 Mon> |
+| Week 14 | April 14    | VFA         |                                 | <2025-04-14 Mon> |
+| Week 15 | April 21    | VFA         |                                 | <2025-04-21 Mon> |
+| Week 16 | April 28    | VFA         |                                 | <2025-04-28 Mon> |
+| Week 16 | May 1       | Conclusion  |                                 | <2025-05-01 Thu> |
+|---------+-------------+-------------+---------------------------------+------------------|
 ** Schedule
 *** <2025-01-20 Mon>
 **** Basics of Coq

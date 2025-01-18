@@ -1,0 +1,444 @@
+DIGEST 259e6f40576e2af2f5c102e07e13f885
+FLF.AltAutoTest
+R70:75 Coq.Strings.String <> <> lib
+R101:107 LF.AltAuto <> <> lib
+ax 121:127 <> MISSING
+mod 144:148 <> Check
+R214:220 LF.AltAutoTest <> MISSING defax
+R214:220 LF.AltAutoTest <> MISSING defax
+R413:416 Coq.Init.Datatypes <> Some constr
+R413:416 Coq.Init.Datatypes <> Some constr
+R596:599 Coq.Init.Datatypes <> None constr
+R596:599 Coq.Init.Datatypes <> None constr
+R681:685 LF.AltAutoTest Check <> mod
+R712:718 LF.AltAuto <> <> lib
+R728:732 LF.AltAutoTest Check <> mod
+def 736:744 <> Unnamed_thm
+R741:744 Coq.Init.Logic <> True ind
+R889:899 LF.AltAuto <> andb_eq_orb prfax
+R918:928 LF.Basics <> bool ind
+binder 912:912 <> b:2
+binder 914:914 <> c:3
+R940:941 Coq.Init.Logic <> eq ind
+R943:953 LF.Basics <> bool ind
+R956:966 LF.Basics <> andb def
+R968:968 LF.AltAutoTest <> b:2 var
+R970:970 LF.AltAutoTest <> c:3 var
+R974:983 LF.Basics <> orb def
+R985:985 LF.AltAutoTest <> b:2 var
+R987:987 LF.AltAutoTest <> c:3 var
+R994:995 Coq.Init.Logic <> eq ind
+R997:1007 LF.Basics <> bool ind
+R1009:1009 LF.AltAutoTest <> b:2 var
+R1011:1011 LF.AltAutoTest <> c:3 var
+R889:899 LF.AltAuto <> andb_eq_orb prfax
+R918:928 LF.Basics <> bool ind
+binder 912:912 <> b:4
+binder 914:914 <> c:5
+R940:941 Coq.Init.Logic <> eq ind
+R943:953 LF.Basics <> bool ind
+R956:966 LF.Basics <> andb def
+R968:968 LF.AltAutoTest <> b:4 var
+R970:970 LF.AltAutoTest <> c:5 var
+R974:983 LF.Basics <> orb def
+R985:985 LF.AltAutoTest <> b:4 var
+R987:987 LF.AltAutoTest <> c:5 var
+R994:995 Coq.Init.Logic <> eq ind
+R997:1007 LF.Basics <> bool ind
+R1009:1009 LF.AltAutoTest <> b:4 var
+R1011:1011 LF.AltAutoTest <> c:5 var
+R1063:1073 LF.AltAuto <> andb_eq_orb prfax
+def 1076:1084 <> Unnamed_thm
+R1081:1084 Coq.Init.Logic <> True ind
+R1161:1169 LF.AltAuto <> add_assoc prfax
+R1189:1191 Coq.Init.Datatypes <> nat ind
+binder 1181:1181 <> n:6
+binder 1183:1183 <> m:7
+binder 1185:1185 <> p:8
+R1196:1197 Coq.Init.Logic <> eq ind
+R1199:1201 Coq.Init.Datatypes <> nat ind
+R1204:1210 Coq.Init.Nat <> add def
+R1212:1212 LF.AltAutoTest <> n:6 var
+R1215:1221 Coq.Init.Nat <> add def
+R1223:1223 LF.AltAutoTest <> m:7 var
+R1225:1225 LF.AltAutoTest <> p:8 var
+R1230:1236 Coq.Init.Nat <> add def
+R1239:1245 Coq.Init.Nat <> add def
+R1247:1247 LF.AltAutoTest <> n:6 var
+R1249:1249 LF.AltAutoTest <> m:7 var
+R1252:1252 LF.AltAutoTest <> p:8 var
+R1161:1169 LF.AltAuto <> add_assoc prfax
+R1189:1191 Coq.Init.Datatypes <> nat ind
+binder 1181:1181 <> n:9
+binder 1183:1183 <> m:10
+binder 1185:1185 <> p:11
+R1196:1197 Coq.Init.Logic <> eq ind
+R1199:1201 Coq.Init.Datatypes <> nat ind
+R1204:1210 Coq.Init.Nat <> add def
+R1212:1212 LF.AltAutoTest <> n:9 var
+R1215:1221 Coq.Init.Nat <> add def
+R1223:1223 LF.AltAutoTest <> m:10 var
+R1225:1225 LF.AltAutoTest <> p:11 var
+R1230:1236 Coq.Init.Nat <> add def
+R1239:1245 Coq.Init.Nat <> add def
+R1247:1247 LF.AltAutoTest <> n:9 var
+R1249:1249 LF.AltAutoTest <> m:10 var
+R1252:1252 LF.AltAutoTest <> p:11 var
+R1305:1313 LF.AltAuto <> add_assoc prfax
+def 1316:1324 <> Unnamed_thm
+R1321:1324 Coq.Init.Logic <> True ind
+R1404:1415 LF.AltAuto <> nonzeros_app prfax
+R1439:1447 LF.Poly <> list ind
+R1449:1451 Coq.Init.Datatypes <> nat ind
+binder 1427:1430 <> lst1:12
+binder 1432:1435 <> lst2:13
+R1456:1457 Coq.Init.Logic <> eq ind
+R1460:1468 LF.Poly <> list ind
+R1470:1472 Coq.Init.Datatypes <> nat ind
+R1476:1483 LF.AltAuto <> nonzeros def
+R1487:1494 LF.Poly <> app def
+R1496:1498 Coq.Init.Datatypes <> nat ind
+R1500:1503 LF.AltAutoTest <> lst1:12 var
+R1505:1508 LF.AltAutoTest <> lst2:13 var
+R1517:1524 LF.Poly <> app def
+R1526:1528 Coq.Init.Datatypes <> nat ind
+R1531:1538 LF.AltAuto <> nonzeros def
+R1540:1543 LF.AltAutoTest <> lst1:12 var
+R1547:1554 LF.AltAuto <> nonzeros def
+R1556:1559 LF.AltAutoTest <> lst2:13 var
+R1404:1415 LF.AltAuto <> nonzeros_app prfax
+R1439:1447 LF.Poly <> list ind
+R1449:1451 Coq.Init.Datatypes <> nat ind
+binder 1427:1430 <> lst1:14
+binder 1432:1435 <> lst2:15
+R1456:1457 Coq.Init.Logic <> eq ind
+R1460:1468 LF.Poly <> list ind
+R1470:1472 Coq.Init.Datatypes <> nat ind
+R1476:1483 LF.AltAuto <> nonzeros def
+R1487:1494 LF.Poly <> app def
+R1496:1498 Coq.Init.Datatypes <> nat ind
+R1500:1503 LF.AltAutoTest <> lst1:14 var
+R1505:1508 LF.AltAutoTest <> lst2:15 var
+R1517:1524 LF.Poly <> app def
+R1526:1528 Coq.Init.Datatypes <> nat ind
+R1531:1538 LF.AltAuto <> nonzeros def
+R1540:1543 LF.AltAutoTest <> lst1:14 var
+R1547:1554 LF.AltAuto <> nonzeros def
+R1556:1559 LF.AltAutoTest <> lst2:15 var
+R1613:1624 LF.AltAuto <> nonzeros_app prfax
+def 1627:1635 <> Unnamed_thm
+R1632:1635 Coq.Init.Logic <> True ind
+R1792:1801 LF.AltAuto <> add_assoc' prfax
+R1821:1823 Coq.Init.Datatypes <> nat ind
+binder 1813:1813 <> n:16
+binder 1815:1815 <> m:17
+binder 1817:1817 <> p:18
+R1828:1829 Coq.Init.Logic <> eq ind
+R1831:1833 Coq.Init.Datatypes <> nat ind
+R1836:1842 Coq.Init.Nat <> add def
+R1844:1844 LF.AltAutoTest <> n:16 var
+R1847:1853 Coq.Init.Nat <> add def
+R1855:1855 LF.AltAutoTest <> m:17 var
+R1857:1857 LF.AltAutoTest <> p:18 var
+R1862:1868 Coq.Init.Nat <> add def
+R1871:1877 Coq.Init.Nat <> add def
+R1879:1879 LF.AltAutoTest <> n:16 var
+R1881:1881 LF.AltAutoTest <> m:17 var
+R1884:1884 LF.AltAutoTest <> p:18 var
+R1792:1801 LF.AltAuto <> add_assoc' prfax
+R1821:1823 Coq.Init.Datatypes <> nat ind
+binder 1813:1813 <> n:19
+binder 1815:1815 <> m:20
+binder 1817:1817 <> p:21
+R1828:1829 Coq.Init.Logic <> eq ind
+R1831:1833 Coq.Init.Datatypes <> nat ind
+R1836:1842 Coq.Init.Nat <> add def
+R1844:1844 LF.AltAutoTest <> n:19 var
+R1847:1853 Coq.Init.Nat <> add def
+R1855:1855 LF.AltAutoTest <> m:20 var
+R1857:1857 LF.AltAutoTest <> p:21 var
+R1862:1868 Coq.Init.Nat <> add def
+R1871:1877 Coq.Init.Nat <> add def
+R1879:1879 LF.AltAutoTest <> n:19 var
+R1881:1881 LF.AltAutoTest <> m:20 var
+R1884:1884 LF.AltAutoTest <> p:21 var
+R1937:1946 LF.AltAuto <> add_assoc' prfax
+def 1949:1957 <> Unnamed_thm
+R1954:1957 Coq.Init.Logic <> True ind
+R2100:2104 LF.AltAuto <> ev100 prfax
+R2108:2117 LF.IndProp <> ev ind
+R2100:2104 LF.AltAuto <> ev100 prfax
+R2108:2117 LF.IndProp <> ev ind
+R2173:2177 LF.AltAuto <> ev100 prfax
+def 2180:2188 <> Unnamed_thm
+R2185:2188 Coq.Init.Logic <> True ind
+R2357:2379 LF.AltAuto <> manual_grade_for_re_opt def
+R2559:2586 LF.AltAuto <> plus_id_exercise_from_basics prfax
+R2607:2609 Coq.Init.Datatypes <> nat ind
+binder 2599:2599 <> n:22
+binder 2601:2601 <> m:23
+binder 2603:2603 <> o:24
+R2618:2619 Coq.Init.Logic <> eq ind
+R2621:2623 Coq.Init.Datatypes <> nat ind
+R2625:2625 LF.AltAutoTest <> n:22 var
+R2627:2627 LF.AltAutoTest <> m:23 var
+R2636:2637 Coq.Init.Logic <> eq ind
+R2639:2641 Coq.Init.Datatypes <> nat ind
+R2643:2643 LF.AltAutoTest <> m:23 var
+R2645:2645 LF.AltAutoTest <> o:24 var
+R2651:2652 Coq.Init.Logic <> eq ind
+R2654:2656 Coq.Init.Datatypes <> nat ind
+R2659:2665 Coq.Init.Nat <> add def
+R2667:2667 LF.AltAutoTest <> n:22 var
+R2669:2669 LF.AltAutoTest <> m:23 var
+R2673:2679 Coq.Init.Nat <> add def
+R2681:2681 LF.AltAutoTest <> m:23 var
+R2683:2683 LF.AltAutoTest <> o:24 var
+R2559:2586 LF.AltAuto <> plus_id_exercise_from_basics prfax
+R2607:2609 Coq.Init.Datatypes <> nat ind
+binder 2599:2599 <> n:25
+binder 2601:2601 <> m:26
+binder 2603:2603 <> o:27
+R2618:2619 Coq.Init.Logic <> eq ind
+R2621:2623 Coq.Init.Datatypes <> nat ind
+R2625:2625 LF.AltAutoTest <> n:25 var
+R2627:2627 LF.AltAutoTest <> m:26 var
+R2636:2637 Coq.Init.Logic <> eq ind
+R2639:2641 Coq.Init.Datatypes <> nat ind
+R2643:2643 LF.AltAutoTest <> m:26 var
+R2645:2645 LF.AltAutoTest <> o:27 var
+R2651:2652 Coq.Init.Logic <> eq ind
+R2654:2656 Coq.Init.Datatypes <> nat ind
+R2659:2665 Coq.Init.Nat <> add def
+R2667:2667 LF.AltAutoTest <> n:25 var
+R2669:2669 LF.AltAutoTest <> m:26 var
+R2673:2679 Coq.Init.Nat <> add def
+R2681:2681 LF.AltAutoTest <> m:26 var
+R2683:2683 LF.AltAutoTest <> o:27 var
+R2736:2763 LF.AltAuto <> plus_id_exercise_from_basics prfax
+def 2766:2774 <> Unnamed_thm
+R2771:2774 Coq.Init.Logic <> True ind
+R2868:2891 LF.AltAuto <> add_assoc_from_induction prfax
+R2911:2913 Coq.Init.Datatypes <> nat ind
+binder 2903:2903 <> n:28
+binder 2905:2905 <> m:29
+binder 2907:2907 <> p:30
+R2918:2919 Coq.Init.Logic <> eq ind
+R2921:2923 Coq.Init.Datatypes <> nat ind
+R2926:2932 Coq.Init.Nat <> add def
+R2934:2934 LF.AltAutoTest <> n:28 var
+R2937:2943 Coq.Init.Nat <> add def
+R2945:2945 LF.AltAutoTest <> m:29 var
+R2947:2947 LF.AltAutoTest <> p:30 var
+R2952:2958 Coq.Init.Nat <> add def
+R2961:2967 Coq.Init.Nat <> add def
+R2969:2969 LF.AltAutoTest <> n:28 var
+R2971:2971 LF.AltAutoTest <> m:29 var
+R2974:2974 LF.AltAutoTest <> p:30 var
+R2868:2891 LF.AltAuto <> add_assoc_from_induction prfax
+R2911:2913 Coq.Init.Datatypes <> nat ind
+binder 2903:2903 <> n:31
+binder 2905:2905 <> m:32
+binder 2907:2907 <> p:33
+R2918:2919 Coq.Init.Logic <> eq ind
+R2921:2923 Coq.Init.Datatypes <> nat ind
+R2926:2932 Coq.Init.Nat <> add def
+R2934:2934 LF.AltAutoTest <> n:31 var
+R2937:2943 Coq.Init.Nat <> add def
+R2945:2945 LF.AltAutoTest <> m:32 var
+R2947:2947 LF.AltAutoTest <> p:33 var
+R2952:2958 Coq.Init.Nat <> add def
+R2961:2967 Coq.Init.Nat <> add def
+R2969:2969 LF.AltAutoTest <> n:31 var
+R2971:2971 LF.AltAutoTest <> m:32 var
+R2974:2974 LF.AltAutoTest <> p:33 var
+R3027:3050 LF.AltAuto <> add_assoc_from_induction prfax
+def 3053:3061 <> Unnamed_thm
+R3058:3061 Coq.Init.Logic <> True ind
+R3155:3178 LF.AltAuto <> S_injective_from_tactics prfax
+R3197:3199 Coq.Init.Datatypes <> nat ind
+binder 3191:3191 <> n:34
+binder 3193:3193 <> m:35
+R3208:3209 Coq.Init.Logic <> eq ind
+R3211:3213 Coq.Init.Datatypes <> nat ind
+R3216:3216 Coq.Init.Datatypes <> S constr
+R3218:3218 LF.AltAutoTest <> n:34 var
+R3222:3222 Coq.Init.Datatypes <> S constr
+R3224:3224 LF.AltAutoTest <> m:35 var
+R3230:3231 Coq.Init.Logic <> eq ind
+R3233:3235 Coq.Init.Datatypes <> nat ind
+R3237:3237 LF.AltAutoTest <> n:34 var
+R3239:3239 LF.AltAutoTest <> m:35 var
+R3155:3178 LF.AltAuto <> S_injective_from_tactics prfax
+R3197:3199 Coq.Init.Datatypes <> nat ind
+binder 3191:3191 <> n:36
+binder 3193:3193 <> m:37
+R3208:3209 Coq.Init.Logic <> eq ind
+R3211:3213 Coq.Init.Datatypes <> nat ind
+R3216:3216 Coq.Init.Datatypes <> S constr
+R3218:3218 LF.AltAutoTest <> n:36 var
+R3222:3222 Coq.Init.Datatypes <> S constr
+R3224:3224 LF.AltAutoTest <> m:37 var
+R3230:3231 Coq.Init.Logic <> eq ind
+R3233:3235 Coq.Init.Datatypes <> nat ind
+R3237:3237 LF.AltAutoTest <> n:36 var
+R3239:3239 LF.AltAutoTest <> m:37 var
+R3291:3314 LF.AltAuto <> S_injective_from_tactics prfax
+def 3317:3325 <> Unnamed_thm
+R3322:3325 Coq.Init.Logic <> True ind
+R3429:3462 LF.AltAuto <> or_distributes_over_and_from_logic prfax
+binder 3474:3474 <> P:38
+binder 3476:3476 <> Q:39
+binder 3478:3478 <> R:40
+R3488:3490 Coq.Init.Logic <> iff def
+R3510:3512 Coq.Init.Logic <> and ind
+R3524:3525 Coq.Init.Logic <> or ind
+R3529:3529 LF.AltAutoTest <> R:40 var
+R3527:3527 LF.AltAutoTest <> P:38 var
+R3515:3516 Coq.Init.Logic <> or ind
+R3520:3520 LF.AltAutoTest <> Q:39 var
+R3518:3518 LF.AltAutoTest <> P:38 var
+R3493:3494 Coq.Init.Logic <> or ind
+R3499:3501 Coq.Init.Logic <> and ind
+R3505:3505 LF.AltAutoTest <> R:40 var
+R3503:3503 LF.AltAutoTest <> Q:39 var
+R3496:3496 LF.AltAutoTest <> P:38 var
+R3429:3462 LF.AltAuto <> or_distributes_over_and_from_logic prfax
+binder 3474:3474 <> P:41
+binder 3476:3476 <> Q:42
+binder 3478:3478 <> R:43
+R3488:3490 Coq.Init.Logic <> iff def
+R3510:3512 Coq.Init.Logic <> and ind
+R3524:3525 Coq.Init.Logic <> or ind
+R3529:3529 LF.AltAutoTest <> R:43 var
+R3527:3527 LF.AltAutoTest <> P:41 var
+R3515:3516 Coq.Init.Logic <> or ind
+R3520:3520 LF.AltAutoTest <> Q:42 var
+R3518:3518 LF.AltAutoTest <> P:41 var
+R3493:3494 Coq.Init.Logic <> or ind
+R3499:3501 Coq.Init.Logic <> and ind
+R3505:3505 LF.AltAutoTest <> R:43 var
+R3503:3503 LF.AltAutoTest <> Q:42 var
+R3496:3496 LF.AltAutoTest <> P:41 var
+R3583:3616 LF.AltAuto <> or_distributes_over_and_from_logic prfax
+def 3619:3627 <> Unnamed_thm
+R3624:3627 Coq.Init.Logic <> True ind
+R3815:3845 LF.AltAuto <> manual_grade_for_re_opt_match'' def
+R4006:4019 LF.AltAuto <> andb3_exchange prfax
+R4039:4049 LF.Basics <> bool ind
+binder 4031:4031 <> b:44
+binder 4033:4033 <> c:45
+binder 4035:4035 <> d:46
+R4054:4055 Coq.Init.Logic <> eq ind
+R4057:4067 LF.Basics <> bool ind
+R4070:4080 LF.Basics <> andb def
+R4083:4093 LF.Basics <> andb def
+R4095:4095 LF.AltAutoTest <> b:44 var
+R4097:4097 LF.AltAutoTest <> c:45 var
+R4100:4100 LF.AltAutoTest <> d:46 var
+R4107:4117 LF.Basics <> andb def
+R4120:4130 LF.Basics <> andb def
+R4132:4132 LF.AltAutoTest <> b:44 var
+R4134:4134 LF.AltAutoTest <> d:46 var
+R4137:4137 LF.AltAutoTest <> c:45 var
+R4006:4019 LF.AltAuto <> andb3_exchange prfax
+R4039:4049 LF.Basics <> bool ind
+binder 4031:4031 <> b:47
+binder 4033:4033 <> c:48
+binder 4035:4035 <> d:49
+R4054:4055 Coq.Init.Logic <> eq ind
+R4057:4067 LF.Basics <> bool ind
+R4070:4080 LF.Basics <> andb def
+R4083:4093 LF.Basics <> andb def
+R4095:4095 LF.AltAutoTest <> b:47 var
+R4097:4097 LF.AltAutoTest <> c:48 var
+R4100:4100 LF.AltAutoTest <> d:49 var
+R4107:4117 LF.Basics <> andb def
+R4120:4130 LF.Basics <> andb def
+R4132:4132 LF.AltAutoTest <> b:47 var
+R4134:4134 LF.AltAutoTest <> d:49 var
+R4137:4137 LF.AltAutoTest <> c:48 var
+R4190:4203 LF.AltAuto <> andb3_exchange prfax
+def 4206:4214 <> Unnamed_thm
+R4211:4214 Coq.Init.Logic <> True ind
+R4380:4395 LF.AltAuto <> andb_true_elim2' prfax
+R4414:4424 LF.Basics <> bool ind
+binder 4408:4408 <> b:50
+binder 4410:4410 <> c:51
+R4436:4437 Coq.Init.Logic <> eq ind
+R4439:4449 LF.Basics <> bool ind
+R4452:4462 LF.Basics <> andb def
+R4464:4464 LF.AltAutoTest <> b:50 var
+R4466:4466 LF.AltAutoTest <> c:51 var
+R4469:4479 LF.Basics <> true constr
+R4485:4486 Coq.Init.Logic <> eq ind
+R4488:4498 LF.Basics <> bool ind
+R4500:4500 LF.AltAutoTest <> c:51 var
+R4502:4512 LF.Basics <> true constr
+R4380:4395 LF.AltAuto <> andb_true_elim2' prfax
+R4414:4424 LF.Basics <> bool ind
+binder 4408:4408 <> b:52
+binder 4410:4410 <> c:53
+R4436:4437 Coq.Init.Logic <> eq ind
+R4439:4449 LF.Basics <> bool ind
+R4452:4462 LF.Basics <> andb def
+R4464:4464 LF.AltAutoTest <> b:52 var
+R4466:4466 LF.AltAutoTest <> c:53 var
+R4469:4479 LF.Basics <> true constr
+R4485:4486 Coq.Init.Logic <> eq ind
+R4488:4498 LF.Basics <> bool ind
+R4500:4500 LF.AltAutoTest <> c:53 var
+R4502:4512 LF.Basics <> true constr
+R4564:4579 LF.AltAuto <> andb_true_elim2' prfax
+def 4582:4590 <> Unnamed_thm
+R4587:4590 Coq.Init.Logic <> True ind
+R4675:4689 LF.AltAuto <> andb3_exchange' prfax
+R4709:4719 LF.Basics <> bool ind
+binder 4701:4701 <> b:54
+binder 4703:4703 <> c:55
+binder 4705:4705 <> d:56
+R4724:4725 Coq.Init.Logic <> eq ind
+R4727:4737 LF.Basics <> bool ind
+R4740:4750 LF.Basics <> andb def
+R4753:4763 LF.Basics <> andb def
+R4765:4765 LF.AltAutoTest <> b:54 var
+R4767:4767 LF.AltAutoTest <> c:55 var
+R4770:4770 LF.AltAutoTest <> d:56 var
+R4777:4787 LF.Basics <> andb def
+R4790:4800 LF.Basics <> andb def
+R4802:4802 LF.AltAutoTest <> b:54 var
+R4804:4804 LF.AltAutoTest <> d:56 var
+R4807:4807 LF.AltAutoTest <> c:55 var
+R4675:4689 LF.AltAuto <> andb3_exchange' prfax
+R4709:4719 LF.Basics <> bool ind
+binder 4701:4701 <> b:57
+binder 4703:4703 <> c:58
+binder 4705:4705 <> d:59
+R4724:4725 Coq.Init.Logic <> eq ind
+R4727:4737 LF.Basics <> bool ind
+R4740:4750 LF.Basics <> andb def
+R4753:4763 LF.Basics <> andb def
+R4765:4765 LF.AltAutoTest <> b:57 var
+R4767:4767 LF.AltAutoTest <> c:58 var
+R4770:4770 LF.AltAutoTest <> d:59 var
+R4777:4787 LF.Basics <> andb def
+R4790:4800 LF.Basics <> andb def
+R4802:4802 LF.AltAutoTest <> b:57 var
+R4804:4804 LF.AltAutoTest <> d:59 var
+R4807:4807 LF.AltAutoTest <> c:58 var
+R4860:4874 LF.AltAuto <> andb3_exchange' prfax
+def 4877:4885 <> Unnamed_thm
+R4882:4885 Coq.Init.Logic <> True ind
+R5086:5115 LF.AltAuto <> manual_grade_for_nor_intuition def
+R6087:6097 LF.AltAuto <> andb_eq_orb prfax
+R6158:6166 LF.AltAuto <> add_assoc prfax
+R6230:6241 LF.AltAuto <> nonzeros_app prfax
+R6303:6312 LF.AltAuto <> add_assoc' prfax
+R6369:6373 LF.AltAuto <> ev100 prfax
+R6506:6533 LF.AltAuto <> plus_id_exercise_from_basics prfax
+R6609:6632 LF.AltAuto <> add_assoc_from_induction prfax
+R6708:6731 LF.AltAuto <> S_injective_from_tactics prfax
+R6817:6850 LF.AltAuto <> or_distributes_over_and_from_logic prfax
+R6977:6990 LF.AltAuto <> andb3_exchange prfax
+R7058:7073 LF.AltAuto <> andb_true_elim2' prfax
+R7140:7154 LF.AltAuto <> andb3_exchange' prfax

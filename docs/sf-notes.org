@@ -3,7 +3,7 @@
 #+OPTIONS: num:2 toc:2
 
 ------
-[[file:index.org][Homepage]]
+[[file:index.org][Homepage]] | [[file:sf-notes-1.org][Next: Induction.v]]
 
 * Summary
 

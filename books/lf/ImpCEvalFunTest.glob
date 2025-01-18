@@ -1,0 +1,70 @@
+DIGEST c61f259cebc3c80c71f2743e14dfafc9
+FLF.ImpCEvalFunTest
+R70:75 Coq.Strings.String <> <> lib
+R101:111 LF.ImpCEvalFun <> <> lib
+ax 125:131 <> MISSING
+mod 148:152 <> Check
+R218:224 LF.ImpCEvalFunTest <> MISSING defax
+R218:224 LF.ImpCEvalFunTest <> MISSING defax
+R417:420 Coq.Init.Datatypes <> Some constr
+R417:420 Coq.Init.Datatypes <> Some constr
+R600:603 Coq.Init.Datatypes <> None constr
+R600:603 Coq.Init.Datatypes <> None constr
+R685:689 LF.ImpCEvalFunTest Check <> mod
+R716:726 LF.ImpCEvalFun <> <> lib
+R736:740 LF.ImpCEvalFunTest Check <> mod
+def 744:752 <> Unnamed_thm
+R749:752 Coq.Init.Logic <> True ind
+R958:995 LF.ImpCEvalFun <> manual_grade_for_ceval_step__ceval_inf def
+R1162:1178 LF.ImpCEvalFun <> ceval__ceval_step prfax
+R1195:1201 LF.Imp <> com ind
+binder 1191:1191 <> c:2
+R1214:1222 LF.Imp <> state def
+binder 1205:1206 <> st:3
+binder 1208:1210 <> st':4
+R1230:1238 LF.Imp <> ceval ind
+R1240:1240 LF.ImpCEvalFunTest <> c:2 var
+R1242:1243 LF.ImpCEvalFunTest <> st:3 var
+R1245:1247 LF.ImpCEvalFunTest <> st':4 var
+R1253:1254 Coq.Init.Logic <> ex ind
+R1256:1258 Coq.Init.Datatypes <> nat ind
+R1272:1274 Coq.Init.Datatypes <> nat ind
+binder 1268:1268 <> i:5
+R1284:1285 Coq.Init.Logic <> eq ind
+R1288:1293 Coq.Init.Datatypes <> option ind
+R1295:1303 LF.Imp <> state def
+R1307:1316 LF.ImpCEvalFun <> ceval_step def
+R1318:1319 LF.ImpCEvalFunTest <> st:3 var
+R1321:1321 LF.ImpCEvalFunTest <> c:2 var
+R1323:1323 LF.ImpCEvalFunTest <> i:5 var
+R1328:1331 Coq.Init.Datatypes <> Some constr
+R1333:1341 LF.Imp <> state def
+R1343:1345 LF.ImpCEvalFunTest <> st':4 var
+R1162:1178 LF.ImpCEvalFun <> ceval__ceval_step prfax
+R1195:1201 LF.Imp <> com ind
+binder 1191:1191 <> c:6
+R1214:1222 LF.Imp <> state def
+binder 1205:1206 <> st:7
+binder 1208:1210 <> st':8
+R1230:1238 LF.Imp <> ceval ind
+R1240:1240 LF.ImpCEvalFunTest <> c:6 var
+R1242:1243 LF.ImpCEvalFunTest <> st:7 var
+R1245:1247 LF.ImpCEvalFunTest <> st':8 var
+R1253:1254 Coq.Init.Logic <> ex ind
+R1256:1258 Coq.Init.Datatypes <> nat ind
+R1272:1274 Coq.Init.Datatypes <> nat ind
+binder 1268:1268 <> i:9
+R1284:1285 Coq.Init.Logic <> eq ind
+R1288:1293 Coq.Init.Datatypes <> option ind
+R1295:1303 LF.Imp <> state def
+R1307:1316 LF.ImpCEvalFun <> ceval_step def
+R1318:1319 LF.ImpCEvalFunTest <> st:7 var
+R1321:1321 LF.ImpCEvalFunTest <> c:6 var
+R1323:1323 LF.ImpCEvalFunTest <> i:9 var
+R1328:1331 Coq.Init.Datatypes <> Some constr
+R1333:1341 LF.Imp <> state def
+R1343:1345 LF.ImpCEvalFunTest <> st':8 var
+R1399:1415 LF.ImpCEvalFun <> ceval__ceval_step prfax
+def 1418:1426 <> Unnamed_thm
+R1423:1426 Coq.Init.Logic <> True ind
+R2402:2418 LF.ImpCEvalFun <> ceval__ceval_step prfax

@@ -1,5 +1,165 @@
 #+title: Induction
 
-#+BEGIN_CENTER
-Under construction.
-#+END_CENTERg
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="custom.css">
+#+OPTIONS: num:2 toc:2
+
+------
+[[file:index.org][Homepage]] | [[file:sf-notes.org][Previous: Basics.v]] | [[file:sf-notes-2.org][Next: TBD]]
+
+* Summary
+
+In this chapter we quickly go over proofs by induction. We introduce the =induction= and =assert= tactics. Finally, having now been familiar with Coq proofs, we reflect on the differences between formal and informal mathematical proofs.
+
+** Terms
+proof by induction, =induction= tactic, induction hypothesis, principle of induction, sub-theorems, =assert= tactic, formal proof, informal proof, proofs as communication
+
+* Proof by Induction: =induction= tactic
+
+So far, we've done proof by simplification, rewriting, case analysis -- done using several tactics: =reflexivity=, =simpl=, =intro=, =rewrite=, =destruct=.
+
+We have learnt how to close goals by reflexivity, introduce variables and hypotheses, use previous theorems and assumptions, advance the proof by simplifying (computation), and break down goals into subgoals by casing on type constructors.
+
+We have also briefly learned how to unfold, and how to deal with contradictions.
+
+In this chapter, we will learn a classic proof technique: induction.
+
+From the chapter:
+#+BEGIN_SRC coq
+(** Recall (from a discrete math course, probably) the _principle of
+    induction over natural numbers_: If [P(n)] is some proposition
+    involving a natural number [n] and we want to show that [P] holds for
+    all numbers [n], we can reason like this:
+         - show that [P(O)] holds;
+         - show that, for any [n'], if [P(n')] holds, then so does [P(S
+           n')];
+         - conclude that [P(n)] holds for all [n].
+
+  In Coq, the steps are the same: we begin with the goal of proving
+    [P(n)] for all [n] and break it down (by applying the [induction]
+    tactic) into two separate subgoals: one where we must show [P(O)] and
+    another where we must show [P(n') -> P(S n')].  *)
+#+END_SRC
+
+The =induction= tactic is quite straightforward. It also takes an =as= annotation - setting the variable names for the "next element" in the inductive step and the induction hypothesis.
+
+#+BEGIN_SRC coq
+Theorem minus_n_n : forall n,
+  minus n n = 0.
+Proof.
+    intros n. induction n as [| n' IHn'].
+  - simpl. reflexivity.
+  - simpl. rewrite -> IHn'. reflexivity.
+Qed.
+#+END_SRC
+
+Note that =intros n= is redundant here - =induction n ...= already introduces =n= to the context.
+* Proofs within Proofs: =assert= tactic
+
+We can use the =assert= tactic in order to create an anonymous "sub-theorem" within a proof.
+
+This mimics "informal" mathematics, where large proofs are broken into a sequence of theorems -- and some of these theorems will be too trivial or of little general interest to bother giving it a name.
+
+#+BEGIN_SRC coq
+Theorem mult_0_plus' : forall n m : nat,
+  (n + 0 + 0) * m = n * m.
+Proof.
+  intros n m.
+  assert (H: n + 0 + 0 = n).
+    { rewrite add_comm. simpl. rewrite add_comm. reflexivity. }4
+  rewrite -> H.
+  reflexivity.  Qed.
+#+END_SRC
+** =assert= for smarter =rewrite=​s
+
+This is very important. Too often, =rewrite= applies rewrites in unintended places.
+
+Here, we want to prove that =(n + m) + (p + q) = (m + n) + (p + q)=. The only difference between the two sides of the === is =n + m= vs. =m + n= -- it would be enough to use commutativity of addition: =add_comm=. But there are three uses of =+= here, and it turns out that =rewrite -> add_comm= will target  the outer =+= and not what we wanted: =(n + m)=.
+
+To get through this, we use =assert= to create a local lemma stating that =n + m = m + n=, and then rewrite the original equation with the lemma.
+
+#+BEGIN_SRC coq
+Theorem plus_rearrange : forall n m p q : nat,
+  (n + m) + (p + q) = (m + n) + (p + q).
+Proof.
+  intros n m p q.
+  assert (H: n + m = m + n).
+  { rewrite add_comm. reflexivity. }
+  rewrite H. reflexivity.  Qed.
+#+END_SRC
+* Formal vs. Informal Proof
+
+#+BEGIN_QUOTE
+Informal proofs are algorithms; formal proofs are code.
+#+END_QUOTE
+
+What counts as a proof of a mathematical claim?
+This has been a question philosophers have been debating - the authors argue that a proof is an act of communication (to instill in the audience the certainty that =P= is true).
+
+The authors continue the communication analogy:
+
+Authors communicate to their readers. The reader can be a human person, or it could be a program like Coq.
+
+Proofs for humans will be written in natural language, and is therefore *informal*. Even though such mathematical proofs may be considered "rigorous",  the fact that they are in natural language, which has a lot of ambiguityl, means that such proofs are *informal* by nature. A formal proof uses *formal language*, and sticks closely to a well-established syntax and semantics.
+
+There are also different kinds of math readers depending on their expertise. As proofs are an act of communication, and communication depends on context, (informal) proofs can be written in different styles or phrasings to accomodate their audience.
+
+An excerpt for the different kinds of audiences:
+
+#+BEGIN_QUOTE coq
+ (...)  A "valid" proof is one that
+    makes the reader believe =P=.  But the same proof may be read by
+    many different readers, some of whom may be convinced by a
+    particular way of phrasing the argument, while others may not be.
+    Some readers may be particularly pedantic, inexperienced, or just
+    plain thick-headed; the only way to convince them will be to make
+    the argument in painstaking detail.  But other readers, more
+    familiar in the area, may find all this detail so overwhelming
+    that they lose the overall thread; all they want is to be told the
+    main ideas, since it is easier for them to fill in the details for
+    themselves than to wade through a written presentation of them.
+#+END_QUOTE
+
+The following is the most important point about informal proofs.
+
+#+BEGIN_QUOTE
+    Ultimately, there is no universal standard, because there is no
+    single way of writing an informal proof that is guaranteed to
+    convince every conceivable reader.
+#+END_QUOTE
+
+Proofs written for "machines" like Coq, i.e. *formal proofs*, are mechanically derived from a certain set of formal logical rules (which?), and the proof is a recipe that guides the program in checking this fact.
+
+A formal proof carries in it a mechanical way of verifying that the proof holds.
+
+Formal proofs are useful in many ways, but they tend to not be very efficient ways of communicating ideas between human beings.
+
+* TODO Exercises
+* TODO Scores
+* Questions
+** TODO Disjunctive pattern
+
+=induction= uses a =as ..= pattern. For example, we saw =induction n as [| n' IHN']=.  If we do =induction n as [n' IHN']= instead, the compiler complains.
+#+BEGIN_SRC bash
+Error: Expects a disjunctive pattern with 2 branches.
+#+END_SRC
+What's a /disjunctive pattern/ and what does it have to do with the =induction= tactic?
+
+* TODO Metacognition
+
+The chapter was pretty straightforward. I like the section on formal versus informal proofs. This book, and the course infrastructure, is excellent. There's a pretty book online, but the better way to learn is by going through the Coq files - the book is derived from the Coq files which have comments -
+
+* TODO Further Knowledge
+
+The discussion on formal vs informal proofs reminds me of Brouwer's vision for the Automath project, which I have written about before.
+
+* TODOs
+
+** TODO List exercises
+
+** TODO Do exercises
+
+* TODO Next up
+
+Lists.v
+------
+[[file:sf-notes.org][Back to Top]]

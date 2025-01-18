@@ -1,0 +1,15 @@
+DIGEST 5a68a27b303a0264a5e12c119798ee89
+FLF.Extraction
+R444:453 Coq.extraction.Extraction <> <> lib
+R672:676 Coq.Arith.Arith <> <> lib
+R703:710 Coq.Init.Nat <> <> lib
+R737:741 Coq.Arith.EqNat <> <> lib
+R767:777 LF.ImpCEvalFun <> <> lib
+R1576:1579 Coq.Init.Datatypes <> bool ind
+R1833:1835 Coq.Init.Datatypes <> nat ind
+R3189:3202 Coq.extraction.ExtrOcamlBasic <> <> lib
+R3220:3234 Coq.extraction.ExtrOcamlString <> <> lib
+R3307:3313 Coq.Init.Specif <> sumbool ind
+R3413:3415 LF.Imp <> <> lib
+R3441:3449 LF.ImpParser <> <> lib
+R3476:3479 LF.Maps <> <> lib
