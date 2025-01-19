@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-01-18 Sat 22:56 -->
+<!-- 2025-01-19 Sun 07:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Induction</title>
@@ -202,34 +202,35 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga7dc967">1. Summary</a>
+<li><a href="#org98ab61b">1. Summary</a>
 <ul>
-<li><a href="#orge412caf">1.1. Terms</a></li>
+<li><a href="#orgcaef1c8">1.1. Terms</a></li>
 </ul>
 </li>
-<li><a href="#orgd17c370">2. Proof by Induction: <code>induction</code> tactic</a></li>
-<li><a href="#org421251f">3. Proofs within Proofs: <code>assert</code> tactic</a>
+<li><a href="#org243f71e">2. Proof by Induction: <code>induction</code> tactic</a></li>
+<li><a href="#org685888b">3. Proofs within Proofs: <code>assert</code> tactic</a>
 <ul>
-<li><a href="#org7085ca4">3.1. <code>assert</code> for smarter <code>rewrite</code>​s</a></li>
+<li><a href="#orgb996045">3.1. <code>assert</code> for smarter <code>rewrite</code>​s</a></li>
 </ul>
 </li>
-<li><a href="#org89195df">4. Formal vs. Informal Proof</a></li>
-<li><a href="#org0afcaaf">5. <span class="todo TODO">TODO</span> Exercises</a></li>
-<li><a href="#org0793569">6. <span class="todo TODO">TODO</span> Scores</a></li>
-<li><a href="#org92faa89">7. Questions</a>
+<li><a href="#org7b7c5a2">4. Formal vs. Informal Proof</a></li>
+<li><a href="#org0135d2a">5. <span class="todo TODO">TODO</span> Exercises</a></li>
+<li><a href="#org934b155">6. <span class="todo TODO">TODO</span> Scores</a></li>
+<li><a href="#org746163e">7. Questions</a>
 <ul>
-<li><a href="#org5509a75">7.1. <span class="todo TODO">TODO</span> Disjunctive pattern</a></li>
+<li><a href="#org7b69180">7.1. <span class="todo TODO">TODO</span> Disjunctive pattern</a></li>
+<li><a href="#orgcb59109">7.2. <span class="todo TODO">TODO</span> Induction Hypothesis in Coq vs Informal Proofs</a></li>
 </ul>
 </li>
-<li><a href="#org6948eb7">8. <span class="todo TODO">TODO</span> Metacognition</a></li>
-<li><a href="#org962d517">9. <span class="todo TODO">TODO</span> Further Knowledge</a></li>
-<li><a href="#org7e40618">10. TODOs</a>
+<li><a href="#org2c46d7d">8. <span class="todo TODO">TODO</span> Metacognition</a></li>
+<li><a href="#org077ebcf">9. <span class="todo TODO">TODO</span> Further Knowledge</a></li>
+<li><a href="#org8e3acc7">10. TODOs</a>
 <ul>
-<li><a href="#org97e2bb6">10.1. <span class="todo TODO">TODO</span> List exercises</a></li>
-<li><a href="#org80a531b">10.2. <span class="todo TODO">TODO</span> Do exercises</a></li>
+<li><a href="#org62d3f1c">10.1. <span class="todo TODO">TODO</span> List exercises</a></li>
+<li><a href="#org0a2ebd5">10.2. <span class="todo TODO">TODO</span> Do exercises</a></li>
 </ul>
 </li>
-<li><a href="#org108a743">11. <span class="todo TODO">TODO</span> Next up</a></li>
+<li><a href="#orgf5c6036">11. <span class="todo TODO">TODO</span> Next up</a></li>
 </ul>
 </div>
 </div>
@@ -237,15 +238,15 @@
 <p>
 <a href="index.html">Homepage</a> | <a href="sf-notes.html">Previous: Basics.v</a> | <a href="sf-notes-2.html">Next: TBD</a>
 </p>
-<div id="outline-container-orga7dc967" class="outline-2">
-<h2 id="orga7dc967"><span class="section-number-2">1.</span> Summary</h2>
+<div id="outline-container-org98ab61b" class="outline-2">
+<h2 id="org98ab61b"><span class="section-number-2">1.</span> Summary</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 In this chapter we quickly go over proofs by induction. We introduce the <code>induction</code> and <code>assert</code> tactics. Finally, having now been familiar with Coq proofs, we reflect on the differences between formal and informal mathematical proofs.
 </p>
 </div>
-<div id="outline-container-orge412caf" class="outline-3">
-<h3 id="orge412caf"><span class="section-number-3">1.1.</span> Terms</h3>
+<div id="outline-container-orgcaef1c8" class="outline-3">
+<h3 id="orgcaef1c8"><span class="section-number-3">1.1.</span> Terms</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 proof by induction, <code>induction</code> tactic, induction hypothesis, principle of induction, sub-theorems, <code>assert</code> tactic, formal proof, informal proof, proofs as communication
@@ -253,8 +254,8 @@ proof by induction, <code>induction</code> tactic, induction hypothesis, princip
 </div>
 </div>
 </div>
-<div id="outline-container-orgd17c370" class="outline-2">
-<h2 id="orgd17c370"><span class="section-number-2">2.</span> Proof by Induction: <code>induction</code> tactic</h2>
+<div id="outline-container-org243f71e" class="outline-2">
+<h2 id="org243f71e"><span class="section-number-2">2.</span> Proof by Induction: <code>induction</code> tactic</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 So far, we&rsquo;ve done proof by simplification, rewriting, case analysis &#x2013; done using several tactics: <code>reflexivity</code>, <code>simpl</code>, <code>intro</code>, <code>rewrite</code>, <code>destruct</code>.
@@ -312,8 +313,8 @@ Note that <code>intros n</code> is redundant here - <code>induction n ...</code>
 </p>
 </div>
 </div>
-<div id="outline-container-org421251f" class="outline-2">
-<h2 id="org421251f"><span class="section-number-2">3.</span> Proofs within Proofs: <code>assert</code> tactic</h2>
+<div id="outline-container-org685888b" class="outline-2">
+<h2 id="org685888b"><span class="section-number-2">3.</span> Proofs within Proofs: <code>assert</code> tactic</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 We can use the <code>assert</code> tactic in order to create an anonymous &ldquo;sub-theorem&rdquo; within a proof.
@@ -335,8 +336,8 @@ This mimics &ldquo;informal&rdquo; mathematics, where large proofs are broken in
 </pre>
 </div>
 </div>
-<div id="outline-container-org7085ca4" class="outline-3">
-<h3 id="org7085ca4"><span class="section-number-3">3.1.</span> <code>assert</code> for smarter <code>rewrite</code>​s</h3>
+<div id="outline-container-orgb996045" class="outline-3">
+<h3 id="orgb996045"><span class="section-number-3">3.1.</span> <code>assert</code> for smarter <code>rewrite</code>​s</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 This is very important. Too often, <code>rewrite</code> applies rewrites in unintended places.
@@ -363,8 +364,8 @@ To get through this, we use <code>assert</code> to create a local lemma stating 
 </div>
 </div>
 </div>
-<div id="outline-container-org89195df" class="outline-2">
-<h2 id="org89195df"><span class="section-number-2">4.</span> Formal vs. Informal Proof</h2>
+<div id="outline-container-org7b7c5a2" class="outline-2">
+<h2 id="org7b7c5a2"><span class="section-number-2">4.</span> Formal vs. Informal Proof</h2>
 <div class="outline-text-2" id="text-4">
 <blockquote>
 <p>
@@ -438,18 +439,18 @@ Formal proofs are useful in many ways, but they tend to not be very efficient wa
 </p>
 </div>
 </div>
-<div id="outline-container-org0afcaaf" class="outline-2">
-<h2 id="org0afcaaf"><span class="section-number-2">5.</span> <span class="todo TODO">TODO</span> Exercises</h2>
+<div id="outline-container-org0135d2a" class="outline-2">
+<h2 id="org0135d2a"><span class="section-number-2">5.</span> <span class="todo TODO">TODO</span> Exercises</h2>
 </div>
-<div id="outline-container-org0793569" class="outline-2">
-<h2 id="org0793569"><span class="section-number-2">6.</span> <span class="todo TODO">TODO</span> Scores</h2>
+<div id="outline-container-org934b155" class="outline-2">
+<h2 id="org934b155"><span class="section-number-2">6.</span> <span class="todo TODO">TODO</span> Scores</h2>
 </div>
-<div id="outline-container-org92faa89" class="outline-2">
-<h2 id="org92faa89"><span class="section-number-2">7.</span> Questions</h2>
+<div id="outline-container-org746163e" class="outline-2">
+<h2 id="org746163e"><span class="section-number-2">7.</span> Questions</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org5509a75" class="outline-3">
-<h3 id="org5509a75"><span class="section-number-3">7.1.</span> <span class="todo TODO">TODO</span> Disjunctive pattern</h3>
+<div id="outline-container-org7b69180" class="outline-3">
+<h3 id="org7b69180"><span class="section-number-3">7.1.</span> <span class="todo TODO">TODO</span> Disjunctive pattern</h3>
 <div class="outline-text-3" id="text-7-1">
 <p>
 <code>induction</code> uses a <code>as ..</code> pattern. For example, we saw <code>induction n as [| n' IHN']</code>.  If we do <code>induction n as [n' IHN']</code> instead, the compiler complains.
@@ -463,37 +464,102 @@ What&rsquo;s a <i>disjunctive pattern</i> and what does it have to do with the <
 </p>
 </div>
 </div>
-</div>
-<div id="outline-container-org6948eb7" class="outline-2">
-<h2 id="org6948eb7"><span class="section-number-2">8.</span> <span class="todo TODO">TODO</span> Metacognition</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-orgcb59109" class="outline-3">
+<h3 id="orgcb59109"><span class="section-number-3">7.2.</span> <span class="todo TODO">TODO</span> Induction Hypothesis in Coq vs Informal Proofs</h3>
+<div class="outline-text-3" id="text-7-2">
 <p>
-The chapter was pretty straightforward. I like the section on formal versus informal proofs. This book, and the course infrastructure, is excellent. There&rsquo;s a pretty book online, but the better way to learn is by going through the Coq files - the book is derived from the Coq files which have comments -
+In informal proofs, we can use the induction hypothesis <code>P(k)</code> for any <code>k</code>.
+</p>
+
+<p>
+That&rsquo;s how  mathematical induction is <i>formalized</i>.
+</p>
+
+<div class="org-center">
+
+<div id="org45c920c" class="figure">
+<p><img src="https://cdn.discordapp.com/attachments/1190208868500910091/1330391699268173966/Screenshot_2025-01-19_at_07-21-07_Mathematical_induction_-_Wikipedia.png?ex=678dcf52&amp;is=678c7dd2&amp;hm=f600f0eeca8105480a8c5a616e22b282bb319fd04db63c650485558965683d87&amp;" alt="Screenshot_2025-01-19_at_07-21-07_Mathematical_induction_-_Wikipedia.png?ex=678dcf52&amp;is=678c7dd2&amp;hm=f600f0eeca8105480a8c5a616e22b282bb319fd04db63c650485558965683d87&amp;" />
+</p>
+<p><span class="figure-number">Figure 1: </span>From <a href="https://en.wikipedia.org/wiki/Mathematical_induction#Formalization">https://en.wikipedia.org/wiki/Mathematical_induction#Formalization</a></p>
+</div>
+</div>
+
+<p>
+Why is it in Coq, we can&rsquo;t use the <code>IH</code> from <code>induction</code> for any <code>k</code>?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-coq"><span style="color: #FF6188;">Theorem</span> <span style="color: #A9DC76;">s_add_1</span> : <span style="color: #78DCE8;">forall</span> <span style="color: #FCFCFA;">n</span> : nat,
+    S n = n + <span style="color: #AB9DF2; font-weight: bold;">1</span>.
+<span style="color: #FF6188;">Proof</span>.
+  <span style="text-decoration: underline;">intros</span> n. <span style="text-decoration: underline;">induction</span> n <span style="color: #78DCE8;">as</span> [| n' IHn' ].
+  <span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-</span> <span style="color: #ff0000;">reflexivity</span>.
+  <span style="color: #FCFCFA; font-weight: bold; text-decoration: underline;">-</span> <span style="color: #FFD866;">(** HERE *)</span>
+<span style="color: #FF6188;">Qed</span>.
+</pre>
+</div>
+
+<p>
+Ignore the fact that this is a bad proof. At <code>(** HERE *)</code>, the goal is to prove that <code>S(S n) = S n' + 1</code>. We have that <code>IHn' : S n' = n' + 1</code>.
+</p>
+
+<p>
+In an informal proof, like 15-150 style, I would go ahead and apply the IH for <code>S n' + 1</code>, by letting <code>n'</code> (in the IH) be <code>S n'</code> , so I get <code>n' + 1 + 1</code>.
+</p>
+
+<p>
+In Coq, I would&rsquo;ve assumed this would be done with <code>rewrite &lt;- IHn'</code>. However, I get:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">Error: Found no subterm matching <span style="color: #FFD866;">"n' +1"</span><span style="color: #FF6188;"> in</span> the current goal.
+</pre>
+</div>
+
+<p>
+I know why I get the error. It&rsquo;s pretty clear - there is no matching subterm.
+</p>
+
+<p>
+Why the difference from IH in informal proofs vs Coq?
 </p>
 </div>
 </div>
-<div id="outline-container-org962d517" class="outline-2">
-<h2 id="org962d517"><span class="section-number-2">9.</span> <span class="todo TODO">TODO</span> Further Knowledge</h2>
+</div>
+<div id="outline-container-org2c46d7d" class="outline-2">
+<h2 id="org2c46d7d"><span class="section-number-2">8.</span> <span class="todo TODO">TODO</span> Metacognition</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+The chapter was pretty straightforward. I like the section on formal versus informal proofs. I like reading about metamathematics.
+</p>
+
+<p>
+This book, and the course infrastructure, is excellent. There&rsquo;s a pretty book online, but the better way to learn is by going through the Coq files - the book is derived from the Coq files which have comments -
+</p>
+</div>
+</div>
+<div id="outline-container-org077ebcf" class="outline-2">
+<h2 id="org077ebcf"><span class="section-number-2">9.</span> <span class="todo TODO">TODO</span> Further Knowledge</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 The discussion on formal vs informal proofs reminds me of Brouwer&rsquo;s vision for the Automath project, which I have written about before.
 </p>
 </div>
 </div>
-<div id="outline-container-org7e40618" class="outline-2">
-<h2 id="org7e40618"><span class="section-number-2">10.</span> TODOs</h2>
+<div id="outline-container-org8e3acc7" class="outline-2">
+<h2 id="org8e3acc7"><span class="section-number-2">10.</span> TODOs</h2>
 <div class="outline-text-2" id="text-10">
 </div>
-<div id="outline-container-org97e2bb6" class="outline-3">
-<h3 id="org97e2bb6"><span class="section-number-3">10.1.</span> <span class="todo TODO">TODO</span> List exercises</h3>
+<div id="outline-container-org62d3f1c" class="outline-3">
+<h3 id="org62d3f1c"><span class="section-number-3">10.1.</span> <span class="todo TODO">TODO</span> List exercises</h3>
 </div>
 
-<div id="outline-container-org80a531b" class="outline-3">
-<h3 id="org80a531b"><span class="section-number-3">10.2.</span> <span class="todo TODO">TODO</span> Do exercises</h3>
+<div id="outline-container-org0a2ebd5" class="outline-3">
+<h3 id="org0a2ebd5"><span class="section-number-3">10.2.</span> <span class="todo TODO">TODO</span> Do exercises</h3>
 </div>
 </div>
-<div id="outline-container-org108a743" class="outline-2">
-<h2 id="org108a743"><span class="section-number-2">11.</span> <span class="todo TODO">TODO</span> Next up</h2>
+<div id="outline-container-orgf5c6036" class="outline-2">
+<h2 id="orgf5c6036"><span class="section-number-2">11.</span> <span class="todo TODO">TODO</span> Next up</h2>
 <div class="outline-text-2" id="text-11">
 <p>
 Lists.v
@@ -507,7 +573,7 @@ Lists.v
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: selffins</p>
-<p class="date">Created: 2025-01-18 Sat 22:56</p>
+<p class="date">Created: 2025-01-19 Sun 07:24</p>
 </div>
 </body>
 </html>

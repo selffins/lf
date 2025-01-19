@@ -316,6 +316,7 @@ Qed.
     alternative characterization of [even (S n)] that works better
     with induction: *)
 
+
 Theorem even_S : forall n : nat,
   even (S n) = negb (even n).
 Proof.
@@ -551,16 +552,44 @@ Definition manual_grade_for_eqb_refl_informal : option (nat*string) := None.
 Theorem add_shuffle3 : forall n m p : nat,
   n + (m + p) = m + (n + p).
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros n m p. rewrite -> add_assoc. rewrite -> add_assoc.
+  assert (H: m + n = n + m).
+  { rewrite -> add_comm. reflexivity. }
+  rewrite -> H. reflexivity.
+Qed.
 
 (** Now prove commutativity of multiplication.  You will probably want
     to look for (or define and prove) a "helper" theorem to be used in
     the proof of this one. Hint: what is [n * (1 + k)]? *)
 
+Theorem s_add_1 : forall n : nat,
+    S n = n + 1.
+
+Proof.
+  intros n. induction n as [| n' IHn' ].
+  - reflexivity.
+  - simpl. rewrite IHn'. reflexivity.
+Qed.
+
+Theorem mul_dist_1 : forall m n : nat,
+    m * (S n) = m * n + m.
+Proof.
+  intros m n. induction m  as [| m' IHm' ].
+  - reflexivity.
+  - simpl. rewrite -> IHm'. rewrite -> add_assoc. rewrite -> s_add_1.
+    assert (H : S m' = m' + 1). {rewrite -> s_add_1. reflexivity.}
+    rewrite -> H. rewrite -> add_assoc. reflexivity.
+Qed.
+
 Theorem mul_comm : forall m n : nat,
   m * n = n * m.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros n m. induction n as [| n' IHn' ].
+  - rewrite -> mul_0_r. simpl. reflexivity.
+  - simpl. rewrite -> IHn'.
+    rewrite -> mul_dist_1. rewrite -> add_comm. reflexivity.
+Qed.
+
 (** [] *)
 
 (** **** Exercise: 2 stars, standard, optional (plus_leb_compat_l)
@@ -574,7 +603,14 @@ Check leb.
 Theorem plus_leb_compat_l : forall n m p : nat,
   n <=? m = true -> (p + n) <=? (p + m) = true.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros n m p H. destruct p eqn:Ep.
+  - simpl. rewrite -> H. reflexivity.
+  -
+
+  induction p as [| p' IHp'].
+  - simpl. rewrite -> H. reflexivity.
+  - simpl. rewrite -> IHp'. reflexivity.
+Qed.
 
 (** [] *)
 
@@ -797,6 +833,7 @@ Abort.
 
     Hint: Structure the recursion such that it _always_ reaches the
     end of the [bin] and process each bit only once. Do not try to
+
     "look ahead" at future bits. *)
 
 Fixpoint normalize (b:bin) : bin

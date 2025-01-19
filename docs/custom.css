@@ -51,10 +51,9 @@ a:hover {
 
 pre, code {
   background-color: #333; /* Dark background for code */
-  color: #00ff7f; /* Greenish text for code */
+  color: #d4d4d4; /* Greenish text for code */
   padding: 5px;
   border-radius: 3px;
-  font-family: 'Courier New', monospace; /* Monospaced font */
 }
 
 h4 {
@@ -64,4 +63,28 @@ h4 {
   margin-left: 20px; /* Indent the heading */
   font-weight: normal; /* Reduce emphasis compared to higher headings */
   color: #d4d4d4; /* Subdued color to match the body text */
+}
+
+/* General Styling for Quote Blocks */
+blockquote {
+  background-color: #2e2e2e; /* Dark gray background for a sleek look */
+  border-left: 4px solid #f39c12; /* Golden accent for the left border */
+  margin: 1em 0; /* Add spacing around the block */
+  padding: 10px 15px; /* Comfortable padding inside the block */
+  font-style: italic; /* Italicized text for a traditional quote look */
+  color: #d4d4d4; /* Light gray text color for readability */
+  border-radius: 5px; /* Slight rounding of the corners */
+}
+
+/* Optional: Styling for the First Line */
+blockquote::first-line {
+  font-weight: bold; /* Emphasize the first line of the quote */
+  color: #ffffff; /* Bright white for contrast */
+}
+
+/* Styling for Nested Quotes */
+blockquote blockquote {
+  background-color: #3a3a3a; /* Slightly darker background for nested quotes */
+  border-left: 4px solid #e67e22; /* Orange border for nested blocks */
+  margin-left: 20px; /* Additional indentation for nested blocks */
 }

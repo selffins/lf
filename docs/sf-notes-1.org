@@ -143,10 +143,50 @@ Formal proofs are useful in many ways, but they tend to not be very efficient wa
 Error: Expects a disjunctive pattern with 2 branches.
 #+END_SRC
 What's a /disjunctive pattern/ and what does it have to do with the =induction= tactic?
+** TODO Induction Hypothesis in Coq vs Informal Proofs
+
+In informal proofs, we can use the induction hypothesis =P(k)= for any =k=.
+
+That's how  mathematical induction is /formalized/.
+
+#+BEGIN_CENTER
+#+CAPTION: From https://en.wikipedia.org/wiki/Mathematical_induction#Formalization
+#+NAME:   fig:SED-HR4049
+[[https://cdn.discordapp.com/attachments/1190208868500910091/1330391699268173966/Screenshot_2025-01-19_at_07-21-07_Mathematical_induction_-_Wikipedia.png?ex=678dcf52&is=678c7dd2&hm=f600f0eeca8105480a8c5a616e22b282bb319fd04db63c650485558965683d87&]]
+#+END_CENTER
+
+Why is it in Coq, we can't use the =IH= from =induction= for any =k=?
+
+#+BEGIN_SRC coq
+Theorem s_add_1 : forall n : nat,
+    S n = n + 1.
+Proof.
+  intros n. induction n as [| n' IHn' ].
+  - reflexivity.
+  - (** HERE *)
+Qed.
+#+END_SRC
+
+Ignore the fact that this is a bad proof. At =(** HERE *)=, the goal is to prove that =S(S n) = S n' + 1=. We have that =IHn' : S n' = n' + 1=.
+
+In an informal proof, like 15-150 style, I would go ahead and apply the IH for =S n' + 1=, by letting =n'= (in the IH) be =S n'= , so I get =n' + 1 + 1=.
+
+In Coq, I would've assumed this would be done with =rewrite <- IHn'=. However, I get:
+
+#+BEGIN_SRC bash
+Error: Found no subterm matching "n' +1" in the current goal.
+#+END_SRC
+
+I know why I get the error. It's pretty clear - there is no matching subterm.
+
+Why the difference from IH in informal proofs vs Coq?
+
 
 * TODO Metacognition
 
-The chapter was pretty straightforward. I like the section on formal versus informal proofs. This book, and the course infrastructure, is excellent. There's a pretty book online, but the better way to learn is by going through the Coq files - the book is derived from the Coq files which have comments -
+The chapter was pretty straightforward. I like the section on formal versus informal proofs. I like reading about metamathematics.
+
+This book, and the course infrastructure, is excellent. There's a pretty book online, but the better way to learn is by going through the Coq files - the book is derived from the Coq files which have comments -
 
 * TODO Further Knowledge
 
